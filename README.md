@@ -7,11 +7,11 @@ Here I've gathered most of the laboratory works from the CMSnN (Computing Machin
 
 ### 1 term
 
-*Empty for now*
+* *Empty for now*
 
 ### 2 term
 
-*Empty for now*
+* *Empty for now*
 
 ### 3 term
 * [Lightning Paint (Course Work)](https://github.com/NasterVill/BSUIR_Labs/tree/master/CourseWorks/LightningPaint)
@@ -26,6 +26,8 @@ An application for drawing and simple image editing
 
 * [Interfaces and Peripheral Devices](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-)
 * [Theoretical Foundations of Computer Networks](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Theoretical-Foundations-of-Computer-Networks-TFoCN)
+* [Lightning Tuner (Course Work)](https://github.com/NasterVill/BSUIR_Labs/tree/master/CourseWorks/LightningTuner)
+An application for guitar tuning (written in Java) based of FFT algorithm
 
 ### 6 term
 
