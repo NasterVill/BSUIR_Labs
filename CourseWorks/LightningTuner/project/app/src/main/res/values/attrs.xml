@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <declare-styleable name="NeedleView">
+        <attr name="needleColor" format="color"/>
+        <attr name="smallTicksColor" format="color"/>
+        <attr name="bigTicksColor" format="color"/>
+        <attr name="textColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="TuningView">
+        <attr name="normalTextColor" format="color"/>
+        <attr name="selectedTextColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="itemWidth" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomTheme">
+        <attr name="needleViewStyle" format="reference"/>
+        <attr name="tuningViewStyle" format="reference"/>
+    </declare-styleable>
+
+</resources>

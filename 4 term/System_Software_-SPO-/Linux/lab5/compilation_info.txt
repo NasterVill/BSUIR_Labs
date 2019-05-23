@@ -1,0 +1,4 @@
+g++ -pthread -Wall -g -c main.cpp 
+g++ -pthread -Wall -g -fPIC -c AsyncReadWrite.cpp 
+g++ -pthread -shared -Wl,-soname,libasyncrw.so -o libasyncrw.so AsyncReadWrite.o -lrt 
+g++ -pthread -Wall -Wl,-rpath,. -o main main.o -ldl

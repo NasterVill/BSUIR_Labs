@@ -1,0 +1,46 @@
+<resources>
+<string name="app_name">LightningTuner</string>
+<string name="title_activity_settings">Settings</string>
+
+
+<string name="pref_dark_theme_key" translatable="false">pref_dark_theme</string>
+<string name="pref_dark_theme_title">Dark theme</string>
+<string name="pref_tuning_key" translatable="false">pref_tuning</string>
+<string name="pref_tuning_title">Tuning</string>
+
+<string name="action_settings">Settings</string>
+
+
+<!-- Tuning names -->
+<string name="standard_tuning">Standard</string>
+<string name="standard_d_tuning">Standard D</string>
+<string name="standard_c_tuning">Standard C</string>
+<string name="drop_d_tuning">Drop D</string>
+<string name="drop_c_tuning">Drop C</string>
+
+<string name="standard_tuning_val" translatable="false">Standard</string>
+<string name="standard_d_tuning_val" translatable="false">Standard D</string>
+<string name="standard_c_tuning_val" translatable="false">Standard C</string>
+<string name="drop_d_tuning_val" translatable="false">Drop D</string>
+<string name="drop_c_tuning_val" translatable="false">Drop C</string>
+
+<string-array name="pref_tuning_entries">
+    <item>@string/standard_tuning</item>
+    <item>@string/standard_d_tuning</item>
+    <item>@string/standard_c_tuning</item>
+    <item>@string/drop_d_tuning</item>
+    <item>@string/drop_c_tuning</item>
+</string-array>
+
+<string-array name="pref_tuning_values">
+    <item>@string/standard_tuning_val</item>
+    <item>@string/standard_d_tuning</item>
+    <item>@string/standard_c_tuning</item>
+    <item>@string/drop_d_tuning</item>
+    <item>@string/drop_c_tuning_val</item>
+</string-array>
+<string name="permission">Permission</string>
+<string name="permission_record_audio">The app must be able to use the microphone.</string>
+<string name="audio_record_init_error">Could not initialize AudioRecord.</string>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#292e50</color>
+    <color name="colorAccent">#dec50c</color>
+    <color name="needleViewSmallTicksColorDark">#FFFFFF</color>
+    <color name="needleViewBigTicksColorDark">#FFFFFF</color>
+    <color name="needleViewSmallTicksColorLight">#757575</color>
+    <color name="needleViewBigTicksColorLight">#212121</color>
+    <color name="tuningItemNormalColor">#CCCCCC</color>
+    <color name="tuningItemSelectedColor">#FFFFFF</color>
+</resources>

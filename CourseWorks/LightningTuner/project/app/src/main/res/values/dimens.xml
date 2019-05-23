@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="needle_view_stroke_width">5dp</dimen>
+    <dimen name="needle_view_needle_width">8dp</dimen>
+    <dimen name="needle_view_ticks_margin_top">4dp</dimen>
+    <dimen name="pitch_name_text_size">32sp</dimen>
+    <dimen name="needle_view_tick_label_text_size">16sp</dimen>
+
+    <dimen name="tuning_view_text_size">32sp</dimen>
+    <dimen name="tuning_view_item_width">48dp</dimen>
+</resources>

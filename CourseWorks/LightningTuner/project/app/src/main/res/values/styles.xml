@@ -1,0 +1,52 @@
+<resources>
+
+<!-- Light theme -->
+<style name="AppThemeLight" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorControlNormal">@android:color/white</item>
+    <item name="needleViewStyle">@style/LightNeedleView</item>
+    <item name="tuningViewStyle">@style/LightTuningView</item>
+</style>
+
+<style name="LightNeedleView">
+    <item name="needleColor">@color/colorAccent</item>
+    <item name="smallTicksColor">@color/needleViewSmallTicksColorLight</item>
+    <item name="bigTicksColor">@color/needleViewBigTicksColorLight</item>
+    <item name="textColor">@android:color/black</item>
+</style>
+
+<style name="LightTuningView">
+    <item name="normalTextColor">@android:color/secondary_text_light</item>
+    <item name="selectedTextColor">@android:color/primary_text_light</item>
+    <item name="textSize">@dimen/tuning_view_text_size</item>
+    <item name="itemWidth">@dimen/tuning_view_item_width</item>
+</style>
+
+<!-- Dark theme -->
+<style name="AppThemeDark" parent="Theme.AppCompat">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorControlNormal">@android:color/white</item>
+    <item name="needleViewStyle">@style/DarkNeedleView</item>
+    <item name="tuningViewStyle">@style/DarkTuningView</item>
+</style>
+
+<style name="DarkNeedleView">
+    <item name="needleColor">@color/colorAccent</item>
+    <item name="smallTicksColor">@color/needleViewSmallTicksColorDark</item>
+    <item name="bigTicksColor">@color/needleViewBigTicksColorDark</item>
+    <item name="textColor">@android:color/white</item>
+</style>
+
+<style name="DarkTuningView">
+    <item name="normalTextColor">@android:color/secondary_text_dark</item>
+    <item name="selectedTextColor">@android:color/primary_text_dark</item>
+    <item name="textSize">@dimen/tuning_view_text_size</item>
+    <item name="itemWidth">@dimen/tuning_view_item_width</item>
+</style>
+
+</resources>
+

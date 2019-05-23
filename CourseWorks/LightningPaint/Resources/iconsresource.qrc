@@ -1,0 +1,11 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+     <file>icons/MainIcon.ico</file>
+     <file>icons/ellipse.ico</file>
+     <file>icons/rectangle.ico</file>
+     <file>icons/line.ico</file>
+     <file>icons/curve.ico</file>
+     <file>icons/eraser.ico</file>
+     <file>icons/fill.ico</file>
+ </qresource>
+ </RCC>
