@@ -1,4 +1,4 @@
-# Системное Программное Обеспечение Вычислительных Машин
+﻿# Системное Программное Обеспечение Вычислительных Машин
 
 Лабораторные работы по предмету СПОВМ (C\C++)
 
@@ -17,12 +17,10 @@
 
 ## Условия лабораторных работ
 
-1. Создание дочернего процесса. [Linux](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Linux/Lab1), [Windows](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Windows/Lab1).
-2. Синхронихация процессов с помощью сигналов/событий. [Linux](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Linux/Lab2), [Windows](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Windows/Lab2).
-3. Работа с разделяемой памятью. [Linux](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Linux/Lab3), [Windows](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Windows/Lab3).
-4. Синхронизация потоков. [Linux](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Linux/Lab4), [Windows](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Windows/Lab4).
-5. Асинхронные (системные) операции с файлами (чтение/запись). [Linux](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Linux/lab5), [Windows](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Windows/Lab5).
-6. Менеджер памяти. [Windows](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Windows/Lab6).
-7. Эмулятор файловой системы. [Windows](https://github.com/NasterVill/System_Software_-SPO-/tree/master/Windows/lab7).
-
-**P.S.** ***Лабораторные работы 6 и 7 выполнялись только под Windows***
+1. Создание дочернего процесса. [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/Lab1), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab1).
+2. Синхронихация процессов с помощью сигналов/событий. [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/Lab2), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab2).
+3. Работа с разделяемой памятью. [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/Lab3), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab3).
+4. Синхронизация потоков. [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/Lab4), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab4).
+5. Асинхронные (системные) операции с файлами (чтение/запись). [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/lab5), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab5).
+6. Менеджер памяти. [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab6).
+7. Эмулятор файловой системы. [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/lab7).
