@@ -1,7 +1,7 @@
 ﻿# BSUIR (Belarusian State University of Informatics and Radioelectronics) laboratory works
 
 ## Intro
-Here I've gathered most of the laboratory works from the CMSnN (Computing Machines, Systems and Networks) course which I've been working on. Some of the labs are far beyound redemption, but all the others are or will be here.
+Here I've gathered most of the laboratory works from the CMSnN (Computing Machines, Systems and Networks) course which I've been working on. Some of the labs are far beyond redemption, but all the others are or will be here.
 
 ## Course Navigation
 
