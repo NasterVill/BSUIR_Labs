@@ -21,13 +21,13 @@ An application for drawing and simple image editing
 * [System Software](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-)
 * [Cross Platform Programming](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/Cross_Platform_Programming-Course)
 * [Programming Design and Programming Languages (Assembly)](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/Programming-Design-and-Programming-Languages-Assembly)
+* [Lightning Tuner (Course Work)](https://github.com/NasterVill/BSUIR_Labs/tree/master/CourseWorks/LightningTuner)
+An application for guitar tuning (written in Java) based of FFT algorithm
 
 ### 5 term
 
 * [Interfaces and Peripheral Devices](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-)
 * [Theoretical Foundations of Computer Networks](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Theoretical-Foundations-of-Computer-Networks-TFoCN)
-* [Lightning Tuner (Course Work)](https://github.com/NasterVill/BSUIR_Labs/tree/master/CourseWorks/LightningTuner)
-An application for guitar tuning (written in Java) based of FFT algorithm
 
 ### 6 term
 
