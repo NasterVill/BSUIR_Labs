@@ -7,13 +7,14 @@ Here I've gathered most of the laboratory works from the CMSnN (Computing Machin
 
 ### 1 term
 
-* *Empty for now*
+* [Algorithms and Programming Foundations](https://github.com/NasterVill/BSUIR_Labs/tree/master/1%20term/Algorithms-and-Programming-Foundations)
 
 ### 2 term
 
-* *Empty for now*
+* [Algorithms and Programming Foundations](https://github.com/NasterVill/BSUIR_Labs/tree/master/2%20term/Algorithms-and-Programming-Foundations)
 
 ### 3 term
+* [Programming Design and Programming Languages (C++)](https://github.com/NasterVill/BSUIR_Labs/tree/master/3%20term/Programming-Design-and-Programming-Languages-C%2B%2B)
 * [Lightning Paint (Course Work)](https://github.com/NasterVill/BSUIR_Labs/tree/master/CourseWorks/LightningPaint)
 An application for drawing and simple image editing
 
@@ -21,6 +22,7 @@ An application for drawing and simple image editing
 * [System Software](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-)
 * [Cross Platform Programming](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/Cross_Platform_Programming-Course)
 * [Programming Design and Programming Languages (Assembly)](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/Programming-Design-and-Programming-Languages-Assembly)
+* [Personal Computer Architecture](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/Personal-Computer-Architecture)
 * [Lightning Tuner (Course Work)](https://github.com/NasterVill/BSUIR_Labs/tree/master/CourseWorks/LightningTuner)
 An application for guitar tuning (written in Java) based of FFT algorithm
 
