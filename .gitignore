@@ -154,3 +154,5 @@ fabric.properties
 out/
 .idea/
 *.iml
+
+.vscode/

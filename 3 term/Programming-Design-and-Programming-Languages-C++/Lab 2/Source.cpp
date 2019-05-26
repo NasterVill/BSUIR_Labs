@@ -1,4 +1,4 @@
-#include "MyString.h"
+п»ї#include "MyString.h"
 #include "Goods.h"
 #include "Vendor.h"
 #include <iostream>
@@ -17,10 +17,10 @@ int main()
 	Goods object_1, object_2("Cheese", 10), object_3("Meat", 40), object_4;
 	Goods* obj_arr = nullptr;
 
-	object_4.setName("Oil");														// проверка set
-	object_4.setCost(15);															// методов
+	object_4.setName("Oil");														// РїСЂРѕРІРµСЂРєР° set
+	object_4.setCost(15);															// РјРµС‚РѕРґРѕРІ
 
-	cout << "Please input first object's name: ";									// инициализация имени первого объекта
+	cout << "Please input first object's name: ";									// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РёРјРµРЅРё РїРµСЂРІРѕРіРѕ РѕР±СЉРµРєС‚Р°
 	while (error)
 	{
 		error = false;
@@ -37,7 +37,7 @@ int main()
 	object_1.setName(buff);
 	error = true;
 
-	cout << "Please input first object's cost: ";									// инициализация цены первого объекта
+	cout << "Please input first object's cost: ";									// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С†РµРЅС‹ РїРµСЂРІРѕРіРѕ РѕР±СЉРµРєС‚Р°
 	while (error)
 	{
 		error = false;
@@ -55,7 +55,7 @@ int main()
 	system("cls");
 
 
-	cout << "Please input the number of elements in the array of objects" << endl;		// выделение памяти под массив объектов
+	cout << "Please input the number of elements in the array of objects" << endl;		// РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РїРѕРґ РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ
 	while (error)
 	{
 		error = false;
@@ -75,7 +75,7 @@ int main()
 
 	for (int i = 0; i < amount; i++)
 	{
-		cout << "Please input object's name: ";									// инициализация имени объекта
+		cout << "Please input object's name: ";									// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РёРјРµРЅРё РѕР±СЉРµРєС‚Р°
 		while (error)
 		{
 			error = false;
@@ -92,7 +92,7 @@ int main()
 		obj_arr[i].setName(buff);
 		error = true;
 
-		cout << "Please input object's cost: ";									// инициализация цены объекта
+		cout << "Please input object's cost: ";									// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С†РµРЅС‹ РѕР±СЉРµРєС‚Р°
 		while (error)
 		{
 			error = false;

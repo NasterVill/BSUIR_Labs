@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include "MyString.h"
 
@@ -10,9 +10,9 @@ class Goods
 		MyString name;
 		int cost;
 	public:
-		Goods();							// конструктор по умолчанию
-		Goods(const char*, const int);		// конструктор инициализации с параметрами
-		Goods(const Goods &);				// конструктор коприования
+		Goods();							// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		Goods(const char*, const int);		// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+		Goods(const Goods &);				// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїСЂРёРѕРІР°РЅРёСЏ
 		~Goods();
 
 		void setCost(int);

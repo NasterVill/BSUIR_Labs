@@ -1,4 +1,4 @@
-#include "Goods.h"
+п»ї#include "Goods.h"
 #include "MyString.h"
 #include <iostream>
 #include <assert.h>
@@ -7,14 +7,14 @@ using namespace std;
 
 int Goods::last_id = 0;
 
-Goods::Goods() : name()	// конструктор по умолчанию
+Goods::Goods() : name()	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 {
 	last_id++;
 	id = last_id;
 	cost = 0;
 }
 
-Goods::Goods(const char* input_name, const int input_cost) : name(input_name)	// конструктор инициализации с параметрами
+Goods::Goods(const char* input_name, const int input_cost) : name(input_name)	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 {
 	assert(input_cost >= 0);
 	last_id++;
@@ -22,7 +22,7 @@ Goods::Goods(const char* input_name, const int input_cost) : name(input_name)	//
 	cost = input_cost;
 }
 
-Goods::Goods(const Goods &object)	// конструктор коприования
+Goods::Goods(const Goods &object)	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїСЂРёРѕРІР°РЅРёСЏ
 {
 	this->id = object.id;
 	this->cost = object.cost;

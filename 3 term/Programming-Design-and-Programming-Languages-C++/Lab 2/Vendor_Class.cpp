@@ -1,4 +1,4 @@
-#include "Vendor.h"
+﻿#include "Vendor.h"
 
 void Vendor::setProductCost(Goods &object, int new_cost)
 {

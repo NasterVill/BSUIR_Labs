@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 int stringLen(const char*);
 
@@ -8,9 +8,9 @@ class MyString
 		char* string;
 		int size;
 	public:
-		MyString();					//коструктор по умолчанию
-		MyString(const char*);		//коструктор инициализации
-		MyString(const MyString&);	//коструктор копирования
+		MyString();					//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		MyString(const char*);		//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
+		MyString(const MyString&);	//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 		~MyString();
 
 		int getSize() const;

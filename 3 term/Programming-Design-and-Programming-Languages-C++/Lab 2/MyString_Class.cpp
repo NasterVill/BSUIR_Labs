@@ -1,16 +1,16 @@
-#include "MyString.h"
+п»ї#include "MyString.h"
 #include <iostream>
 #include <assert.h>
 
 using namespace std;
 
-MyString::MyString()						//коструктор по умолчанию
+MyString::MyString()						//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 {
 	string = nullptr;
 	size = 0;
 }
 
-MyString::MyString(const char* input_str)	//коструктор инициализации
+MyString::MyString(const char* input_str)	//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
 {
 	size = stringLen(input_str);
 	assert(size > 0);
@@ -23,7 +23,7 @@ MyString::MyString(const char* input_str)	//коструктор инициализации
 	}
 }
 
-MyString::MyString(const MyString& object)	//коструктор копирования
+MyString::MyString(const MyString& object)	//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 {
 	size = object.size;
 	string = new char[size];

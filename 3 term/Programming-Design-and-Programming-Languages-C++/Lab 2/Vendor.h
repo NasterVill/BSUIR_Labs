@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Goods.h"
 
 class Vendor
