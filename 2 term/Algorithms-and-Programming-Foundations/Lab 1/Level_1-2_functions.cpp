@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <conio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -75,7 +75,7 @@ void initializeYear(vinyl* record)
 		rewind(stdin);
 		check = scanf_s("%d", &year);
 		system("cls");
-	} while (!check || year < 1859);		// 1859 - ãîä èçãîòîâëåíèÿ ïåðâîé ãðàìïëàñòèíêè
+	} while (!check || year < 1859);		// 1859 - Ð³Ð¾Ð´ Ð¸Ð·Ð³Ð¾Ñ‚Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿ÐµÑ€Ð²Ð¾Ð¹ Ð³Ñ€Ð°Ð¼Ð¿Ð»Ð°ÑÑ‚Ð¸Ð½ÐºÐ¸
 
 	record->year = year;
 }

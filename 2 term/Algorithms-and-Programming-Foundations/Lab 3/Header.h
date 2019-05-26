@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define MS_SIZE 9
 #define BUFF_SIZE 150

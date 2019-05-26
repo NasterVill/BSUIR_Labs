@@ -1,4 +1,4 @@
-#include "functions_header.h"
+п»ї#include "functions_header.h"
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
@@ -12,7 +12,7 @@ int* create_array(int size)
 int delete_array(int*ms)
 {
 	free(ms);
-	return 0;	//возвращает значение размера массива (т.е. 0)
+	return 0;	//РІРѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СЂР°Р·РјРµСЂР° РјР°СЃСЃРёРІР° (С‚.Рµ. 0)
 }
 int delete_element(int* ms, int size, int element)
 {
@@ -42,8 +42,8 @@ void keyboard_init(int* ms, int size)
 		do
 		{
 			system("cls");
-			if (!scanf_result) printf ("Ошибка! Повторите ввод\n\n");
-			printf(" Введите элемент [%d]:\t",i);
+			if (!scanf_result) printf ("РћС€РёР±РєР°! РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ\n\n");
+			printf(" Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚ [%d]:\t",i);
 			fflush(stdin);
 			scanf_result=scanf_s("%9d",ms+i);
 		}while(!scanf_result);
@@ -95,7 +95,7 @@ void sort(int* ms, int size, int choice)
 }
 void output(int* ms, int size)
 {
-	printf(" Массив : [");
+	printf(" РњР°СЃСЃРёРІ : [");
 	for(int i=0;i< size;i++)
 	{
 		printf("%6d", ms[i]);

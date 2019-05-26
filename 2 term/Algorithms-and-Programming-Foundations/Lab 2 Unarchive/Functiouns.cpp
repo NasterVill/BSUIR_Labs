@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,7 +27,7 @@ FILE* decompress(FILE* compressed, FILE* key)
 
 		if (feof(compressed)) break;
 
-		if (!check)		// если прочитано не слово, то в новый файл записывается информация между словами
+		if (!check)		// РµСЃР»Рё РїСЂРѕС‡РёС‚Р°РЅРѕ РЅРµ СЃР»РѕРІРѕ, С‚Рѕ РІ РЅРѕРІС‹Р№ С„Р°Р№Р» Р·Р°РїРёСЃС‹РІР°РµС‚СЃСЏ РёРЅС„РѕСЂРјР°С†РёСЏ РјРµР¶РґСѓ СЃР»РѕРІР°РјРё
 		{
 			fseek(compressed, position, SEEK_SET);
 			memset(found_word, '\0', MAX_LENGTH);
@@ -38,24 +38,24 @@ FILE* decompress(FILE* compressed, FILE* key)
 			continue;
 		}
 
-		pair_From_Key(found_word, pair, key);	// находитим пару для замены слова
+		pair_From_Key(found_word, pair, key);	// РЅР°С…РѕРґРёС‚РёРј РїР°СЂСѓ РґР»СЏ Р·Р°РјРµРЅС‹ СЃР»РѕРІР°
 
-		if (pair[0] == 0)	// если пары нет, то пишем то же слово
+		if (pair[0] == 0)	// РµСЃР»Рё РїР°СЂС‹ РЅРµС‚, С‚Рѕ РїРёС€РµРј С‚Рѕ Р¶Рµ СЃР»РѕРІРѕ
 		{
 			fprintf_s(new_file, "%s", found_word);
 		}
 		else
 		{
-			if (symbol == '.')	// если встретили новое предложение
+			if (symbol == '.')	// РµСЃР»Рё РІСЃС‚СЂРµС‚РёР»Рё РЅРѕРІРѕРµ РїСЂРµРґР»РѕР¶РµРЅРёРµ
 			{
-				if ((int)pair[0] > HIGH_UPPER_CASE_BORDER)	// если первая буква маленькая
+				if ((int)pair[0] > HIGH_UPPER_CASE_BORDER)	// РµСЃР»Рё РїРµСЂРІР°СЏ Р±СѓРєРІР° РјР°Р»РµРЅСЊРєР°СЏ
 				{
 					pair[0] = (char)((int)pair[0] - REGISTER_DIFF);
 				}
 			}
-			if (symbol == ' ')	// если предложение продолжается
+			if (symbol == ' ')	// РµСЃР»Рё РїСЂРµРґР»РѕР¶РµРЅРёРµ РїСЂРѕРґРѕР»Р¶Р°РµС‚СЃСЏ
 			{
-				if ((int)pair[0] > LOW_UPPER_CASE_BORDER && (int)pair[0] < HIGH_UPPER_CASE_BORDER)	// если первая буква большая
+				if ((int)pair[0] > LOW_UPPER_CASE_BORDER && (int)pair[0] < HIGH_UPPER_CASE_BORDER)	// РµСЃР»Рё РїРµСЂРІР°СЏ Р±СѓРєРІР° Р±РѕР»СЊС€Р°СЏ
 				{
 					pair[0] = (char)((int)pair[0] + REGISTER_DIFF);
 				}
@@ -87,7 +87,7 @@ void pair_From_Key(char* found_word, char pair[], FILE* key)
 
 		if (feof(key)) break;
 
-		if (stringCmp(pair, found_word) != 0 || !check)	// если слово не найдено, то начинается следующая итерация.
+		if (stringCmp(pair, found_word) != 0 || !check)	// РµСЃР»Рё СЃР»РѕРІРѕ РЅРµ РЅР°Р№РґРµРЅРѕ, С‚Рѕ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃР»РµРґСѓСЋС‰Р°СЏ РёС‚РµСЂР°С†РёСЏ.
 		{
 			memset(pair, '\0', MAX_LENGTH);
 			fscanf_s(key, "%c", &symbol);
@@ -98,7 +98,7 @@ void pair_From_Key(char* found_word, char pair[], FILE* key)
 		{
 			fscanf_s(key, "%c", &symbol);
 
-			if (symbol != '-')	// если слово в паре второе.
+			if (symbol != '-')	// РµСЃР»Рё СЃР»РѕРІРѕ РІ РїР°СЂРµ РІС‚РѕСЂРѕРµ.
 			{
 				fseek(key, position, SEEK_SET);
 			}
@@ -123,7 +123,7 @@ int stringCmp(char* str1, char* str2)
 	int result, i = 1;
 	if (str1[0] != str2[0] && ((int)str1[0] + REGISTER_DIFF != (int)str2[0] && (int)str1[0] != (int)str2[0] + REGISTER_DIFF))
 	{
-		return result = str1[0]>str2[0] ? 1 : -1;	// если первые две буквы не отличаются регистром, а являются совершенно разными, то функция завершается
+		return result = str1[0]>str2[0] ? 1 : -1;	// РµСЃР»Рё РїРµСЂРІС‹Рµ РґРІРµ Р±СѓРєРІС‹ РЅРµ РѕС‚Р»РёС‡Р°СЋС‚СЃСЏ СЂРµРіРёСЃС‚СЂРѕРј, Р° СЏРІР»СЏСЋС‚СЃСЏ СЃРѕРІРµСЂС€РµРЅРЅРѕ СЂР°Р·РЅС‹РјРё, С‚Рѕ С„СѓРЅРєС†РёСЏ Р·Р°РІРµСЂС€Р°РµС‚СЃСЏ
 	}
 	while (str1[i] == str2[i])
 	{

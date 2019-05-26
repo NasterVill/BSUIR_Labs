@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,7 +41,7 @@ void fullfill_Word_Queue(FILE* file, word_queue &line)
 	int check = 0;
 	char found_word[MAX_LENGTH] = { 0 };
 
-	while(true) // заполняем очередь словами и их встерчаемостью в файле.
+	while(true) // Р·Р°РїРѕР»РЅСЏРµРј РѕС‡РµСЂРµРґСЊ СЃР»РѕРІР°РјРё Рё РёС… РІСЃС‚РµСЂС‡Р°РµРјРѕСЃС‚СЊСЋ РІ С„Р°Р№Р»Рµ.
 	{
 		check = fscanf_s(file, "%[a-zA-Z]", found_word, MAX_LENGTH - 1);
 
@@ -81,7 +81,7 @@ bool ckeck_Word(char* found_word, word_queue &line)
 word_data* find_Pair(word_queue &line)
 {
 	word_data* suitable = nullptr;
-	word_data* temp = line.head->next;			// элемент line.head->next - первый элемент очереди.
+	word_data* temp = line.head->next;			// СЌР»РµРјРµРЅС‚ line.head->next - РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РѕС‡РµСЂРµРґРё.
 	word_data* studied_word = line.head->next;
 	int exodus_memory = 0;
 	int exodus_temp = 0;
@@ -94,17 +94,17 @@ word_data* find_Pair(word_queue &line)
 
 	while (temp->next != nullptr)
 	{
-		exodus_studied = (studied_word->amount)*strlen(studied_word->word);	// исходный объем памяти
-		exodus_temp = (temp->next->amount)*strlen(temp->next->word);		// занимаемый этими словами.
+		exodus_studied = (studied_word->amount)*strlen(studied_word->word);	// РёСЃС…РѕРґРЅС‹Р№ РѕР±СЉРµРј РїР°РјСЏС‚Рё
+		exodus_temp = (temp->next->amount)*strlen(temp->next->word);		// Р·Р°РЅРёРјР°РµРјС‹Р№ СЌС‚РёРјРё СЃР»РѕРІР°РјРё.
 		exodus_memory = exodus_studied + exodus_temp;						
 																			
-		temp_studied = (studied_word->amount)*strlen(temp->next->word);		// объем памяти, который слова
-		temp_temp = (temp->next->amount)*strlen(studied_word->word);		// займут при перестановке.
+		temp_studied = (studied_word->amount)*strlen(temp->next->word);		// РѕР±СЉРµРј РїР°РјСЏС‚Рё, РєРѕС‚РѕСЂС‹Р№ СЃР»РѕРІР°
+		temp_temp = (temp->next->amount)*strlen(studied_word->word);		// Р·Р°Р№РјСѓС‚ РїСЂРё РїРµСЂРµСЃС‚Р°РЅРѕРІРєРµ.
 		temp_memory = temp_studied + temp_temp;
 																															
-		if (temp_memory+strlen(studied_word->word)+ strlen(temp->next->word) < exodus_memory) // если исходная память больше, 
-		{																					  // чем новая + память под слова
-			if (!i)																			  // в файле ключе, то продолжаем проверки
+		if (temp_memory+strlen(studied_word->word)+ strlen(temp->next->word) < exodus_memory) // РµСЃР»Рё РёСЃС…РѕРґРЅР°СЏ РїР°РјСЏС‚СЊ Р±РѕР»СЊС€Рµ, 
+		{																					  // С‡РµРј РЅРѕРІР°СЏ + РїР°РјСЏС‚СЊ РїРѕРґ СЃР»РѕРІР°
+			if (!i)																			  // РІ С„Р°Р№Р»Рµ РєР»СЋС‡Рµ, С‚Рѕ РїСЂРѕРґРѕР»Р¶Р°РµРј РїСЂРѕРІРµСЂРєРё
 			{
 				min_memory = temp_memory;
 				suitable = temp;
@@ -126,7 +126,7 @@ word_data* find_Pair(word_queue &line)
 
 void remove_Word(word_data* &prev_to_doomed, word_queue &unit)
 {
-	if (unit.head->next->next == nullptr)	// если осталось лишь 1 слово, то удаляем очередь
+	if (unit.head->next->next == nullptr)	// РµСЃР»Рё РѕСЃС‚Р°Р»РѕСЃСЊ Р»РёС€СЊ 1 СЃР»РѕРІРѕ, С‚Рѕ СѓРґР°Р»СЏРµРј РѕС‡РµСЂРµРґСЊ
 	{
 		free(unit.head->next->word);
 		free(unit.head->next);
@@ -138,7 +138,7 @@ void remove_Word(word_data* &prev_to_doomed, word_queue &unit)
 
 	word_data* ptr = (prev_to_doomed)->next;
 	
-	if (unit.tail->word == (prev_to_doomed)->next->word) // если удаляемое слово - последнее, то передвигаем хвост
+	if (unit.tail->word == (prev_to_doomed)->next->word) // РµСЃР»Рё СѓРґР°Р»СЏРµРјРѕРµ СЃР»РѕРІРѕ - РїРѕСЃР»РµРґРЅРµРµ, С‚Рѕ РїРµСЂРµРґРІРёРіР°РµРј С…РІРѕСЃС‚
 	{
 		unit.tail = prev_to_doomed;
 		(prev_to_doomed)->next = nullptr;
@@ -152,7 +152,7 @@ void remove_Word(word_data* &prev_to_doomed, word_queue &unit)
 	free(ptr);
 }
 
-FILE* queue_To_File(word_queue &line)			// удаление очереди и заполнение файла-ключа
+FILE* queue_To_File(word_queue &line)			// СѓРґР°Р»РµРЅРёРµ РѕС‡РµСЂРµРґРё Рё Р·Р°РїРѕР»РЅРµРЅРёРµ С„Р°Р№Р»Р°-РєР»СЋС‡Р°
 {
 	FILE* key;
 	word_data* pair;
@@ -162,26 +162,26 @@ FILE* queue_To_File(word_queue &line)			// удаление очереди и заполнение файла-к
 
 	fprintf_s(key, "PAIRED WORDS INFO\n\n");
 
-	while (line.head->next != nullptr && line.head->next->next != nullptr)  // продолжается до тех пор, пока в очереди не осталось слов
-	{																		// или осталось только одно.
-		pair = find_Pair(line);			// находим пару для слова в голове очереди.
+	while (line.head->next != nullptr && line.head->next->next != nullptr)  // РїСЂРѕРґРѕР»Р¶Р°РµС‚СЃСЏ РґРѕ С‚РµС… РїРѕСЂ, РїРѕРєР° РІ РѕС‡РµСЂРµРґРё РЅРµ РѕСЃС‚Р°Р»РѕСЃСЊ СЃР»РѕРІ
+	{																		// РёР»Рё РѕСЃС‚Р°Р»РѕСЃСЊ С‚РѕР»СЊРєРѕ РѕРґРЅРѕ.
+		pair = find_Pair(line);			// РЅР°С…РѕРґРёРј РїР°СЂСѓ РґР»СЏ СЃР»РѕРІР° РІ РіРѕР»РѕРІРµ РѕС‡РµСЂРµРґРё.
 
 		if (pair == nullptr)
 		{
-			remove_Word(line.head, line);	// удaляем слово из головы очереди.
+			remove_Word(line.head, line);	// СѓРґaР»СЏРµРј СЃР»РѕРІРѕ РёР· РіРѕР»РѕРІС‹ РѕС‡РµСЂРµРґРё.
 			continue;
 		}
 
 		fprintf_s(key, "%s-", line.head->next->word);
 		fprintf_s(key, "%s\n", pair->next->word);
 
-		remove_Word(pair, line);		// удаляем из очереди второе слово в паре.
-		remove_Word(line.head, line);	// удaляем слово из головы очереди.
+		remove_Word(pair, line);		// СѓРґР°Р»СЏРµРј РёР· РѕС‡РµСЂРµРґРё РІС‚РѕСЂРѕРµ СЃР»РѕРІРѕ РІ РїР°СЂРµ.
+		remove_Word(line.head, line);	// СѓРґaР»СЏРµРј СЃР»РѕРІРѕ РёР· РіРѕР»РѕРІС‹ РѕС‡РµСЂРµРґРё.
 	}
 
 	if (line.head->next != nullptr)
 	{
-		remove_Word(line.head, line);	// если в очереди осталось одно слово, то оно удаляется и очередь освобождается
+		remove_Word(line.head, line);	// РµСЃР»Рё РІ РѕС‡РµСЂРµРґРё РѕСЃС‚Р°Р»РѕСЃСЊ РѕРґРЅРѕ СЃР»РѕРІРѕ, С‚Рѕ РѕРЅРѕ СѓРґР°Р»СЏРµС‚СЃСЏ Рё РѕС‡РµСЂРµРґСЊ РѕСЃРІРѕР±РѕР¶РґР°РµС‚СЃСЏ
 	}
 
 	rewind(key);
@@ -210,7 +210,7 @@ FILE* compress(FILE* original, FILE* key)
 
 		if (feof(original)) break;
 
-		if (!check)		// если прочитано не слово, то в новый файл записывается информация между словами
+		if (!check)		// РµСЃР»Рё РїСЂРѕС‡РёС‚Р°РЅРѕ РЅРµ СЃР»РѕРІРѕ, С‚Рѕ РІ РЅРѕРІС‹Р№ С„Р°Р№Р» Р·Р°РїРёСЃС‹РІР°РµС‚СЃСЏ РёРЅС„РѕСЂРјР°С†РёСЏ РјРµР¶РґСѓ СЃР»РѕРІР°РјРё
 		{
 			fseek(original, position, SEEK_SET);
 			memset(found_word, '\0', MAX_LENGTH);
@@ -220,7 +220,7 @@ FILE* compress(FILE* original, FILE* key)
 			continue;
 		}
 
-		pair_From_Key(found_word, pair, key);	// находитим пару для замены слова
+		pair_From_Key(found_word, pair, key);	// РЅР°С…РѕРґРёС‚РёРј РїР°СЂСѓ РґР»СЏ Р·Р°РјРµРЅС‹ СЃР»РѕРІР°
 
 		if (pair[0] == 0)
 		{
@@ -257,7 +257,7 @@ void pair_From_Key(char* found_word, char pair[], FILE* key)
 
 		if (feof(key)) break;
 
-		if (stringCmp(pair, found_word) != 0 || !check)	// если слово не найдено, то начинается следующая итерация.
+		if (stringCmp(pair, found_word) != 0 || !check)	// РµСЃР»Рё СЃР»РѕРІРѕ РЅРµ РЅР°Р№РґРµРЅРѕ, С‚Рѕ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃР»РµРґСѓСЋС‰Р°СЏ РёС‚РµСЂР°С†РёСЏ.
 		{
 			memset(pair, '\0', MAX_LENGTH);
 			fscanf_s(key, "%c", &symbol);
@@ -268,7 +268,7 @@ void pair_From_Key(char* found_word, char pair[], FILE* key)
 		{
 			fscanf_s(key, "%c", &symbol);
 
-			if (symbol != '-')	// если слово не первое в паре.
+			if (symbol != '-')	// РµСЃР»Рё СЃР»РѕРІРѕ РЅРµ РїРµСЂРІРѕРµ РІ РїР°СЂРµ.
 			{
 				fseek(key, position, SEEK_SET);
 			}
@@ -304,7 +304,7 @@ int stringCmp(char* str1, char* str2)
 	int result, i = 1;
 	while (str1[0] != str2[0] && ((int)str1[0] + REGISTER_DIFF != (int)str2[0] && (int)str1[0] != (int)str2[0] + REGISTER_DIFF))
 	{
-		return result = str1[0]>str2[0] ? 1 : -1;	// если первые две буквы не отличаются регистром, а являются совершенно разными, то функция завершается
+		return result = str1[0]>str2[0] ? 1 : -1;	// РµСЃР»Рё РїРµСЂРІС‹Рµ РґРІРµ Р±СѓРєРІС‹ РЅРµ РѕС‚Р»РёС‡Р°СЋС‚СЃСЏ СЂРµРіРёСЃС‚СЂРѕРј, Р° СЏРІР»СЏСЋС‚СЃСЏ СЃРѕРІРµСЂС€РµРЅРЅРѕ СЂР°Р·РЅС‹РјРё, С‚Рѕ С„СѓРЅРєС†РёСЏ Р·Р°РІРµСЂС€Р°РµС‚СЃСЏ
 	}
 	while (str1[i] == str2[i])
 	{

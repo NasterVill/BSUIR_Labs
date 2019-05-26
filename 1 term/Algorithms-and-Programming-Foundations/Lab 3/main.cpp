@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <string.h>
 #include <conio.h>
 #include <stdlib.h>
@@ -61,7 +61,7 @@ int main()
 
 	rewind(file1);
 	pointer_f = fgetc(file1);
-	while(pointer_f != EOF)   // находим число слов
+	while(pointer_f != EOF)   // РЅР°С…РѕРґРёРј С‡РёСЃР»Рѕ СЃР»РѕРІ
 	{
 		for (int i = 0; pointer_f != ' ' || pointer_f != '\t' || pointer_f != '\n'; i++)
 		{

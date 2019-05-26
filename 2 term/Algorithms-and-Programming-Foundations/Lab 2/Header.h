@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define MAX_LENGTH 25
 #define PRE_INFO 20

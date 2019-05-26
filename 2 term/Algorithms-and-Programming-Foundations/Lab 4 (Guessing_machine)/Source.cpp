@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,7 +29,7 @@ int main()
 	}
 	fclose(tree_file);
 
-	fopen_s(&spreadsheet, "Spreadsheet.txt", "r");	// загрузка таблицы игроков
+	fopen_s(&spreadsheet, "Spreadsheet.txt", "r");	// Р·Р°РіСЂСѓР·РєР° С‚Р°Р±Р»РёС†С‹ РёРіСЂРѕРєРѕРІ
 	if (!check_File(spreadsheet))
 	{
 		emergency_Exit();
@@ -43,15 +43,15 @@ int main()
 		emergency_Exit();
 	}
 
-	rewind(stdin);									// первичный ввод имени игрока
+	rewind(stdin);									// РїРµСЂРІРёС‡РЅС‹Р№ РІРІРѕРґ РёРјРµРЅРё РёРіСЂРѕРєР°
 	printf("Please enter your username\n");
 	fgets(str, NAME_LENGTH, stdin);
 	str[strlen(str) - 1] = '\0';
 
 	fclose(spreadsheet);
 
-	player = find_Player(unit, str);				// поиск игрока в таблице
-	if (player == nullptr)							// и добавление его туда, в случае его отсутсвия
+	player = find_Player(unit, str);				// РїРѕРёСЃРє РёРіСЂРѕРєР° РІ С‚Р°Р±Р»РёС†Рµ
+	if (player == nullptr)							// Рё РґРѕР±Р°РІР»РµРЅРёРµ РµРіРѕ С‚СѓРґР°, РІ СЃР»СѓС‡Р°Рµ РµРіРѕ РѕС‚СЃСѓС‚СЃРІРёСЏ
 	{
 		delete_Tree(root);
 		free_Player_Ms(unit);
@@ -73,15 +73,15 @@ int main()
 					system("cls");
 					printf("%s?\n\n0. No \n1. Yes", ptr->string);
 
-					accept_Pushtype(push_type);						// принимаем ответ пользователя (0 - налево, 1 - направо)
+					accept_Pushtype(push_type);						// РїСЂРёРЅРёРјР°РµРј РѕС‚РІРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ (0 - РЅР°Р»РµРІРѕ, 1 - РЅР°РїСЂР°РІРѕ)
 
-					move_on = push_Pointer(ptr, push_type);			// двигаем указатель,
-					if (move_on) continue;							// если он стоит не на листе
+					move_on = push_Pointer(ptr, push_type);			// РґРІРёРіР°РµРј СѓРєР°Р·Р°С‚РµР»СЊ,
+					if (move_on) continue;							// РµСЃР»Рё РѕРЅ СЃС‚РѕРёС‚ РЅРµ РЅР° Р»РёСЃС‚Рµ
 					else											
 					{
-						if (!push_type) guess_Failed(player, ptr);	// иначе спрашиваем пользователя, что он загадал, если ответ 0 (нет)
+						if (!push_type) guess_Failed(player, ptr);	// РёРЅР°С‡Рµ СЃРїСЂР°С€РёРІР°РµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, С‡С‚Рѕ РѕРЅ Р·Р°РіР°РґР°Р», РµСЃР»Рё РѕС‚РІРµС‚ 0 (РЅРµС‚)
 
-						else guess_Succed();						// или, если ответ 1 (да), то программа победила
+						else guess_Succed();						// РёР»Рё, РµСЃР»Рё РѕС‚РІРµС‚ 1 (РґР°), С‚Рѕ РїСЂРѕРіСЂР°РјРјР° РїРѕР±РµРґРёР»Р°
 					}
 					break;
 
@@ -93,12 +93,12 @@ int main()
 			{
 				system("cls");
 
-				spreadsheet = create_Spreadsheet(unit);				// сохранение прогресса
-				free_Player_Ms(unit);								// старого игрока
+				spreadsheet = create_Spreadsheet(unit);				// СЃРѕС…СЂР°РЅРµРЅРёРµ РїСЂРѕРіСЂРµСЃСЃР°
+				free_Player_Ms(unit);								// СЃС‚Р°СЂРѕРіРѕ РёРіСЂРѕРєР°
 				fclose(spreadsheet);
 
-				fopen_s(&spreadsheet, "Spreadsheet.txt", "r");		// повторное открытие файла 
-				if (!check_File(spreadsheet))						// для работы с новым игроком
+				fopen_s(&spreadsheet, "Spreadsheet.txt", "r");		// РїРѕРІС‚РѕСЂРЅРѕРµ РѕС‚РєСЂС‹С‚РёРµ С„Р°Р№Р»Р° 
+				if (!check_File(spreadsheet))						// РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РЅРѕРІС‹Рј РёРіСЂРѕРєРѕРј
 				{
 					delete_Tree(root);
 					emergency_Exit();

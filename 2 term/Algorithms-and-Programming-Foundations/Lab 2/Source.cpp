@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <conio.h>
 #include "Header.h"
 
@@ -26,7 +26,7 @@ int main()
 	printf("COMPLETE\n\n");
 
 	printf("Fullfilling a key file and deleting the queue...\n");
-	key = queue_To_File(line);		   // заполнение файла выполняется за счет пошагового удаления элементов очереди.
+	key = queue_To_File(line);		   // Р·Р°РїРѕР»РЅРµРЅРёРµ С„Р°Р№Р»Р° РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ Р·Р° СЃС‡РµС‚ РїРѕС€Р°РіРѕРІРѕРіРѕ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚РѕРІ РѕС‡РµСЂРµРґРё.
 	printf("COMPLETE\n\n");
 
 	printf("Compressing...\n");

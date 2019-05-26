@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -118,7 +118,7 @@ void convertToGrey(IMAGE_24* image_st)
 	}
 }
 
-void median_filtration(IMAGE_24* image_st)		// размер аперутуры в данной функции 3х3
+void median_filtration(IMAGE_24* image_st)		// СЂР°Р·РјРµСЂ Р°РїРµСЂСѓС‚СѓСЂС‹ РІ РґР°РЅРЅРѕР№ С„СѓРЅРєС†РёРё 3С…3
 {
 	int k = 0;
 	int row = 0;
@@ -138,7 +138,7 @@ void median_filtration(IMAGE_24* image_st)		// размер аперутуры в данной функции
 			row = i - 1;										
 			row_limit = 3;
 
-			if (i == image_st->i_header.biHeight - 1 || i == 0) // если ряд крайний
+			if (i == image_st->i_header.biHeight - 1 || i == 0) // РµСЃР»Рё СЂСЏРґ РєСЂР°Р№РЅРёР№
 			{
 				row_limit = 2;
 				if(i == 0) row = i;
@@ -149,7 +149,7 @@ void median_filtration(IMAGE_24* image_st)		// размер аперутуры в данной функции
 				coloumn = j - 1;
 				coloumn_limit = 3;
 
-				if (j == image_st->i_header.biWidth - 1 || j == 0)	// если столбец крайний
+				if (j == image_st->i_header.biWidth - 1 || j == 0)	// РµСЃР»Рё СЃС‚РѕР»Р±РµС† РєСЂР°Р№РЅРёР№
 				{
 					coloumn_limit = 2;
 					if (j == 0) coloumn = j;
@@ -157,11 +157,11 @@ void median_filtration(IMAGE_24* image_st)		// размер аперутуры в данной функции
 
 				for (int y = coloumn; coloumn_limit--; y++)
 				{
-					red_array[k] = image_st->raster[x][y].rgbRed;		// заполняем апертру
-					green_array[k] = image_st->raster[x][y].rgbGreen;	// для каждого цвета
-					blue_array[k] = image_st->raster[x][y].rgbBlue;		// по отдельности
+					red_array[k] = image_st->raster[x][y].rgbRed;		// Р·Р°РїРѕР»РЅСЏРµРј Р°РїРµСЂС‚СЂСѓ
+					green_array[k] = image_st->raster[x][y].rgbGreen;	// РґР»СЏ РєР°Р¶РґРѕРіРѕ С†РІРµС‚Р°
+					blue_array[k] = image_st->raster[x][y].rgbBlue;		// РїРѕ РѕС‚РґРµР»СЊРЅРѕСЃС‚Рё
 
-					k++;		// индекс одномерных массивов, хранящих цвета пикселей
+					k++;		// РёРЅРґРµРєСЃ РѕРґРЅРѕРјРµСЂРЅС‹С… РјР°СЃСЃРёРІРѕРІ, С…СЂР°РЅСЏС‰РёС… С†РІРµС‚Р° РїРёРєСЃРµР»РµР№
 					size = k;
 				}
 			}
@@ -254,9 +254,9 @@ bool check_File(FILE* file)
 	else return false;
 }
 
-void securedNumerInput(char* input_message, TYPE data...) // первым аргументом в списке пиременных параметров является
-{														  // нижняя граница ввода, после нее идет верхняя, а затем указатель
-	int i = 0;											  // на вводимую переменную
+void securedNumerInput(char* input_message, TYPE data...) // РїРµСЂРІС‹Рј Р°СЂРіСѓРјРµРЅС‚РѕРј РІ СЃРїРёСЃРєРµ РїРёСЂРµРјРµРЅРЅС‹С… РїР°СЂР°РјРµС‚СЂРѕРІ СЏРІР»СЏРµС‚СЃСЏ
+{														  // РЅРёР¶РЅСЏСЏ РіСЂР°РЅРёС†Р° РІРІРѕРґР°, РїРѕСЃР»Рµ РЅРµРµ РёРґРµС‚ РІРµСЂС…РЅСЏСЏ, Р° Р·Р°С‚РµРј СѓРєР°Р·Р°С‚РµР»СЊ
+	int i = 0;											  // РЅР° РІРІРѕРґРёРјСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ
 	int check = 1;
 	va_list ptr;
 

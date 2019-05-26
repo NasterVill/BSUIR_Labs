@@ -1,4 +1,4 @@
-#ifndef HEADER_H_
+﻿#ifndef HEADER_H_
 #define HEADER_H_
 int stringLen(char* str);
 int stringCmp(char* str1, char* str2);

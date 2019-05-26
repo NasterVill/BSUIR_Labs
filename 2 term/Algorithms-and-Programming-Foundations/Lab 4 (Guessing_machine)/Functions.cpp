@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -191,8 +191,8 @@ NODE* create_Actor()
 
 	printf("Then who is this?\n");
 	rewind(stdin);
-	fgets(temp_str, MAX_SIZE, stdin);				// запись данных
-	temp_str[strlen(temp_str) - 1] = '\0';			// загаданного актера
+	fgets(temp_str, MAX_SIZE, stdin);				// Р·Р°РїРёСЃСЊ РґР°РЅРЅС‹С…
+	temp_str[strlen(temp_str) - 1] = '\0';			// Р·Р°РіР°РґР°РЅРЅРѕРіРѕ Р°РєС‚РµСЂР°
 	
 	system("cls");
 	return create_Node(temp_str);
@@ -215,11 +215,11 @@ NODE* create_Distinction(NODE* &ptr)
 	temp_str[strlen(temp_str) - 1] = '\0';
 
 	printf("\nDoes your answer have axuilary verb?\n(Hint: words like do, does, was, is and etc.)\n\n0. No\n1. Yes");
-	axuilary = check_if_Axuilary();									// проверка на наличие вспомогательного глагола
-	check_Time(temp_str, axuilary);									// проврека времени (грамматики), в котором задано отличие
+	axuilary = check_if_Axuilary();									// РїСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРіРѕ РіР»Р°РіРѕР»Р°
+	check_Time(temp_str, axuilary);									// РїСЂРѕРІСЂРµРєР° РІСЂРµРјРµРЅРё (РіСЂР°РјРјР°С‚РёРєРё), РІ РєРѕС‚РѕСЂРѕРј Р·Р°РґР°РЅРѕ РѕС‚Р»РёС‡РёРµ
 
 	system("cls");
-	return create_Node(temp_str);									// создание узла с отличием
+	return create_Node(temp_str);									// СЃРѕР·РґР°РЅРёРµ СѓР·Р»Р° СЃ РѕС‚Р»РёС‡РёРµРј
 }
 
 void change_Nodes(NODE* &node_1, NODE* &node_2)
@@ -229,8 +229,8 @@ void change_Nodes(NODE* &node_1, NODE* &node_2)
 
 	char temp_str[MAX_SIZE] = { 0 };
 
-	memset(temp_str, '\0', MAX_SIZE * sizeof(char));					// меняем местами 
-	strcpy_s(temp_str, MAX_SIZE, node_1->string);						// содержимое узлов
+	memset(temp_str, '\0', MAX_SIZE * sizeof(char));				// РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё 
+	strcpy_s(temp_str, MAX_SIZE, node_1->string);					// СЃРѕРґРµСЂР¶РёРјРѕРµ СѓР·Р»РѕРІ
 	memset(node_1->string, '\0', MAX_SIZE * sizeof(char));	
 	strcpy_s(node_1->string, MAX_SIZE, node_2->string);					
 	memset(node_2->string, '\0', MAX_SIZE * sizeof(char));
@@ -261,10 +261,10 @@ void guess_Failed(STATISTICS* player, NODE* &ptr)
 		return;
 	}
 
-	ptr->left = distinction;										// слева от листа мы пишем новый отличительный узел
-	ptr->right = actor;												// а справа актера, который описан критерием в узле
+	ptr->left = distinction;										// СЃР»РµРІР° РѕС‚ Р»РёСЃС‚Р° РјС‹ РїРёС€РµРј РЅРѕРІС‹Р№ РѕС‚Р»РёС‡РёС‚РµР»СЊРЅС‹Р№ СѓР·РµР»
+	ptr->right = actor;												// Р° СЃРїСЂР°РІР° Р°РєС‚РµСЂР°, РєРѕС‚РѕСЂС‹Р№ РѕРїРёСЃР°РЅ РєСЂРёС‚РµСЂРёРµРј РІ СѓР·Р»Рµ
 
-	change_Nodes(ptr, ptr->left);									// меняем местами былой лист и новый вопрос, чтобы все стало на свои места
+	change_Nodes(ptr, ptr->left);									// РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё Р±С‹Р»РѕР№ Р»РёСЃС‚ Рё РЅРѕРІС‹Р№ РІРѕРїСЂРѕСЃ, С‡С‚РѕР±С‹ РІСЃРµ СЃС‚Р°Р»Рѕ РЅР° СЃРІРѕРё РјРµСЃС‚Р°
 
 	system("cls");
 
@@ -309,27 +309,27 @@ void check_Time(char* str, bool axuilary)
 	int i = 0;
 	int axuilary_len = 0;
 	bool skip = false;
-	if (axuilary)							// если есть вспомогательный глагол
-	{										// то мы меняем его местами с метоимением
-		str[0] = str[0] + REGISTER_DIFF;	// в начале преложения
+	if (axuilary)							// РµСЃР»Рё РµСЃС‚СЊ РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РіР»Р°РіРѕР»
+	{										// С‚Рѕ РјС‹ РјРµРЅСЏРµРј РµРіРѕ РјРµСЃС‚Р°РјРё СЃ РјРµС‚РѕРёРјРµРЅРёРµРј
+		str[0] = str[0] + REGISTER_DIFF;	// РІ РЅР°С‡Р°Р»Рµ РїСЂРµР»РѕР¶РµРЅРёСЏ
 		reverse_Two_Words(str);				
 		str[0] = str[0] - REGISTER_DIFF;
 	}
-	else									// если же такого глагола нет
-	{										// то определяется время предложения (Present\Past Simple and so on...)
-		char* temp;							// и составляется вопрос
+	else									// РµСЃР»Рё Р¶Рµ С‚Р°РєРѕРіРѕ РіР»Р°РіРѕР»Р° РЅРµС‚
+	{										// С‚Рѕ РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ РІСЂРµРјСЏ РїСЂРµРґР»РѕР¶РµРЅРёСЏ (Present\Past Simple and so on...)
+		char* temp;							// Рё СЃРѕСЃС‚Р°РІР»СЏРµС‚СЃСЏ РІРѕРїСЂРѕСЃ
 
 		str[0] = str[0] + REGISTER_DIFF;
 
 		temp = getWord(str);
 
-		switch (temp[wordLen(temp) - 1])		// определяем время
+		switch (temp[wordLen(temp) - 1])		// РѕРїСЂРµРґРµР»СЏРµРј РІСЂРµРјСЏ
 		{
 			case 'd': axuilary_len = DID; break;
 			case 's': axuilary_len = DOES; break;
 		}
 
-		if (axuilary_len != DOES && axuilary_len != DID)			// если время прошедшее, но глагол в 3ей форме не отличатеся от 1ой
+		if (axuilary_len != DOES && axuilary_len != DID)			// РµСЃР»Рё РІСЂРµРјСЏ РїСЂРѕС€РµРґС€РµРµ, РЅРѕ РіР»Р°РіРѕР» РІ 3РµР№ С„РѕСЂРјРµ РЅРµ РѕС‚Р»РёС‡Р°С‚РµСЃСЏ РѕС‚ 1РѕР№
 		{
 			axuilary_len = DID;
 			skip = true;
@@ -337,12 +337,12 @@ void check_Time(char* str, bool axuilary)
 
 		if (!skip)
 		{
-			for (int j = wordLen(temp) - 1; j < strlen(temp); j++)	// удаляем последнюю букву окончания
+			for (int j = wordLen(temp) - 1; j < strlen(temp); j++)	// СѓРґР°Р»СЏРµРј РїРѕСЃР»РµРґРЅСЋСЋ Р±СѓРєРІСѓ РѕРєРѕРЅС‡Р°РЅРёСЏ
 			{
 				temp[j] = temp[j + 1];
 			}
 
-			if (check_Letter(temp[wordLen(temp) - 1]))				// если в окончании есть вторая буква, то она удаляется
+			if (check_Letter(temp[wordLen(temp) - 1]))				// РµСЃР»Рё РІ РѕРєРѕРЅС‡Р°РЅРёРё РµСЃС‚СЊ РІС‚РѕСЂР°СЏ Р±СѓРєРІР°, С‚Рѕ РѕРЅР° СѓРґР°Р»СЏРµС‚СЃСЏ
 			{
 				for (int j = wordLen(temp) - 1; j < strlen(temp); j++)	
 				{
@@ -352,9 +352,9 @@ void check_Time(char* str, bool axuilary)
 		}
 
 		i = strlen(str) + 1;
-		while (i--)									// сдвиг строки на число символов
-		{											// необходимое, для записи
-			str[i + axuilary_len] = str[i];			// всопомогательного глагола
+		while (i--)									// СЃРґРІРёРі СЃС‚СЂРѕРєРё РЅР° С‡РёСЃР»Рѕ СЃРёРјРІРѕР»РѕРІ
+		{											// РЅРµРѕР±С…РѕРґРёРјРѕРµ, РґР»СЏ Р·Р°РїРёСЃРё
+			str[i + axuilary_len] = str[i];			// РІСЃРѕРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕРіРѕ РіР»Р°РіРѕР»Р°
 		}
 
 		if (axuilary_len == DID)

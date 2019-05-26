@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define KEY_TAGS_PER_UNIT 11
 #define MAX_LENGTH 50

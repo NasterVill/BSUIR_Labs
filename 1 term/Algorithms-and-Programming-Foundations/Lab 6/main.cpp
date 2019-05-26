@@ -1,4 +1,4 @@
-#include "sorts.h"
+п»ї#include "sorts.h"
 #include <stdio.h>
 #include <conio.h>
 #include <locale.h>
@@ -10,21 +10,21 @@ int main()
 	do
 	{
 		fflush(stdin);
-		printf("Введите размерность массива с клавиатуры : ");
+		printf("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РјР°СЃСЃРёРІР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹ : ");
 	}while(!scanf("%d", &size) || size<1);
 	system("cls");
 	ms=(int*)malloc(size*sizeof(int));
 	assert(ms != nullptr);
 	randInit(ms, size);
-	printf("Если значение времени отрицательно, значит сортировка массива провалилась");
-	printf("\n\nРезультаты :\n\nЧисло элементов : %d", size);
-	printf("\n\nВремя в секундах hoar %f", timeCheck(ms, size, hoarSort));
-	printf("\n\nВремя в секундах optimizedHoar %f", timeCheck(ms, size, optimizedHoar));
-	printf("\n\nВремя в секундах shell %f", timeCheck(ms, size, shellSort));
-	printf("\n\nВремя в секундах insert %f", timeCheck(ms, size, insertSort));
-	printf("\n\nВремя в секундах selection %f", timeCheck(ms, size, selectionSort));
-	printf("\n\nВремя в секундах shaker %f", timeCheck(ms, size, shakerSort));
-	printf("\n\nВремя в секундах bubble %f", timeCheck(ms, size, bubbleSort));
+	printf("Р•СЃР»Рё Р·РЅР°С‡РµРЅРёРµ РІСЂРµРјРµРЅРё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕ, Р·РЅР°С‡РёС‚ СЃРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР° РїСЂРѕРІР°Р»РёР»Р°СЃСЊ");
+	printf("\n\nР РµР·СѓР»СЊС‚Р°С‚С‹ :\n\nР§РёСЃР»Рѕ СЌР»РµРјРµРЅС‚РѕРІ : %d", size);
+	printf("\n\nР’СЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С… hoar %f", timeCheck(ms, size, hoarSort));
+	printf("\n\nР’СЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С… optimizedHoar %f", timeCheck(ms, size, optimizedHoar));
+	printf("\n\nР’СЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С… shell %f", timeCheck(ms, size, shellSort));
+	printf("\n\nР’СЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С… insert %f", timeCheck(ms, size, insertSort));
+	printf("\n\nР’СЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С… selection %f", timeCheck(ms, size, selectionSort));
+	printf("\n\nР’СЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С… shaker %f", timeCheck(ms, size, shakerSort));
+	printf("\n\nР’СЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С… bubble %f", timeCheck(ms, size, bubbleSort));
 	_getch();
 	free(ms);
 	return 0;

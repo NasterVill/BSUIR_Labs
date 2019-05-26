@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define MAX_SIZE 80
 #define MIN_SIZE 6

@@ -1,4 +1,4 @@
-#ifndef FUNCTION_HEADER_H_
+﻿#ifndef FUNCTION_HEADER_H_
 #define FUNCTION_HEADER_H_
 
 int* create_array(int size);

@@ -1,4 +1,4 @@
-#include "sorts.h"
+ï»¿#include "sorts.h"
 
 #define LIMIT 150
 
@@ -29,7 +29,7 @@ void hoarSort(int* ms, int size)
 
 void optimizedHoar(int* ms, int size)
 {
-	if (size-1 < LIMIT)						// åñëè ïîäìàññèâ ñëèøêîì ìàë, òî ñîðòèðóåì åãî ìåòîäîì âñòàâîê
+	if (size-1 < LIMIT)						// ÐµÑÐ»Ð¸ Ð¿Ð¾Ð´Ð¼Ð°ÑÑÐ¸Ð² ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð¼Ð°Ð», Ñ‚Ð¾ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€ÑƒÐµÐ¼ ÐµÐ³Ð¾ Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð¼ Ð²ÑÑ‚Ð°Ð²Ð¾Ðº
 	{
 		shellSort(ms, size);
 		return;
@@ -37,7 +37,7 @@ void optimizedHoar(int* ms, int size)
 	else
 	{
 		int mid, i , j, temp;
-		mid = ms[randNum(size-1)];     // âûáèðàåì ñëó÷àéíûé ýëåìåíò
+		mid = ms[randNum(size-1)];    		// Ð²Ñ‹Ð±Ð¸Ñ€Ð°ÐµÐ¼ ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚
 		i = 0;
 		j = size-1;
 		do
@@ -160,9 +160,9 @@ void shakerSort(int* ms, int size)
 	}while(lower_border <= upper_border);
 }
 
-float timeCheck(int *ms, int size, void (*sort)(int*, int)) // ôóíêöèÿ èçìåðåíèÿ âðåìíåè ñîðòèðîâêè,
-{															// êîòîðàÿ âîçâðàùàåò îòðèöàòåëüíîå çíà÷åíèå,
-	float time;												// åñëè ñîðòèðîâêà íå óäàëàñü
+float timeCheck(int *ms, int size, void (*sort)(int*, int)) // Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¸Ð·Ð¼ÐµÑ€ÐµÐ½Ð¸Ñ Ð²Ñ€ÐµÐ¼Ð½ÐµÐ¸ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸,
+{															// ÐºÐ¾Ñ‚Ð¾Ñ€Ð°Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð¾Ñ‚Ñ€Ð¸Ñ†Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ,
+	float time;												// ÐµÑÐ»Ð¸ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð½Ðµ ÑƒÐ´Ð°Ð»Ð°ÑÑŒ
 	int* local_ms;
 
 	assert(size > 0);
