@@ -16,7 +16,7 @@
 **1. Конфигурационное пространство PCI**
 Вывести список всех устройств, подключенных к шине PCI, с их
 характеристиками (DevicedID и VendorID). 
-[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab1).
+[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab_1).
 
 **2. HDD**
 Вывести данные о жёстких дисках, подключённых к компьютеру:
@@ -27,22 +27,22 @@
 - сведения о памяти (свободно/занято/всего);
 - тип интерфейса;
 - список поддерживаемых режимов. 
-[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab2).
+[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab_2).
 
 **3. Энергопитание**
 Вывести информацию об энергопитании компьютера:
 - в режиме реального времени показывать тип энергопитания;
 - уровень заряда батареи (если она присутствует);
 - текущий режим энергосбережения. 
-[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab3).
+[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab_3).
 
 **4. Веб-камера**
 Вывести информацию об установленной веб-камере. Осуществить захват изображения (фото и видео) с последующим сохранением в файл. Предусмотреть скрытый вариант видеонаблюдения, когда на мониторе и на панели задач не отображается информация о Вашем работающем приложении. 
-[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab4).
+[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab_4).
 
 **5. Global Hooks**
 Установить глобальные хуки на устройства ввода – клавиатуру и мышь. Предусмотреть реализацию перехвата сигналов, поступающих с этих устройств, и возможность последующей подмены этих сигналов. Приложение должно работать в скрытом режиме. 
-[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab5).
+[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab_5).
 
 **6. USB**
 Реализовать мониторинг USB-портов:
@@ -51,4 +51,4 @@
 - отказ в безопасном извлечении.
 Для всех извлекаемых USB-устройств предусмотреть возможность программного безопасного извлечения. Приложение должно корректно работать с модифицированными USB-устройствами – например, разбитыми на пару дисков или смонтированными как
 CD ROM + Flash. 
-[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab6).
+[Ссылка](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-/Lab_6).
