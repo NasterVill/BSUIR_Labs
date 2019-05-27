@@ -5,7 +5,7 @@
 #include <string>
 
 using namespace std;
-using namespace filesystem;
+using namespace customfilesystem;
 
 /// <summary>
 /// The name of the source file, which represents our disk (physical memory)
@@ -14,7 +14,7 @@ const char FileSystem::SOURCE_NAME_[] = "disk.bin";
 
 /// <summary>
 /// FileSystem's constructor, where the source file is either created, if it didn't exist,
-/// or is opened and is bieng read, in order to extract the FileMetaDataTable, which serves,
+/// or is opened and is bieng read, in order to extract the FileMetaDataTable (FMDT), which serves,
 /// as a container for our file descriptors.
 /// </summary>
 FileSystem::FileSystem()

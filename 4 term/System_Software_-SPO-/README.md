@@ -21,6 +21,6 @@
 2. Синхронихация процессов с помощью сигналов/событий. [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/Lab2), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab2).
 3. Работа с разделяемой памятью. [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/Lab3), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab3).
 4. Синхронизация потоков. [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/Lab4), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab4).
-5. Асинхронные (системные) операции с файлами (чтение/запись). [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/lab5), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab5).
+5. Асинхронные (системные) операции с файлами (чтение/запись). [Linux](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Linux/Lab5), [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab5).
 6. Менеджер памяти. [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab6).
-7. Эмулятор файловой системы. [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/lab7).
+7. Эмулятор файловой системы. [Windows](https://github.com/NasterVill/BSUIR_Labs/tree/master/4%20term/System_Software_-SPO-/Windows/Lab7).

@@ -290,7 +290,7 @@ bool comparison_result(vinyl record_1, vinyl record_2, func_ptr compare_1, func_
 	int result = compare_1(record_1, record_2);
 	if (result > 0)
 		return true;
-	if (compare_2(record_1, record_2) > 0 && result == 0)
+	if (result == 0 && compare_2(record_1, record_2) > 0)
 		return true;
 	return false;
 }

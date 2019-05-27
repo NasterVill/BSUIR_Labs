@@ -4,7 +4,7 @@
 #include <windows.h>
 #include <fstream>
 
-namespace filesystem
+namespace customfilesystem
 {
 	/// <summary>
 	/// A class, representing File System emulator. The source file (disk) is organized this way:

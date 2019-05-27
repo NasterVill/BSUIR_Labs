@@ -1,4 +1,4 @@
-#include "MyString.h"
+п»ї#include "MyString.h"
 #include <iostream>
 #include <assert.h>
 
@@ -6,13 +6,13 @@ using std::cout;
 using std::endl;
 using std::bad_alloc;
 
-String::String()						//коструктор по умолчанию
+String::String()						//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 {
 	this->string_ = nullptr;
 	this->size_ = 0;
 }
 
-String::String(const char* input_str)	//коструктор инициализации
+String::String(const char* input_str)	//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
 {
 	assert(stringLen(input_str) > 0);
 
@@ -26,7 +26,7 @@ String::String(const char* input_str)	//коструктор инициализации
 	}
 }
 
-String::String(const String& object)	//коструктор копирования
+String::String(const String& object)	//РєРѕСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 {
 	this->size_ = object.size_;
 	this->string_ = new char[this->size_];

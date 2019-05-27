@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <ostream>
 
@@ -9,9 +9,9 @@ class String
 	public:
 		friend ostream &operator<<(ostream &, const String &);
 
-		String();					//êîñòðóêòîð ïî óìîë÷àíèþ
-		String(const char*);		//êîñòðóêòîð èíèöèàëèçàöèè
-		String(const String &);		//êîñòðóêòîð êîïèðîâàíèÿ
+		String();					//ÐºÐ¾ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ
+		String(const char*);		//ÐºÐ¾ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð¸Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸
+		String(const String &);		//ÐºÐ¾ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ
 		~String();
 
 		String &operator()(const char*);
@@ -29,9 +29,9 @@ class String
 		String &operator+(const String &);
 		String &operator+(char*);
 
-		String &operator++();		// ïåðôèêñíûé
-		String &operator--(int);	// ïîñòôèêñíûé
-		String &operator-(char);	// âñå 3 áåñïîëåçíû :D
+		String &operator++();		// Ð¿ÐµÑ€Ñ„Ð¸ÐºÑÐ½Ñ‹Ð¹
+		String &operator--(int);	// Ð¿Ð¾ÑÑ‚Ñ„Ð¸ÐºÑÐ½Ñ‹Ð¹
+		String &operator-(char);	// Ð²ÑÐµ 3 Ð±ÐµÑÐ¿Ð¾Ð»ÐµÐ·Ð½Ñ‹ :D
 
 		void* operator new(size_t);
 		void* operator new[](size_t);
