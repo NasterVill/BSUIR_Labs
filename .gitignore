@@ -156,3 +156,9 @@ out/
 *.iml
 
 .vscode/
+
+# Images used for lab works
+images/
+
+# Global scopes and variables
+/global/
