@@ -38,9 +38,9 @@ end main_test;
 architecture Behavioral of main_test is
     component main
         port (
-            RCLR: in std_logic;
+            NOT_RCLR: in std_logic;
             RCLK: in std_logic;
-            SRCLR: in std_logic;
+            NOT_SRCLR: in std_logic;
             SRCLK: in std_logic;
             SER: in std_logic;
             QA: out std_logic;
@@ -56,16 +56,16 @@ architecture Behavioral of main_test is
     end component;
     
     signal SER, SRCLK, RCLK: std_logic := '0';
-    signal SRCLR, RCLR: std_logic := '1';
+    signal NOT_SRCLR, NOT_RCLR: std_logic := '1';
     signal QA, QB, QC, QD, QE, QF, QG, QH, QHl: std_logic := '0';
     
-    constant clk_period : time := 20 ns;
+    constant clk_period : time := 16 ns;
     
 begin
     main_component: main port map (
-        RCLR => RCLR,
+        NOT_RCLR => NOT_RCLR,
         RCLK => RCLK,
-        SRCLR => SRCLR,
+        NOT_SRCLR => NOT_SRCLR,
         SRCLK => SRCLK,
         SER => SER,
         QA => QA,
@@ -94,14 +94,14 @@ begin
         SER <= '1';
         wait for 200 ns;
         
-        SRCLR <= '0';
+        NOT_SRCLR <= '0';
         wait for 20 ns;
-        SRCLR <= '1';
+        NOT_SRCLR <= '1';
         wait for 200 ns;
         
-        RCLR <= '0';
+        NOT_RCLR <= '0';
         wait for 20 ns;
-        RCLR <= '1';
+        NOT_RCLR <= '1';
         wait for 200 ns;
        
         for i in 7 downto 0 loop 

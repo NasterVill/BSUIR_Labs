@@ -41,8 +41,8 @@ architecture Behavioral of jk_flip_flop_test is
          J : in  std_logic;
          K : in  std_logic;
          C : in  std_logic;
-         R : in  std_logic;
-         S : in  std_logic;
+         NOT_R : in  std_logic;
+         NOT_S : in  std_logic;
          Q : out  std_logic;
          NOT_Q: out std_logic
         ); 
@@ -51,20 +51,20 @@ architecture Behavioral of jk_flip_flop_test is
     signal J : std_logic := '0';
     signal K : std_logic := '0';
     signal C : std_logic := '0';
-    signal R : std_logic := '0';
-    signal S : std_logic := '0';
+    signal NOT_R : std_logic := '1';
+    signal NOT_S : std_logic := '1';
     signal Q : std_logic;
     signal NOT_Q : std_logic;
     
-    constant clk_period : time := 20 ns;
+    constant clk_period : time := 16 ns;
 
     begin
     jkff: jk_flip_flop port map (
         J => J,
         K => K,
         C => C,
-        R => R,
-        S => S,
+        NOT_R => NOT_R,
+        NOT_S => NOT_S,
         Q => Q,
         NOT_Q => NOT_Q
     );
@@ -82,6 +82,7 @@ architecture Behavioral of jk_flip_flop_test is
     begin                
         for i in 0 to 10 loop
             J <= temp;
+            wait for 5 ns;
             K <= not(temp);
             temp := not(temp);
             
@@ -90,34 +91,37 @@ architecture Behavioral of jk_flip_flop_test is
         
         for i in 0 to 10 loop
             J <= temp;
+            wait for 5 ns;
             K <= temp;
             temp := not(temp);
             
              wait for 50 ns;
         end loop;
         
-        S <= '1';
-        R <= '0';
+        NOT_S <= '0';
+        NOT_R <= '1';
         for i in 0 to 10 loop
             J <= temp;
+            wait for 5 ns;
             K <= not(temp);
             temp := not(temp);
             
              wait for 50 ns;
         end loop;
         
-        S <= '0';
-        R <= '1';
+        NOT_S <= '1';
+        NOT_R <= '0';
         for i in 0 to 10 loop
             J <= temp;
+            wait for 5 ns;
             K <= temp;
             temp := not(temp);
             
              wait for 50 ns;
         end loop;
               
-        S <= '0';
-        R <= '0';  
+        NOT_S <= '1';
+        NOT_R <= '1';  
     end process;
 
 end Behavioral;

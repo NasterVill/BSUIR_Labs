@@ -33,8 +33,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity d_flip_flop is
     Port ( 
-        R: in std_logic;
-        S: in std_logic;
+        NOT_R: in std_logic;
+        NOT_S: in std_logic;
         D: in std_logic;
         C: in std_logic;
         Q: out std_logic;
@@ -45,8 +45,8 @@ end d_flip_flop;
 architecture Behavioral of d_flip_flop is
     component jk_flip_flop
         port(
-           R: in std_logic;
-           S: in std_logic;
+           NOT_R: in std_logic;
+           NOT_S: in std_logic;
            J: in std_logic;
            K: in std_logic;
            C: in std_logic;
@@ -55,12 +55,12 @@ architecture Behavioral of d_flip_flop is
         );
     end component;
     
-    signal jk_R, jk_S, jk_J, jk_K , jk_C, jk_Q, jk_NOT_Q: std_logic;
+    signal jk_NOT_R, jk_NOT_S, jk_J, jk_K , jk_C, jk_Q, jk_NOT_Q: std_logic;
     
     begin   
         inner_flip_flop: jk_flip_flop port map (
-            R => jk_R,
-            S => jk_S,
+            NOT_R => jk_NOT_R,
+            NOT_S => jk_NOT_S,
             J => jk_J,
             K => jk_K,
             C => jk_C,
@@ -68,8 +68,8 @@ architecture Behavioral of d_flip_flop is
             NOT_Q => jk_NOT_Q
         );
      
-        jk_R <= R;
-        jk_S <= S;
+        jk_NOT_R <= NOT_R;
+        jk_NOT_S <= NOT_S;
      
         jk_J <= D;
         jk_K <= not(D);

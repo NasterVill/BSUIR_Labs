@@ -33,9 +33,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity main is
     port (
-        RCLR: in std_logic;
+        NOT_RCLR: in std_logic;
         RCLK: in std_logic;
-        SRCLR: in std_logic;
+        NOT_SRCLR: in std_logic;
         SRCLK: in std_logic;
         SER: in std_logic;
         QA: out std_logic;
@@ -53,8 +53,8 @@ end main;
 architecture Behavioral of main is
     component d_flip_flop
         port(
-            R: in std_logic;
-            S: in std_logic;
+            NOT_R: in std_logic;
+            NOT_S: in std_logic;
             D: in std_logic;
             C: in std_logic;
             Q: out std_logic;
@@ -62,16 +62,13 @@ architecture Behavioral of main is
         );
     end component;
     
-    signal GND, NOT_SRCLR, NOT_RCLR: std_logic := '0';
+    signal VCC: std_logic := '1';
     signal first_line_output, second_line_output: std_logic_vector(7 downto 0);
    
     begin
-        NOT_SRCLR <= not(SRCLR);
-        NOT_RCLR <= not(RCLR);
-        
         first_flip_flop: d_flip_flop port map (
-            R => NOT_SRCLR,
-            S => GND,
+            NOT_R => NOT_SRCLR,
+            NOT_S => VCC,
             D => SER,
             C => SRCLK,
             Q => first_line_output(0)
@@ -79,8 +76,8 @@ architecture Behavioral of main is
         
         first_line: for i in 0 to 6 generate
             flip_flop: d_flip_flop port map (
-                R => NOT_SRCLR,
-                S => GND,
+                NOT_R => NOT_SRCLR,
+                NOT_S => VCC,
                 D => first_line_output(i),
                 C => SRCLK,
                 Q => first_line_output(i + 1)
@@ -89,8 +86,8 @@ architecture Behavioral of main is
         
         second_line: for i in 0 to 7 generate
             flip_flop: d_flip_flop port map (
-                R => NOT_RCLR,
-                S => GND,
+                NOT_R => NOT_RCLR,
+                NOT_S => VCC,
                 D => first_line_output(i),
                 C => RCLK,
                 Q => second_line_output(i)

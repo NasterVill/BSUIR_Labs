@@ -33,8 +33,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity jk_flip_flop is
     Port (
-        R: in std_logic;
-        S: in std_logic;
+        NOT_R: in std_logic;
+        NOT_S: in std_logic;
         J: in std_logic;
         K: in std_logic;
         C: in std_logic;
@@ -47,11 +47,11 @@ architecture Behavioral of jk_flip_flop is
    signal temp: std_logic := '0';
    
 begin
-    process (C, R, S)
+    process (C, NOT_R, NOT_S)
     begin
-        if R='1' then   
+        if NOT_R='0' then   
             temp <= '0';
-        elsif S='1' then   
+        elsif NOT_S='0' then   
             temp <= '1';
         elsif rising_edge(C) then                 
             if (J='0' and K='0') then

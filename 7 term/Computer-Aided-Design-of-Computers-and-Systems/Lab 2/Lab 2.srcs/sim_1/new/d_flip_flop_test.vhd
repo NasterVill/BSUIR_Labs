@@ -40,8 +40,8 @@ architecture Behavioral of d_flip_flop_test is
     port(
          D : in  std_logic;
          C : in  std_logic;
-         R : in  std_logic;
-         S : in  std_logic;
+         NOT_R : in  std_logic;
+         NOT_S : in  std_logic;
          Q : out  std_logic;
          NOT_Q: out std_logic
         ); 
@@ -49,19 +49,19 @@ architecture Behavioral of d_flip_flop_test is
     
     signal D : std_logic := '0';
     signal C : std_logic := '0';
-    signal R : std_logic := '0';
-    signal S : std_logic := '0';
+    signal NOT_R : std_logic := '1';
+    signal NOT_S : std_logic := '1';
     signal Q : std_logic;
     signal NOT_Q : std_logic;
     
-    constant clk_period : time := 20 ns;
+    constant clk_period : time := 16 ns;
 
     begin
     ddf: d_flip_flop port map (
         D => D,
         C => C,
-        R => R,
-        S => S,
+        NOT_R => NOT_R,
+        NOT_S => NOT_S,
         Q => Q,
         NOT_Q => NOT_Q
     );
@@ -76,16 +76,16 @@ architecture Behavioral of d_flip_flop_test is
     
     test_process_async: process
     begin
-        S <= '0';
-        R <= '1';
+        NOT_S <= '1';
+        NOT_R <= '0';
         wait for 600 ns;
         
-        R <= '0';
-        S <= '1';
+        NOT_R <= '1';
+        NOT_S <= '0';
         wait for 600 ns;
         
-        R <= '0';
-        S <= '0';
+        NOT_R <= '1';
+        NOT_S <= '1';
         wait for 600 ns;
     end process;
     
