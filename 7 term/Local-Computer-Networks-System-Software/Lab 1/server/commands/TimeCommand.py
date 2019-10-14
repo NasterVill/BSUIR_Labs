@@ -7,7 +7,7 @@ from shared.Utils.Message import compose_message
 class TimeCommand(Command):
     _client: ClientDescriptor
 
-    def __init__(self, configuration: dict, client: ClientDescriptor):
+    def __init__(self, client: ClientDescriptor):
         self._client = client
 
     def execute(self):

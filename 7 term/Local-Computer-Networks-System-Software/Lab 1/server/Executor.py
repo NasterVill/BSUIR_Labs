@@ -32,9 +32,9 @@ class Executor:
             if command_type == Commands.ECHO.value:
                 self._current_command = EchoCommand(message, self._current_client)
             elif command_type == Commands.TIME.value:
-                self._current_command = TimeCommand(message, self._current_client)
+                self._current_command = TimeCommand(self._current_client)
             elif command_type == Commands.DISCONNECT.value:
-                self._current_command = DisconnectCommand(message, self._current_client)
+                self._current_command = DisconnectCommand(self._current_client)
             elif command_type == Commands.UPLOAD.value:
                 self._current_command = UploadCommand(message, self._current_client, self._last_command)
             elif command_type == Commands.DOWNLOAD.value:

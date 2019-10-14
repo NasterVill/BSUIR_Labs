@@ -6,7 +6,7 @@ from server.Errors.ClientHasDisconnectedError import ClientHasDisconnectedError
 class DisconnectCommand(Command):
     _client: ClientDescriptor
 
-    def __init__(self, configuration: dict, client: ClientDescriptor):
+    def __init__(self, client: ClientDescriptor):
         self._client = client
 
     def execute(self):

@@ -1,3 +1,4 @@
+import socket
 from client.commands.Command import Command
 
 
