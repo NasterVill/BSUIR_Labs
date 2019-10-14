@@ -1,13 +1,9 @@
-from shared.Utils.Ip import get_local_ip_address
-from shared.Utils.Message import compose_message
+from client.Client import Client
 
 
 def main():
-    print(get_local_ip_address())
-
-    data = {'payload': 'hello, world!'}
-
-    message = compose_message(data)
+    client = Client()
+    client.work()
 
 
 if __name__ == '__main__':
