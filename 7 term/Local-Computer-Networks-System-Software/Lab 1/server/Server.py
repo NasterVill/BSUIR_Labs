@@ -3,13 +3,13 @@ from server.Executor import Executor
 from server.ClientDescriptor import ClientDescriptor
 from shared.Errors.InvalidMessageError import InvalidMessageError
 from server.Errors.ClientHasDisconnectedError import ClientHasDisconnectedError
+from shared.Consts import PACKET_SIZE
 from shared.Utils.Message import get_message
 from shared.Utils import Ip, Socket
 
 
 class Server:
     MAX_ACTIVE_CLIENTS = 1
-    DEFAULT_DATA_PACKET_SIZE = 1024
     PORT: int = 9090
 
     # general socket used to listen for clients
@@ -59,8 +59,13 @@ class Server:
 
                     break
 
+                except ConnectionResetError as error:
+                    print(f'Unexpected connection reset error! {error}')
+
+                    break
+
     def _get_message(self):
-        message = get_message(self._current_client.connection, self.DEFAULT_DATA_PACKET_SIZE)
+        message = get_message(self._current_client.connection, PACKET_SIZE)
 
         if not message:
             raise ClientHasDisconnectedError

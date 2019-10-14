@@ -2,7 +2,6 @@ from server.ClientDescriptor import ClientDescriptor
 from server.commands.Command import Command
 from server.commands.EchoCommand import EchoCommand
 from server.commands.TimeCommand import TimeCommand
-from server.commands.DisconnectCommand import DisconnectCommand
 from server.commands.DownloadCommand import DownloadCommand
 from server.commands.UploadCommand import UploadCommand
 from shared.Errors.InvalidMessageError import InvalidMessageError
@@ -33,8 +32,6 @@ class Executor:
                 self._current_command = EchoCommand(message, self._current_client)
             elif command_type == Commands.TIME.value:
                 self._current_command = TimeCommand(self._current_client)
-            elif command_type == Commands.DISCONNECT.value:
-                self._current_command = DisconnectCommand(self._current_client)
             elif command_type == Commands.UPLOAD.value:
                 self._current_command = UploadCommand(message, self._current_client, self._last_command)
             elif command_type == Commands.DOWNLOAD.value:

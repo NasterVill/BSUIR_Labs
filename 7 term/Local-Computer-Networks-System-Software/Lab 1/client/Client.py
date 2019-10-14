@@ -1,10 +1,9 @@
-import socket
 from client.Executor import Executor
 from client.Errors.InvalidCommand import InvalidCommand
+import sys
 
 
 class Client:
-    _socket: socket.socket
     _executor: Executor
 
     def __init__(self):
@@ -25,3 +24,8 @@ class Client:
                 print('Provided command is invalid. Type \'help\' to get info about supported commands')
 
                 continue
+
+            except Exception as error:
+                print(f'Unexpected error caught! {error}')
+
+                sys.exit(1)

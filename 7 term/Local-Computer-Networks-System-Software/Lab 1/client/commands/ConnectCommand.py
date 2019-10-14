@@ -1,10 +1,29 @@
 import socket
 from client.commands.Command import Command
+from client.Errors.InvalidCommand import InvalidCommand
 
 
 class ConnectCommand(Command):
-    def __init__(self, params: list, connection: socket.socket):
-        pass
+    _connection: socket.socket
+    _server_address: str
+    _server_port: int
+
+    def __init__(self, params: list, set_executor_connection: callable):
+        self._connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        set_executor_connection(self._connection)
+
+        address = params[0].split(':')
+
+        try:
+            socket.inet_aton(address[0])
+
+            self._server_address = address[0]
+            self._server_port = int(address[1])
+        except socket.error:
+            raise InvalidCommand
 
     def execute(self):
-        pass
+        self._connection.connect((self._server_address, self._server_port))
+
+        print(f'Successfully connected to server on {self._server_address}:{self._server_port}')

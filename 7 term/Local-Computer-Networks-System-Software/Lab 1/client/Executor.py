@@ -18,6 +18,9 @@ class Executor:
     def execute(self):
         self._command.execute()
 
+    def _set_connection(self, connection: socket.socket):
+        self._connection = connection
+
     def build_command(self, command: str):
         command_parts = command.split(' ')
         command_name = command_parts[0].upper()
@@ -28,7 +31,7 @@ class Executor:
         elif command_name == Commands.TIME.value:
             self._command = TimeCommand(params, self._connection)
         elif command_name == Commands.CONNECT.value:
-            self._command = ConnectCommand(params, self._connection)
+            self._command = ConnectCommand(params, self._set_connection)
         elif command_name == Commands.DISCONNECT.value:
             self._command = DisconnectCommand(self._connection)
         elif command_name == Commands.UPLOAD.value:
