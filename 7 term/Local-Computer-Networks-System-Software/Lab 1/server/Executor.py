@@ -18,9 +18,12 @@ class Executor:
         self._current_client = current_client
 
     def execute(self):
-        self._current_command.execute()
-
-        self._last_command = self._current_command
+        try:
+            self._current_command.execute()
+        except Exception as error:
+            raise error
+        finally:
+            self._last_command = self._current_command
 
     def build_command(self, message: dict):
         if type(message['type']) == str:

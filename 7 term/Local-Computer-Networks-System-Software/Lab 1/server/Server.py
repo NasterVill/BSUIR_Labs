@@ -1,10 +1,9 @@
 import socket
-import pickle
 from server.Executor import Executor
 from server.ClientDescriptor import ClientDescriptor
 from shared.Errors.InvalidMessageError import InvalidMessageError
 from server.Errors.ClientHasDisconnectedError import ClientHasDisconnectedError
-from shared.Consts import HEADER_SIZE
+from shared.Utils.Message import get_message
 from shared.Utils import Ip, Socket
 
 
@@ -54,33 +53,19 @@ class Server:
                     self._current_client.connection.close()
 
                     print(
-                        f'Connection closed by client. ' +
+                        'Connection closed by client. ' +
                         f'{self._current_client.ip_address} has disconnected from the server'
                     )
 
                     break
 
     def _get_message(self):
-        new_message = True
-        full_message = b''
-        message_len = 0
-        while True:
-            temp_message = self._current_client.connection.recv(self.DEFAULT_DATA_PACKET_SIZE)
+        message = get_message(self._current_client.connection, self.DEFAULT_DATA_PACKET_SIZE)
 
-            # if the client has disconnected
-            if not temp_message:
-                raise ClientHasDisconnectedError
-
-            # starting processing new message
-            if new_message:
-                message_len = int(temp_message[:HEADER_SIZE])
-                new_message = False
-
-            full_message += temp_message
-
-            # if we got whole message
-            if len(full_message) - HEADER_SIZE == message_len:
-                return pickle.loads(full_message[HEADER_SIZE:])
+        if not message:
+            raise ClientHasDisconnectedError
+        else:
+            return message
 
     def _init_socket(self):
         # creating socket that accepts IPv4 address and works with TCP protocol
@@ -101,6 +86,8 @@ class Server:
         connection, address = self._listen_for_new_client()
 
         Socket.set_socket_keep_alive(connection)
+
+        # connection.settimeout(10)
 
         self._current_client = ClientDescriptor(connection, address)
 
