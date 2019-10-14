@@ -1,14 +1,13 @@
 from shared.Utils.Ip import get_local_ip_address
-from shared.Consts import HEADER_SIZE
-import pickle
-
+from shared.Utils.Message import compose_message
 
 
 def main():
-    print(2222, get_local_ip_address())
+    print(get_local_ip_address())
 
-    msg = pickle.dumps('')
-    msg = bytes(f"{len(msg):<{HEADER_SIZE}}", 'utf-8') + msg
+    data = {'payload': 'hello, world!'}
+
+    message = compose_message(data)
 
 
 if __name__ == '__main__':
