@@ -1,5 +1,6 @@
 import socket
 from client.Executor import Executor
+from client.Errors.InvalidCommand import InvalidCommand
 
 
 class Client:
@@ -10,6 +11,8 @@ class Client:
         self._executor = Executor()
 
     def work(self):
+        print('Client application is up and running. Enter \'help\' to get familiar wit the list of commands')
+
         while True:
             command = input()
 
@@ -18,5 +21,7 @@ class Client:
 
                 self._executor.execute()
 
-            except Exception:
-                print('Smth went wrong')
+            except InvalidCommand:
+                print('Provided command is invalid. Type \'help\' to get info about supported commands')
+
+                continue

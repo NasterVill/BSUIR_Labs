@@ -75,6 +75,7 @@ class Server:
         print(f'Server created on address: {Ip.get_local_ip_address(is_local_host=True)}:{self.PORT}')
 
     def _listen_for_new_client(self):
+        print('Listening for clients')
         self._main_sock.listen(self.MAX_ACTIVE_CLIENTS)
         connection, address = self._main_sock.accept()
 

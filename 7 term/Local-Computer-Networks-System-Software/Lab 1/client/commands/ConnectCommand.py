@@ -1,7 +1,8 @@
+import socket
 from client.commands.Command import Command
 
 
-class UploadCommand(Command):
+class ConnectCommand(Command):
     def __init__(self, params: list, connection: socket.socket):
         pass
 
