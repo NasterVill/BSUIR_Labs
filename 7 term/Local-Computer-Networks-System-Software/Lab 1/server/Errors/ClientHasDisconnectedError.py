@@ -1,0 +1,2 @@
+class ClientHasDisconnectedError(Exception):
+    pass
