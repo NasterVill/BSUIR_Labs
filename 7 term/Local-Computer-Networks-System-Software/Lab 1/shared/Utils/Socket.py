@@ -3,7 +3,10 @@ import platform
 
 
 def _set_keepalive_linux(
-        sock: socket.socket, keep_alive_time: int = 1, keep_alive_interval: int = 3, max_probes: int = 5
+        sock: socket.socket,
+        keep_alive_time: int = 1,
+        keep_alive_interval: int = 3,
+        max_probes: int = 5
 ):
     """
     Set TCP keepalive on an open socket.
@@ -46,7 +49,12 @@ def _set_keepalive_windows(sock: socket.socket, keep_alive_time: int = 1, keep_a
     sock.ioctl(socket.SIO_KEEPALIVE_VALS, (1, keep_alive_time * second, keep_alive_interval * second))
 
 
-def set_socket_keep_alive(sock: socket.socket, keep_alive_time: int = 10, keep_alive_interval: int = 3, max_probes: int = 10):
+def set_socket_keep_alive(
+        sock: socket.socket,
+        keep_alive_time: int = 10,
+        keep_alive_interval: int = 3,
+        max_probes: int = 10
+):
     system = platform.system()
 
     if system == 'Windwos':

@@ -3,7 +3,7 @@ from server.Server import Server
 
 def main():
     server = Server()
-    server.start()
+    server.work()
 
 
 if __name__ == '__main__':
