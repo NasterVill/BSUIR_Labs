@@ -14,12 +14,19 @@ from client.commands.HelpCommand import HelpCommand
 class Executor:
     _command: Command
     _connection: socket.socket
+    _set_client_connection: callable
+
+    def __init__(self, set_client_connection: callable):
+        self._set_client_connection = set_client_connection
+
+        self._set_connection(socket.socket(socket.AF_INET, socket.SOCK_STREAM))
 
     def execute(self):
         self._command.execute()
 
     def _set_connection(self, connection: socket.socket):
         self._connection = connection
+        self._set_client_connection(connection)
 
     def build_command(self, command: str):
         command_parts = command.split(' ')

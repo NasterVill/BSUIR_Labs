@@ -9,3 +9,4 @@ class Commands(Enum):
     UPLOAD = 'UPLOAD'
     DOWNLOAD = 'DOWNLOAD'
     HELP = 'HELP'
+    QUIT = 'QUIT'

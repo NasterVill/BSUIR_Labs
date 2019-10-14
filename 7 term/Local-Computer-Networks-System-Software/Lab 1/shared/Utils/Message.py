@@ -1,5 +1,5 @@
 import pickle
-from shared.Consts import HEADER_SIZE
+from shared.Consts import HEADER_SIZE, PACKET_SIZE
 
 
 def compose_message(data: dict):
@@ -9,7 +9,7 @@ def compose_message(data: dict):
     return message
 
 
-def get_message(connection, packet_size):
+def get_message(connection, packet_size=PACKET_SIZE):
     new_message = True
     full_message = b''
     message_len = 0

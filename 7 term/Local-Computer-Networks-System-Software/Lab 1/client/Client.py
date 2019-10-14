@@ -1,3 +1,4 @@
+import socket
 from client.Executor import Executor
 from client.Errors.InvalidCommand import InvalidCommand
 import sys
@@ -5,9 +6,10 @@ import sys
 
 class Client:
     _executor: Executor
+    _connection: socket.socket
 
     def __init__(self):
-        self._executor = Executor()
+        self._executor = Executor(self._set_connection)
 
     def work(self):
         print('Client application is up and running. Enter \'help\' to get familiar wit the list of commands')
@@ -28,4 +30,9 @@ class Client:
             except Exception as error:
                 print(f'Unexpected error caught! {error}')
 
+                self._connection.close()
+
                 sys.exit(1)
+
+    def _set_connection(self, connection: socket.socket):
+        self._connection = connection

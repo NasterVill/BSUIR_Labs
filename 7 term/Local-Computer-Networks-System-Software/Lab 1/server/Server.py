@@ -2,7 +2,7 @@ import socket
 from server.Executor import Executor
 from server.ClientDescriptor import ClientDescriptor
 from shared.Errors.InvalidMessageError import InvalidMessageError
-from server.Errors.ClientHasDisconnectedError import ClientHasDisconnectedError
+from server.Errors.ClientHasDisconnectedException import ClientHasDisconnectedException
 from shared.Consts import PACKET_SIZE
 from shared.Utils.Message import get_message
 from shared.Utils import Ip, Socket
@@ -49,7 +49,7 @@ class Server:
 
                     break
 
-                except ClientHasDisconnectedError:
+                except ClientHasDisconnectedException:
                     self._current_client.connection.close()
 
                     print(
@@ -68,7 +68,7 @@ class Server:
         message = get_message(self._current_client.connection, PACKET_SIZE)
 
         if not message:
-            raise ClientHasDisconnectedError
+            raise ClientHasDisconnectedException
         else:
             return message
 
