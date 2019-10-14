@@ -29,48 +29,20 @@ class Server:
         while True:
             self._initialize_client()
 
-            full_message = b''
-            new_message = True
-            message_len = 0
             while True:
                 try:
-                    temp_message = self._current_client.connection.recv(self.DEFAULT_DATA_PACKET_SIZE)
+                    message = self._get_message()
 
-                    # if the client has disconnected
-                    if not temp_message:
-                        self._current_client.connection.close()
+                    self._executor.build_command(message)
 
-                        print(
-                            f'Connection closed by client. ' +
-                            f'{self._current_client.ip_address} has disconnected from the server'
-                        )
+                    self._executor.execute()
 
-                        break
-
-                    # starting processing new message
-                    if new_message:
-                        message_len = int(temp_message[:HEADER_SIZE])
-                        new_message = False
-
-                    full_message += temp_message
-
-                    # if we got whole message
-                    if len(full_message) - HEADER_SIZE == message_len:
-                        message = pickle.loads(full_message[HEADER_SIZE:])
-
-                        self._executor.build_command(message)
-
-                        self._executor.execute()
                 except InvalidMessageError:
                     print('Invalid message received! Waiting for a new one')
 
-                    full_message = b''
-                    new_message = True
-                    message_len = 0
-
                     continue
                 # handle case with tcp keepalive timeout and if client has disconnected softly during command execution
-                except (socket.timeout, ClientHasDisconnectedError):
+                except socket.timeout:
                     # TODO: check if this 'close' call is a necessity
                     self._current_client.connection.close()
 
@@ -78,7 +50,37 @@ class Server:
 
                     break
 
-                pass
+                except ClientHasDisconnectedError:
+                    self._current_client.connection.close()
+
+                    print(
+                        f'Connection closed by client. ' +
+                        f'{self._current_client.ip_address} has disconnected from the server'
+                    )
+
+                    break
+
+    def _get_message(self):
+        new_message = True
+        full_message = b''
+        message_len = 0
+        while True:
+            temp_message = self._current_client.connection.recv(self.DEFAULT_DATA_PACKET_SIZE)
+
+            # if the client has disconnected
+            if not temp_message:
+                raise ClientHasDisconnectedError
+
+            # starting processing new message
+            if new_message:
+                message_len = int(temp_message[:HEADER_SIZE])
+                new_message = False
+
+            full_message += temp_message
+
+            # if we got whole message
+            if len(full_message) - HEADER_SIZE == message_len:
+                return pickle.loads(full_message[HEADER_SIZE:])
 
     def _init_socket(self):
         # creating socket that accepts IPv4 address and works with TCP protocol
