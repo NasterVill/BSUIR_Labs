@@ -5,19 +5,22 @@ from HopfieldNetwork import HopfieldNetwork
 
 
 def process_shape(initial_shape: np.ndarray, net: HopfieldNetwork):
-    nosied_shapes = []
+    noised_shapes = []
 
     for i in range(5, 105, 5):
         noise_level = i / 100
 
-        nosied_shapes.append(utils.noise_shape(initial_shape, noise_level))
+        noised_shapes.append(utils.noise_shape(initial_shape, noise_level))
 
-    for shape in nosied_shapes:
-        recognized, adjusted_shape, iterations = net.recognize(shape)
+    for i in range(len(noised_shapes)):
+        recognized, adjusted_shape, iterations = net.recognize(noised_shapes[i])
 
-        print(recognized)
+        print('Noise %:', '%.2f' % ((i + 1) * 0.05))
+        print('Amount of iterations:', iterations)
+        print('Is image recognized:', recognized)
         print(adjusted_shape)
-        print(iterations)
+
+        print('\n\n')
 
 
 def main():
@@ -75,7 +78,7 @@ def main():
     net.teach(second_shape)
     net.teach(third_shape)
 
-    # recreating nosified shapes
+    # recreating shapes with noise
     process_shape(first_shape, net)
     process_shape(second_shape, net)
     process_shape(third_shape, net)
