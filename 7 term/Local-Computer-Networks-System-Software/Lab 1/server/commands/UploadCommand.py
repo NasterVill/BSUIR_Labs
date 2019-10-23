@@ -2,19 +2,21 @@ import os
 from datetime import datetime
 from server.commands.Command import Command
 from server.ClientDescriptor import ClientDescriptor
-from shared.Utils.Message import compose_message, get_message
+from shared.Utils.Message import compose_message
 from server.Errors.ClientHasDisconnectedException import ClientHasDisconnectedException
 from shared.Consts import PACKET_SIZE
 
 
 class UploadCommand(Command):
     _file_name: str
+    _file_size: int
     _client: ClientDescriptor
     _last_command: Command
 
     def __init__(self, configuration: dict, client: ClientDescriptor, last_command: Command):
         self._last_command = last_command
-        self._data = configuration['payload']
+        self._file_name = configuration['file_name']
+        self._file_size = configuration['file_size']
         self._client = client
 
     def _is_old_client_reconnect(self):
@@ -41,12 +43,10 @@ class UploadCommand(Command):
             dt = datetime.now()
             start_time = dt.second
 
-            message = get_message(self._client.connection)
+            real_file_size = 0
+            if os.path.exists(self._file_name):
+                real_file_size = os.path.getsize(self._file_name)
 
-            self._file_name = message['file_name']
-            file_size = message['size']
-
-            real_file_size = os.path.getsize(self._file_name)
             server_response = self._compose_response_message(real_file_size)
 
             self._process_file_handle()
@@ -55,7 +55,7 @@ class UploadCommand(Command):
 
             read_bytes = real_file_size
             with open(self._file_name, 'ab') as file:
-                while read_bytes < file_size:
+                while read_bytes < self._file_size:
                     data = self._client.connection.recv(PACKET_SIZE)
 
                     read_bytes += len(data)
@@ -68,7 +68,7 @@ class UploadCommand(Command):
             dt = datetime.now()
             end_time = dt.second
 
-            bit_rate = file_size / float((end_time - start_time))
+            bit_rate = self._file_size / float((end_time - start_time))
 
             print(f'File {self._file_name} has been successfully download to sever, Bit rate: {bit_rate} Bps')
 

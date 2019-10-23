@@ -9,8 +9,8 @@ from shared.Commands import Commands
 
 
 class Executor:
-    _current_command: Command
-    _last_command: Command
+    _current_command: Command = Command()
+    _last_command: Command = Command()
     _current_client: ClientDescriptor
 
     def set_current_client(self, current_client: ClientDescriptor):

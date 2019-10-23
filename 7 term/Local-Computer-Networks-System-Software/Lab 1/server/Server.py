@@ -75,9 +75,9 @@ class Server:
     def _init_socket(self):
         # creating socket that accepts IPv4 address and works with TCP protocol
         self._main_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self._main_sock.bind((Ip.get_local_ip_address(is_local_host=True), self.PORT))
+        self._main_sock.bind((Ip.get_local_ip_address(is_local_host=False), self.PORT))
 
-        print(f'Server created on address: {Ip.get_local_ip_address(is_local_host=True)}:{self.PORT}')
+        print(f'Server created on address: {Ip.get_local_ip_address(is_local_host=False)}:{self.PORT}')
 
     def _listen_for_new_client(self):
         print('Listening for clients')
@@ -93,7 +93,7 @@ class Server:
 
         Socket.set_socket_keep_alive(connection)
 
-        # connection.settimeout(10)
+        connection.settimeout(10)
 
         self._current_client = ClientDescriptor(connection, address)
 

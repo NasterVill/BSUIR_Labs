@@ -1,6 +1,7 @@
 import os
 import socket
 from datetime import datetime
+from shared.Commands import Commands
 from client.commands.Command import Command
 from shared.Utils.Message import compose_message, get_message
 from shared.Consts import PACKET_SIZE
@@ -23,7 +24,7 @@ class UploadCommand(Command):
 
             file_size = os.path.getsize(self._relative_file_name)
 
-            data = {'file_name': self._relative_file_name, 'size': file_size}
+            data = {'type': Commands.UPLOAD.value, 'file_name': self._relative_file_name, 'file_size': file_size}
 
             message = compose_message(data)
 
@@ -38,6 +39,7 @@ class UploadCommand(Command):
             file_portion = file.read(PACKET_SIZE)
             while file_portion:
                 self._connection.send(file_portion)
+                file_portion = file.read(PACKET_SIZE)
 
             file.close()
 
