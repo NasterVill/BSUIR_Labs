@@ -14,6 +14,8 @@ class EchoCommand(Command):
     def execute(self):
         data = {'payload': self._data}
 
+        print(f'Echoed: {self._data}')
+
         message = compose_message(data)
 
         self._client.connection.sendall(message)

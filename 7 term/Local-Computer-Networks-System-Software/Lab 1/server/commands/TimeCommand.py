@@ -11,8 +11,12 @@ class TimeCommand(Command):
         self._client = client
 
     def execute(self):
-        data = {'payload': datetime.datetime.now()}
+        date = datetime.datetime.now()
+
+        data = {'payload': date}
 
         message = compose_message(data)
+
+        print(date)
 
         self._client.connection.sendall(message)
