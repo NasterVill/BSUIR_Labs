@@ -1,7 +1,6 @@
 import socket
 from client.Executor import Executor
 from client.Errors.InvalidCommand import InvalidCommand
-import sys
 
 
 class Client:
@@ -32,7 +31,7 @@ class Client:
 
                 self._connection.close()
 
-                sys.exit(1)
+                continue
 
     def _set_connection(self, connection: socket.socket):
         self._connection = connection

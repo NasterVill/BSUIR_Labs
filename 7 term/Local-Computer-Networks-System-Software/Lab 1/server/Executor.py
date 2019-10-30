@@ -10,7 +10,6 @@ from shared.Commands import Commands
 
 class Executor:
     _current_command: Command = Command()
-    _last_command: Command = Command()
     _current_client: ClientDescriptor
 
     def set_current_client(self, current_client: ClientDescriptor):
@@ -21,8 +20,6 @@ class Executor:
             self._current_command.execute()
         except Exception as error:
             raise error
-        finally:
-            self._last_command = self._current_command
 
     def build_command(self, message: dict):
         if type(message['type']) == str:
@@ -33,9 +30,9 @@ class Executor:
             elif command_type == Commands.TIME.value:
                 self._current_command = TimeCommand(self._current_client)
             elif command_type == Commands.UPLOAD.value:
-                self._current_command = UploadCommand(message, self._current_client, self._last_command)
+                self._current_command = UploadCommand(message, self._current_client)
             elif command_type == Commands.DOWNLOAD.value:
-                self._current_command = DownloadCommand(message, self._current_client, self._last_command)
+                self._current_command = DownloadCommand(message, self._current_client)
 
         else:
             raise InvalidMessageError

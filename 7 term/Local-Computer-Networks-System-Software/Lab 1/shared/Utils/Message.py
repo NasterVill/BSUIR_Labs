@@ -1,5 +1,6 @@
 import pickle
-from shared.Consts import HEADER_SIZE, PACKET_SIZE
+import socket
+from shared.Consts import HEADER_SIZE, PACKET_SIZE, MAX_PROBES
 
 
 def compose_message(data: dict):
@@ -11,22 +12,36 @@ def compose_message(data: dict):
 
 def get_message(connection, packet_size=PACKET_SIZE):
     new_message = True
-    full_message = b''
+    message = b''
     message_len = 0
+    probes = 0
     while True:
-        temp_message = connection.recv(packet_size)
+        try:
+            temp_message = connection.recv(packet_size)
 
-        # if the client has disconnected
-        if not temp_message:
-            return None
+            # if the client has disconnected
+            if not temp_message:
+                return None
 
-        # start processing new message
-        if new_message:
-            message_len = int(temp_message[:HEADER_SIZE])
-            new_message = False
+            # start processing new message
+            if new_message:
+                message_len = int(temp_message[:HEADER_SIZE])
+                temp_message = temp_message[HEADER_SIZE:]
+                new_message = False
 
-        full_message += temp_message
+            message += temp_message
 
-        # if we got whole message
-        if len(full_message) - HEADER_SIZE == message_len:
-            return pickle.loads(full_message[HEADER_SIZE:])
+            # print('get message', len(message), message_len, len(message) == message_len)
+
+            # if we got whole message
+            if len(message) == message_len:
+                return pickle.loads(message)
+
+        except socket.timeout:
+            # allow client to send data / reconnect for MAX_PROBES times
+            if probes <= MAX_PROBES:
+                probes += 1
+
+                continue
+            else:
+                raise socket.timeout
