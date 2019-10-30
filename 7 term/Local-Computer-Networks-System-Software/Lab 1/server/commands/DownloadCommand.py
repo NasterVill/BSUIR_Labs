@@ -80,4 +80,6 @@ class DownloadCommand(Command):
                 if probes > MAX_PROBES:
                     raise socket.timeout
 
+                print(f'\nConnection timeout. Waiting for {probes} of {MAX_PROBES}')
+
                 continue

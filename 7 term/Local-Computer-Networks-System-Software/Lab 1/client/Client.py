@@ -21,6 +21,13 @@ class Client:
 
                 self._executor.execute()
 
+            except socket.timeout:
+                print(f'Connection timed out!\n')
+
+                self._connection.close()
+
+                continue
+
             except InvalidCommand:
                 print('Provided command is invalid. Type \'help\' to get info about supported commands')
 

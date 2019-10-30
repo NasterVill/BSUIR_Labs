@@ -26,6 +26,7 @@ class Executor:
 
     def _set_connection(self, connection: socket.socket):
         self._connection = connection
+
         self._set_client_connection(connection)
 
     def build_command(self, command: str):

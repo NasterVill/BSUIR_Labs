@@ -1,6 +1,8 @@
 import socket
 from client.commands.Command import Command
 from client.Errors.InvalidCommand import InvalidCommand
+from shared.Utils.Socket import set_socket_keep_alive
+from shared.Consts import TIMEOUT
 
 
 class ConnectCommand(Command):
@@ -10,6 +12,10 @@ class ConnectCommand(Command):
 
     def __init__(self, params: list, set_executor_connection: callable):
         self._connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        self._connection.settimeout(TIMEOUT)
+
+        set_socket_keep_alive(self._connection, keep_alive_time=5, keep_alive_interval=10, max_probes=10)
 
         set_executor_connection(self._connection)
 
