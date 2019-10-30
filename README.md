@@ -42,5 +42,5 @@ An application for guitar tuning (written in Java) based of FFT algorithm
 
 * [Digital Signal and Image Processing](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/DSIP-Digital-Signal-and-Image-Processing)
 * [Computer Aided Design of Computers and Systems](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/Computer-Aided-Design-of-Computers-and-Systems)
-* [Local Computer Networks System Software](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi57fL4j4XlAhUCl4sKHcpTBfEQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.eventfinda.co.nz%2F2018%2Feaster-egg-hunt%2Fhavelock-north&psig=AOvVaw1RK_mZCHmNS-gB2mVUf3GJ&ust=1570365059489103)
+* [Local Computer Networks System Software](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/Local-Computer-Networks-System-Software)
 * [Modeling](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/Modeling)
