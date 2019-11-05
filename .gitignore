@@ -162,3 +162,6 @@ images/
 
 # Global scopes and variables
 /global/
+
+# folder for temporary projects
+/___TEMP___
