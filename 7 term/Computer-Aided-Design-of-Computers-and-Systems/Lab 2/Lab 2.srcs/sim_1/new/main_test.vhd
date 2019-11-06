@@ -58,10 +58,12 @@ architecture Behavioral of main_test is
     signal SER, SRCLK, RCLK: std_logic := '0';
     signal NOT_SRCLR, NOT_RCLR: std_logic := '1';
     signal QA, QB, QC, QD, QE, QF, QG, QH, QHl: std_logic := '0';
+    signal delay: std_logic := '1';
     
     constant clk_period : time := 16 ns;
     
 begin
+    
     main_component: main port map (
         NOT_RCLR => NOT_RCLR,
         RCLK => RCLK,
@@ -87,7 +89,18 @@ begin
         wait for clk_period / 2;
     end process;
 
-    RCLK <= not(SRCLK);
+    rclk_process: process
+    begin    
+        if delay='1' then
+            wait for 3 ns;
+            delay <= '0';
+        end if;
+        RCLK <= '0';
+        wait for clk_period / 2;
+        RCLK <= '1';
+        wait for clk_period / 2; 
+    end process;
+
     
     test_process: process
     begin

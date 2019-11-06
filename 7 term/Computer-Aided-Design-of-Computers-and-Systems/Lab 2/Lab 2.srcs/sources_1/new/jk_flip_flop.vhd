@@ -49,7 +49,9 @@ architecture Behavioral of jk_flip_flop is
 begin
     process (C, NOT_R, NOT_S)
     begin
-        if NOT_R='0' then   
+        if NOT_R='0' and NOT_S='0' then 
+            temp <= 'X';
+        elsif NOT_R='0' then   
             temp <= '0';
         elsif NOT_S='0' then   
             temp <= '1';
