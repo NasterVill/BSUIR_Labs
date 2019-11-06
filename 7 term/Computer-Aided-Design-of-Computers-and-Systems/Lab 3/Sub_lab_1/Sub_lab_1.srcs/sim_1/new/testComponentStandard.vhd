@@ -33,6 +33,20 @@ architecture Behavioral of testComponentStandard is
     signal A_p: std_logic_vector(2 downto 0);
     signal EO_s, GS_s: std_logic;
     signal A_s: std_logic_vector(2 downto 0);
+    signal A0_p: std_logic;
+    signal A1_p: std_logic;
+    signal A2_p: std_logic;
+    signal A0_s: std_logic;
+    signal A1_s: std_logic;
+    signal A2_s: std_logic;
+    signal I0: std_logic;
+    signal I1: std_logic;
+    signal I2: std_logic;
+    signal I3: std_logic;
+    signal I4: std_logic;
+    signal I5: std_logic;
+    signal I6: std_logic;
+    signal I7: std_logic;
 
 
     file test_input : text open read_mode is "input.txt";
@@ -55,6 +69,23 @@ architecture Behavioral of testComponentStandard is
             GS => GS_s,
             A => A_s
         );
+        
+        A0_p <= A_p(0);
+        A1_p <= A_p(1);
+        A2_p <= A_p(2);
+        
+        A0_s <= A_s(0);
+        A1_s <= A_s(1);
+        A2_s <= A_s(2);
+
+        I0 <= inputVec(0);
+        I1 <= inputVec(1);
+        I2 <= inputVec(2);
+        I3 <= inputVec(3);
+        I4 <= inputVec(4);
+        I5 <= inputVec(5);
+        I6 <= inputVec(6);
+        I7 <= inputVec(7);
     
     process
         variable curr_line : line;
