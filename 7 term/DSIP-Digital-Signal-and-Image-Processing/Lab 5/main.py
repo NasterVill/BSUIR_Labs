@@ -1,18 +1,18 @@
 import time
 
 from shapes import shapes, N, M
-from SelfOrganizingMap import SelfOrganizingMap
+from ConcurrentNet import ConcurrentNet
 from utils import get_shapes_with_noise, print_shape
 
 
 def main():
     BETA = 0.25
 
-    net = SelfOrganizingMap(N * N, len(shapes), BETA)
+    net = ConcurrentNet(N * N, len(shapes) - 1, BETA)
 
     print('Training')
     start = time.time()
-    net.train(shapes, 100)
+    net.train(shapes, 1500, 0.0000001)
     end = time.time()
     print(f'Training finished in {end - start} seconds')
 
@@ -26,8 +26,8 @@ def main():
             print_shape(shape, N, M)
             print(f'Tested shape with noise level of {noised_shape[1]}: ')
             print_shape(noised_shape[0], N, M)
-            print(f'Recognized: ')
-            print_shape(shapes[winner], N, M)
+            print(f'Recognized class: {winner}')
+            # print_shape(shapes[winner], N, M)
 
         print('|******************************************************|\n')
 
