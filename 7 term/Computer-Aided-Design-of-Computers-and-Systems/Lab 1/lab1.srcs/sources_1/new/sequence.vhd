@@ -57,17 +57,17 @@ architecture Sequence of sequence is
         if (inputVec(7) = '0') then
           A <= "000";
         elsif (inputVec(6) = '0') then
-          A <= "100";
+          A <= "001";
         elsif (inputVec(5) = '0') then
           A <= "010";
         elsif (inputVec(4) = '0') then
-          A <= "110";  
+          A <= "011";  
         elsif (inputVec(3) = '0') then
-          A <= "001";  
+          A <= "100";  
         elsif (inputVec(2) = '0') then
           A <= "101";  
         elsif (inputVec(1) = '0') then
-          A <= "011";  
+          A <= "110";  
         elsif (inputVec(0) = '0') then
           A <= "111"; 
         else

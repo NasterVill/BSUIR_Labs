@@ -19,10 +19,14 @@
 ----------------------------------------------------------------------------------
 
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.NUMERIC_STD.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_textio.all;
+use ieee.std_logic_arith.all;
+library std;
+use std.textio.all; 
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -37,7 +41,7 @@ entity sequenceTB is
 --  Port ( );
 end sequenceTB;
 
-architecture Behavioral of sequenceTB is
+architecture Behavioral of sequenceTB is  
   component sequence
     port(
       EI: in std_logic;
@@ -50,7 +54,7 @@ architecture Behavioral of sequenceTB is
   signal EI: std_logic;
   signal inputVec: std_logic_vector(0 to 7);
   signal EO, GS: std_logic;
-  signal A: std_logic_vector(0 to 2);
+  signal A: std_logic_vector(2 downto 0);
 
   begin
   
@@ -68,7 +72,6 @@ architecture Behavioral of sequenceTB is
         for j in 0 to 255 loop
           EI <= i;
           inputVec <= std_logic_vector(conv_unsigned(j, 8));
-          
           wait for 10 ns;
         end loop;
     end loop;

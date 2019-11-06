@@ -58,8 +58,8 @@ begin
 
   EO <= tmpNotAndResult;
 
-  -- GS <= (not EI) and (not tmpNotAndResult);
-  GS <= not (EI or tmpNotAndResult);
+  -- GS <= (not (not EI)) or (not tmpNotAndResult);
+  GS <= not ((not EI) and tmpNotAndResult);
 
   A(0) <= not (
     ((not inputVec(1)) and inputVec(2) and inputVec(4) and inputVec(6) and (not EI)) or
