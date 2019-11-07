@@ -36,7 +36,7 @@ entity parallelThree is
         EI: in std_logic;
         inputVec: in std_logic_vector(0 to 7);
         EO, GS: out std_logic;
-        A: out std_logic_vector(0 to 2)
+        A: out std_logic_vector(2 downto 0)
     );  
 end parallelThree;
 

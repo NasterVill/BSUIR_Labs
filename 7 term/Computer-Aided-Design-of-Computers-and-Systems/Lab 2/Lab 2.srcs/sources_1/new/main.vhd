@@ -105,4 +105,3 @@ architecture Behavioral of main is
         QHl <= first_line_output(7);
 
 end Behavioral;
-
