@@ -33,7 +33,7 @@ def _set_keepalive_osx(sock: socket.socket, keep_alive_interval: int = 3):
     sock.setsockopt(socket.IPPROTO_TCP, TCP_KEEPALIVE, keep_alive_interval)
 
 
-def _set_keepalive_windows(sock: socket.socket, keep_alive_time: int = 1, keep_alive_interval: int = 3):
+def _set_keepalive_windows(sock: socket.socket, keep_alive_time: int = 1, keep_alive_interval: int = 3, max_probes: int = 5):
     """
     Set TCP keepalive on an open socket.
 
@@ -45,6 +45,7 @@ def _set_keepalive_windows(sock: socket.socket, keep_alive_time: int = 1, keep_a
 
     All time params are measured in ms
     """
+
     second = 1000
     sock.ioctl(socket.SIO_KEEPALIVE_VALS, (1, keep_alive_time * second, keep_alive_interval * second))
 
@@ -57,7 +58,7 @@ def set_socket_keep_alive(
 ):
     system = platform.system()
 
-    if system == 'Windwos':
+    if system == 'Windows':
         _set_keepalive_windows(sock, keep_alive_time, keep_alive_interval)
     elif system == 'Linux':
         _set_keepalive_linux(sock, keep_alive_time, keep_alive_interval, max_probes)

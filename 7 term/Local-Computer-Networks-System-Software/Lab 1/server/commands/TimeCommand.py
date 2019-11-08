@@ -17,6 +17,6 @@ class TimeCommand(Command):
 
         message = compose_message(data)
 
-        print(date)
+        print(f'Client requested current time. Time is {date}')
 
         self._client.connection.sendall(message)

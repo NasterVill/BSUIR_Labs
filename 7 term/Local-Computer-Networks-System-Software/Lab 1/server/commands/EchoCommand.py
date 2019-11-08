@@ -14,7 +14,7 @@ class EchoCommand(Command):
     def execute(self):
         data = {'payload': self._data}
 
-        print(f'Echoed: {self._data}')
+        print(f'Echoed data from client: {self._data}')
 
         message = compose_message(data)
 
