@@ -1,4 +1,4 @@
-def progress(count, total):
+def progress(count: float, total: float):
     bar_len = 60
     filled_len = int(round(bar_len * count / float(total)))
 

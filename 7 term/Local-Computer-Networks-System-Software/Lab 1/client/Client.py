@@ -34,7 +34,7 @@ class Client:
                 continue
 
             except Exception as error:
-                print(f'Unexpected error caught! {error}')
+                print(f'Connection lost! Caught error: {error}')
 
                 self._connection.close()
 
