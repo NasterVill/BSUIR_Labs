@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="LightPU">
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ALU:inst138|lpm_add_sub1:inst2|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_fmh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_add_sub0:inst26|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_flh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|GPR:inst134|lpm_decode0:inst20|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_u7f.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|GPR:inst134|lpm_mux0:inst10|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_6oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|lpm_rom0:inst132|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_n161.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_add_sub2:inst79|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_flh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_counter0:inst4|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_6oi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_counter1:inst74|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_7oi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_decode0:inst75|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_u7f.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|lpm_ram_dq0:inst117|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_gh81.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_add_sub0:inst21|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_flh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_add_sub0:inst25|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_flh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_constant0:inst30|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_dh6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_constant0:inst83|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_dh6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|LightPU|ControllUnit:inst|lpm_decode1:inst71|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_0sf.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

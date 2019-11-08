@@ -1,0 +1,10 @@
+(
+	q_sig[]
+) = lpm_counter4	(
+	.clock = clock_sig,
+	.data[] = data_sig[],
+	.sload = sload_sig
+)
+RETURNS (
+	.q[]
+);

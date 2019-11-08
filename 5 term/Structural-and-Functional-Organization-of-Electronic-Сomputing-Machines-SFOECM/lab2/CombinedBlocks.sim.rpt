@@ -1,0 +1,245 @@
+Simulator report for CombinedBlocks
+Wed Oct 03 22:24:52 2018
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 76 nodes     ;
+; Simulation Coverage         ;      96.20 % ;
+; Total Number of Transitions ; 10495        ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Stratix II   ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Functional ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; On         ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      96.20 % ;
+; Total nodes checked                                 ; 76           ;
+; Total output ports checked                          ; 79           ;
+; Total output ports with complete 1/0-value coverage ; 76           ;
+; Total output ports with no 1/0-value coverage       ; 3            ;
+; Total output ports with no 1-value coverage         ; 3            ;
+; Total output ports with no 0-value coverage         ; 3            ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                                                                                                                               ;
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                                                        ; Output Port Name                                                                                                    ; Output Port Type ;
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+
+; |CombinedBlocks|DCa[15]                                                                                          ; |CombinedBlocks|DCa[15]                                                                                             ; pin_out          ;
+; |CombinedBlocks|DCa[14]                                                                                          ; |CombinedBlocks|DCa[14]                                                                                             ; pin_out          ;
+; |CombinedBlocks|DCa[13]                                                                                          ; |CombinedBlocks|DCa[13]                                                                                             ; pin_out          ;
+; |CombinedBlocks|DCa[12]                                                                                          ; |CombinedBlocks|DCa[12]                                                                                             ; pin_out          ;
+; |CombinedBlocks|DCa[11]                                                                                          ; |CombinedBlocks|DCa[11]                                                                                             ; pin_out          ;
+; |CombinedBlocks|DCa[10]                                                                                          ; |CombinedBlocks|DCa[10]                                                                                             ; pin_out          ;
+; |CombinedBlocks|DCa[9]                                                                                           ; |CombinedBlocks|DCa[9]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[8]                                                                                           ; |CombinedBlocks|DCa[8]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[7]                                                                                           ; |CombinedBlocks|DCa[7]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[6]                                                                                           ; |CombinedBlocks|DCa[6]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[5]                                                                                           ; |CombinedBlocks|DCa[5]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[4]                                                                                           ; |CombinedBlocks|DCa[4]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[3]                                                                                           ; |CombinedBlocks|DCa[3]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[2]                                                                                           ; |CombinedBlocks|DCa[2]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[1]                                                                                           ; |CombinedBlocks|DCa[1]                                                                                              ; pin_out          ;
+; |CombinedBlocks|DCa[0]                                                                                           ; |CombinedBlocks|DCa[0]                                                                                              ; pin_out          ;
+; |CombinedBlocks|inst3[15]                                                                                        ; |CombinedBlocks|inst3[15]                                                                                           ; out0             ;
+; |CombinedBlocks|inst3[14]                                                                                        ; |CombinedBlocks|inst3[14]                                                                                           ; out0             ;
+; |CombinedBlocks|inst3[13]                                                                                        ; |CombinedBlocks|inst3[13]                                                                                           ; out0             ;
+; |CombinedBlocks|inst3[12]                                                                                        ; |CombinedBlocks|inst3[12]                                                                                           ; out0             ;
+; |CombinedBlocks|inst3[11]                                                                                        ; |CombinedBlocks|inst3[11]                                                                                           ; out0             ;
+; |CombinedBlocks|inst3[10]                                                                                        ; |CombinedBlocks|inst3[10]                                                                                           ; out0             ;
+; |CombinedBlocks|inst3[9]                                                                                         ; |CombinedBlocks|inst3[9]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[8]                                                                                         ; |CombinedBlocks|inst3[8]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[7]                                                                                         ; |CombinedBlocks|inst3[7]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[6]                                                                                         ; |CombinedBlocks|inst3[6]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[5]                                                                                         ; |CombinedBlocks|inst3[5]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[4]                                                                                         ; |CombinedBlocks|inst3[4]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[3]                                                                                         ; |CombinedBlocks|inst3[3]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[2]                                                                                         ; |CombinedBlocks|inst3[2]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[1]                                                                                         ; |CombinedBlocks|inst3[1]                                                                                            ; out0             ;
+; |CombinedBlocks|inst3[0]                                                                                         ; |CombinedBlocks|inst3[0]                                                                                            ; out0             ;
+; |CombinedBlocks|inst11[15]                                                                                       ; |CombinedBlocks|inst11[15]                                                                                          ; out0             ;
+; |CombinedBlocks|inst11[14]                                                                                       ; |CombinedBlocks|inst11[14]                                                                                          ; out0             ;
+; |CombinedBlocks|inst11[13]                                                                                       ; |CombinedBlocks|inst11[13]                                                                                          ; out0             ;
+; |CombinedBlocks|inst11[12]                                                                                       ; |CombinedBlocks|inst11[12]                                                                                          ; out0             ;
+; |CombinedBlocks|inst11[11]                                                                                       ; |CombinedBlocks|inst11[11]                                                                                          ; out0             ;
+; |CombinedBlocks|inst11[10]                                                                                       ; |CombinedBlocks|inst11[10]                                                                                          ; out0             ;
+; |CombinedBlocks|inst11[9]                                                                                        ; |CombinedBlocks|inst11[9]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[8]                                                                                        ; |CombinedBlocks|inst11[8]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[7]                                                                                        ; |CombinedBlocks|inst11[7]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[6]                                                                                        ; |CombinedBlocks|inst11[6]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[5]                                                                                        ; |CombinedBlocks|inst11[5]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[4]                                                                                        ; |CombinedBlocks|inst11[4]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[3]                                                                                        ; |CombinedBlocks|inst11[3]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[2]                                                                                        ; |CombinedBlocks|inst11[2]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[1]                                                                                        ; |CombinedBlocks|inst11[1]                                                                                           ; out0             ;
+; |CombinedBlocks|inst11[0]                                                                                        ; |CombinedBlocks|inst11[0]                                                                                           ; out0             ;
+; |CombinedBlocks|clk                                                                                              ; |CombinedBlocks|clk                                                                                                 ; out              ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita0   ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita0      ; sumout           ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita0   ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita0~COUT ; cout             ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita1   ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita1      ; sumout           ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita1   ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita1~COUT ; cout             ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita2   ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita2      ; sumout           ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita2   ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita2~COUT ; cout             ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita3   ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_comb_bita3      ; sumout           ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_reg_bit1a[3] ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|safe_q[3]               ; regout           ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_reg_bit1a[2] ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|safe_q[2]               ; regout           ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_reg_bit1a[1] ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|safe_q[1]               ; regout           ;
+; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|counter_reg_bit1a[0] ; |CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated|safe_q[0]               ; regout           ;
+; |CombinedBlocks|16dmux:inst4|24                                                                                  ; |CombinedBlocks|16dmux:inst4|24                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|22                                                                                  ; |CombinedBlocks|16dmux:inst4|22                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|20                                                                                  ; |CombinedBlocks|16dmux:inst4|20                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|14                                                                                  ; |CombinedBlocks|16dmux:inst4|14                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|13                                                                                  ; |CombinedBlocks|16dmux:inst4|13                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|12                                                                                  ; |CombinedBlocks|16dmux:inst4|12                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|11                                                                                  ; |CombinedBlocks|16dmux:inst4|11                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|10                                                                                  ; |CombinedBlocks|16dmux:inst4|10                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|26                                                                                  ; |CombinedBlocks|16dmux:inst4|26                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|27                                                                                  ; |CombinedBlocks|16dmux:inst4|27                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|28                                                                                  ; |CombinedBlocks|16dmux:inst4|28                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|29                                                                                  ; |CombinedBlocks|16dmux:inst4|29                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|30                                                                                  ; |CombinedBlocks|16dmux:inst4|30                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|31                                                                                  ; |CombinedBlocks|16dmux:inst4|31                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|32                                                                                  ; |CombinedBlocks|16dmux:inst4|32                                                                                     ; out0             ;
+; |CombinedBlocks|16dmux:inst4|33                                                                                  ; |CombinedBlocks|16dmux:inst4|33                                                                                     ; out0             ;
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------+
+; Missing 1-Value Coverage                                           ;
++------------------------+------------------------+------------------+
+; Node Name              ; Output Port Name       ; Output Port Type ;
++------------------------+------------------------+------------------+
+; |CombinedBlocks|inst15 ; |CombinedBlocks|inst15 ; out0             ;
+; |CombinedBlocks|mod[1] ; |CombinedBlocks|mod[1] ; out              ;
+; |CombinedBlocks|mod[0] ; |CombinedBlocks|mod[0] ; out              ;
++------------------------+------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++--------------------------------------------------------------------+
+; Missing 0-Value Coverage                                           ;
++------------------------+------------------------+------------------+
+; Node Name              ; Output Port Name       ; Output Port Type ;
++------------------------+------------------------+------------------+
+; |CombinedBlocks|inst15 ; |CombinedBlocks|inst15 ; out0             ;
+; |CombinedBlocks|mod[1] ; |CombinedBlocks|mod[1] ; out              ;
+; |CombinedBlocks|mod[0] ; |CombinedBlocks|mod[0] ; out              ;
++------------------------+------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Wed Oct 03 22:24:52 2018
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off CombinedBlocks -c CombinedBlocks
+Info: Using vector source file "C:/Quartus/lab2/CombinedBlocks.vwf"
+Info: Overwriting simulation input file with simulation results
+    Info: A backup of CombinedBlocks.vwf called CombinedBlocks.sim_ori.vwf has been created in the db folder
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      96.20 %
+Info: Number of transitions in simulation is 10495
+Info: Vector file CombinedBlocks.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 173 megabytes
+    Info: Processing ended: Wed Oct 03 22:24:52 2018
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+

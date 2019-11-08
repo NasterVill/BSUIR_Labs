@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.939 ns
+From           : ArbiterDevice:inst|inst30
+To             : grant1
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 60.38 MHz ( period = 16.562 ns )
+From           : SlaveDevice:inst12|inst6
+To             : SlaveDevice:inst12|lpm_dff0:inst5|lpm_ff:lpm_ff_component|dffs[0]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clk'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : ArbiterDevice:inst|lpm_counter3:inst12|lpm_counter:lpm_counter_component|cntr_ulh:auto_generated|safe_q[1]
+To             : ArbiterDevice:inst|lpm_counter3:inst12|lpm_counter:lpm_counter_component|cntr_ulh:auto_generated|safe_q[1]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 140
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 140
+
+--------------------------------------------------------------------------------------
+

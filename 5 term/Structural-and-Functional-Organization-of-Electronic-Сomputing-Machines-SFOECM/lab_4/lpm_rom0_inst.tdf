@@ -1,0 +1,10 @@
+(
+	q_sig[]
+) = lpm_rom0	(
+	.address[] = address_sig[],
+	.inclock = inclock_sig,
+	.outclock = outclock_sig
+)
+RETURNS (
+	.q[]
+);

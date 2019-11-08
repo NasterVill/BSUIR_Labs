@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 1.416 ns
+From           : jmp
+To             : lpm_shiftreg0:inst|lpm_shiftreg:lpm_shiftreg_component|dffs[0]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 12.299 ns
+From           : lpm_dff1:inst25|lpm_ff:lpm_ff_component|dffs[0]
+To             : prediction
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.508 ns
+From           : jmp
+To             : sclear
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 1.291 ns
+From           : jmp
+To             : lpm_counter1:inst71|lpm_counter:lpm_counter_component|cntr_qui:auto_generated|safe_q[1]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 289.52 MHz ( period = 3.454 ns )
+From           : lpm_dff2:inst28|lpm_ff:lpm_ff_component|dffs[0]
+To             : lpm_dff0:inst211|lpm_ff:lpm_ff_component|dffs[0]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clk'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : lpm_counter2:inst81|lpm_counter:lpm_counter_component|cntr_plh:auto_generated|safe_q[2]
+To             : lpm_counter1:inst71|lpm_counter:lpm_counter_component|cntr_qui:auto_generated|safe_q[1]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 50
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 50
+
+--------------------------------------------------------------------------------------
+

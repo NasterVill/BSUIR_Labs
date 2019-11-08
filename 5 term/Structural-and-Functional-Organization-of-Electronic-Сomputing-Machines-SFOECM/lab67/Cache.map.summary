@@ -1,0 +1,15 @@
+Analysis & Synthesis Status : Successful - Fri Dec 14 14:26:54 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : Cache
+Top-level Entity Name : Cache
+Family : Stratix II
+Logic utilization : N/A
+    Combinational ALUTs : 106
+    Dedicated logic registers : 155
+Total registers : 155
+Total pins : 143
+Total virtual pins : 0
+Total block memory bits : 1,536
+DSP block 9-bit elements : 0
+Total PLLs : 0
+Total DLLs : 0

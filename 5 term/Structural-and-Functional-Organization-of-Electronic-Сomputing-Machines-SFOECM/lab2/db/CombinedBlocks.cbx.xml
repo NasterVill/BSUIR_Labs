@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="CombinedBlocks">
+		<CBX_INST_ENTRY INSTANCE_NAME="|CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_qlh.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

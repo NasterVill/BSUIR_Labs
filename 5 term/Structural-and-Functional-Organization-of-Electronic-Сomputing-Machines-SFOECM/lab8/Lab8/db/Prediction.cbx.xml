@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Prediction">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Prediction|lpm_counter1:inst71|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_qui.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Prediction|lpm_counter2:inst81|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_plh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Prediction|lpm_decode0:inst1|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_e9f.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Prediction|lpm_decode1:inst82|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_u7f.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

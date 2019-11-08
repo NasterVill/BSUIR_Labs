@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Memory">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|Buffer:inst69|lpm_mux2:inst24|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_8oc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|RAM:inst|lpm_ram_dq0:inst38|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_dvc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|Buffer:inst69|lpm_compare0:inst42|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_big.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|Buffer:inst69|lpm_constant0:inst41|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_qf6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|RAM:inst|lpm_add_sub0:inst15|lpm_add_sub:lpm_add_sub_component" CBX_FILE_NAME="add_sub_fmh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|RAM:inst|lpm_constant1:inst18|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_rf6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|ROM:inst70|lpm_counter1:inst28|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_pki.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|Buffer:inst69|lpm_decode0:inst8|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_e9f.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|RAM:inst|lpm_compare0:inst48|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_big.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|RAM:inst|lpm_counter1:inst39|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_pki.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|ROM:inst70|lpm_compare0:inst25|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_big.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|Buffer:inst69|lpm_counter0:inst50|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_s3i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|RAM:inst|lpm_counter0:inst51|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_s3i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|ROM:inst70|lpm_counter0:inst27|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_s3i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|ROM:inst70|lpm_rom0:inst29|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_f861.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

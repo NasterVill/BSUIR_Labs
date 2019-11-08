@@ -1,0 +1,9 @@
+(
+	q_sig[]
+) = lpm_shiftreg0	(
+	.clock = clock_sig,
+	.shiftin = shiftin_sig
+)
+RETURNS (
+	.q[]
+);

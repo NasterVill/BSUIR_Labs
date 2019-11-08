@@ -1,0 +1,244 @@
+MED
+C:\Quartus\lab3_2\RomInitialize.mif
+
+	Undo Commands
+	     1.	Paste from Clipboard
+	     2.	Paste from Clipboard
+	     3.	Paste from Clipboard
+	     4.	Paste from Clipboard
+	     5.	Paste from Clipboard
+	     6.	Paste from Clipboard
+	     7.	Paste from Clipboard
+	     8.	Paste from Clipboard
+	     9.	Paste from Clipboard
+	    10.	Paste from Clipboard
+	    11.	Paste from Clipboard
+	    12.	Paste from Clipboard
+	    13.	Paste from Clipboard
+	    14.	Paste from Clipboard
+	    15.	Paste from Clipboard
+	    16.	Paste from Clipboard
+	    17.	Paste from Clipboard
+	    18.	Paste from Clipboard
+	    19.	Paste from Clipboard
+	    20.	Paste from Clipboard
+	    21.	Paste from Clipboard
+	    22.	Paste from Clipboard
+	    23.	Paste from Clipboard
+	    24.	Paste from Clipboard
+	    25.	Paste from Clipboard
+	    26.	Paste from Clipboard
+	    27.	Paste from Clipboard
+	    28.	Paste from Clipboard
+	    29.	Paste from Clipboard
+	    30.	Paste from Clipboard
+	    31.	Paste from Clipboard
+	    32.	Paste from Clipboard
+	    33.	Cells
+	    34.	Cells
+	    35.	Cells
+	    36.	Cells
+	    37.	Cells
+	    38.	Cells
+	    39.	Cells
+	    40.	Cells
+	    41.	Cells
+
+
+GED
+
+	Undo Commands
+	     1.	Move
+	     2.	Move
+	     3.	Move
+	     4.	Move
+	     5.	Move
+	     6.	Move
+	     7.	Move
+	     8.	Move
+	     9.	Move
+	    10.	Move
+	    11.	Move
+	    12.	Move
+	    13.	Move
+	    14.	Move
+	    15.	Move
+	    16.	Move
+	    17.	Insert Bus
+	    18.	Move
+	    19.	Move
+	    20.	Move
+	    21.	Move
+	    22.	Move
+	    23.	Move
+	    24.	Move
+	    25.	Move
+	    26.	Move
+	    27.	Move
+	    28.	Move
+	    29.	Move
+	    30.	Move
+	    31.	Move
+	    32.	Move
+	    33.	Move
+	    34.	Move
+	    35.	Move
+	    36.	Move
+	    37.	Move
+	    38.	Move
+	    39.	Move
+	    40.	Move
+	    41.	Move
+	    42.	Move
+	    43.	Move
+	    44.	Move
+	    45.	Move
+	    46.	Move
+	    47.	Move
+	    48.	Move
+	    49.	Move
+	    50.	Move
+	    51.	Move
+	    52.	Move
+	    53.	Move
+	    54.	Move
+	    55.	Move
+	    56.	Move
+	    57.	Move
+	    58.	Delete
+	    59.	Delete
+	    60.	Insert Bus
+	    61.	Insert Bus
+	    62.	Move
+	    63.	Move
+	    64.	Insert Bus
+	    65.	Insert Bus
+	    66.	Delete
+	    67.	Delete
+	    68.	Delete
+	    69.	Move
+	    70.	Move
+	    71.	Move
+	    72.	Move
+	    73.	Move
+	    74.	Move
+	    75.	Move
+	    76.	Move
+	    77.	Move
+	    78.	Move
+	    79.	Move
+	    80.	Move
+	    81.	Move
+	    82.	Move
+	    83.	Move
+	    84.	Move
+	    85.	Move
+	    86.	Move
+	    87.	Insert Node
+	    88.	Move
+	    89.	Paste
+	    90.	Delete Insert
+	    91.	Insert Node
+	    92.	Insert Node
+	    93.	Delete
+	    94.	Delete
+	    95.	Delete Insert
+	    96.	Delete
+	    97.	Delete
+	    98.	Delete
+	    99.	Delete
+	   100.	Delete
+
+
+RPW
+
+	Undo Commands
+	     1.	||Compilation Report||Flow Summary
+
+
+RPW
+
+	Undo Commands
+	     1.	||Simulation Report||Simulator||Simulation Waveforms
+
+
+GED
+
+	Undo Commands
+	     1.	Delete
+	     2.	Delete Insert
+	     3.	Delete
+	     4.	Delete
+	     5.	Move
+	     6.	Move
+	     7.	Paste
+	     8.	Delete
+
+
+GED
+
+	Undo Commands
+	     1.	Move
+	     2.	Move
+	     3.	Move
+	     4.	Move
+	     5.	Move
+	     6.	Move
+	     7.	Move
+	     8.	Paste
+
+	Redo Commands
+	     1.	Move
+	     2.	Move
+	     3.	Move
+	     4.	Move
+	     5.	Move
+	     6.	Move
+	     7.	Move
+	     8.	Move
+	     9.	Move
+	    10.	Move
+	    11.	Move
+	    12.	Move
+	    13.	Move
+	    14.	Move
+	    15.	Move
+	    16.	Move
+	    17.	Move
+	    18.	Move
+	    19.	Move
+	    20.	Move
+	    21.	Move
+	    22.	Move
+	    23.	Move
+	    24.	Move
+	    25.	Move
+	    26.	Move
+	    27.	Move
+	    28.	Move
+	    29.	Move
+	    30.	Move
+	    31.	Move
+	    32.	Move
+	    33.	Move
+	    34.	Move
+	    35.	Move
+	    36.	Move
+	    37.	Move
+
+
+WED
+
+	Undo Commands
+	     1.	Change Time Bars
+	     2.	Change Time Bars
+	     3.	Change Time Bars
+	     4.	Change Time Bars
+	     5.	Change Time Bars
+	     6.	Change Time Bars
+	     7.	Change Time Bars
+	     8.	Change Time Bars
+	     9.	Change Time Bars
+	    10.	Change Time Bars
+
+

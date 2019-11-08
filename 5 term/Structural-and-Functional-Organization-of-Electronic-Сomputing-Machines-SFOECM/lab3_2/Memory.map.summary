@@ -1,0 +1,15 @@
+Analysis & Synthesis Status : Successful - Thu Oct 18 14:17:31 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : Memory
+Top-level Entity Name : Memory
+Family : Stratix II
+Logic utilization : N/A
+    Combinational ALUTs : 133
+    Dedicated logic registers : 105
+Total registers : 105
+Total pins : 26
+Total virtual pins : 0
+Total block memory bits : 4,096
+DSP block 9-bit elements : 0
+Total PLLs : 0
+Total DLLs : 0

@@ -1,0 +1,17 @@
+Fitter Status : Successful - Thu Nov 15 01:38:48 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : Arbiter
+Top-level Entity Name : Arbiter
+Family : Stratix II
+Device : EP2S15F484C3
+Timing Models : Final
+Logic utilization : 3 %
+    Combinational ALUTs : 245 / 12,480 ( 2 % )
+    Dedicated logic registers : 125 / 12,480 ( 1 % )
+Total registers : 125
+Total pins : 44 / 343 ( 13 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 419,328 ( 0 % )
+DSP block 9-bit elements : 0 / 96 ( 0 % )
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 2 ( 0 % )

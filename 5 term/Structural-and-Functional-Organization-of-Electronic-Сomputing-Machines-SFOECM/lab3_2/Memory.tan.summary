@@ -1,0 +1,126 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 6.099 ns
+From           : write
+To             : RAM:inst|lpm_ram_dq0:inst38|altsyncram:altsyncram_component|altsyncram_dvc1:auto_generated|ram_block1a0~porta_datain_reg0
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 14.936 ns
+From           : buffer:inst69|lpm_dff0:inst2|lpm_ff:lpm_ff_component|dffs[7]
+To             : data_bus[7]
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 11.142 ns
+From           : write
+To             : data_bus[0]
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 4.339 ns
+From           : rom_ram
+To             : buffer:inst69|lpm_dff0:inst|lpm_ff:lpm_ff_component|dffs[7]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 54.27 MHz ( period = 18.428 ns )
+From           : buffer:inst69|lpm_dff0:inst|lpm_ff:lpm_ff_component|dffs[7]
+To             : RAM:inst|lpm_ram_dq0:inst38|altsyncram:altsyncram_component|altsyncram_dvc1:auto_generated|ram_block1a0~porta_datain_reg7
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'rom_ram'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 241.31 MHz ( period = 4.144 ns )
+From           : buffer:inst69|lpm_dff0:inst2|lpm_ff:lpm_ff_component|dffs[2]
+To             : buffer:inst69|lpm_dff0:inst1|lpm_ff:lpm_ff_component|dffs[2]
+From Clock     : rom_ram
+To Clock       : rom_ram
+Failed Paths   : 0
+
+Type           : Clock Setup: 'read'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 293.34 MHz ( period = 3.409 ns )
+From           : buffer:inst69|lpm_dff0:inst2|lpm_ff:lpm_ff_component|dffs[2]
+To             : buffer:inst69|lpm_dff0:inst1|lpm_ff:lpm_ff_component|dffs[2]
+From Clock     : read
+To Clock       : read
+Failed Paths   : 0
+
+Type           : Clock Setup: 'write'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 500.00 MHz ( period = 2.000 ns )
+From           : RAM:inst|inst40
+To             : RAM:inst|inst40
+From Clock     : write
+To Clock       : write
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clk'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : RAM:inst|lpm_ram_dq0:inst38|altsyncram:altsyncram_component|altsyncram_dvc1:auto_generated|q_a[3]
+To             : buffer:inst69|lpm_dff0:inst2|lpm_ff:lpm_ff_component|dffs[3]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 1048
+
+Type           : Clock Hold: 'rom_ram'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : buffer:inst69|inst27
+To             : buffer:inst69|lpm_dff0:inst2|lpm_ff:lpm_ff_component|dffs[1]
+From Clock     : rom_ram
+To Clock       : rom_ram
+Failed Paths   : 129
+
+Type           : Clock Hold: 'read'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : buffer:inst69|inst27
+To             : buffer:inst69|lpm_dff0:inst2|lpm_ff:lpm_ff_component|dffs[1]
+From Clock     : read
+To Clock       : read
+Failed Paths   : 128
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 1305
+
+--------------------------------------------------------------------------------------
+

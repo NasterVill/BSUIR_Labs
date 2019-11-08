@@ -1,0 +1,9 @@
+(
+	q_sig[]
+) = lpm_counter3	(
+	.clock = clock_sig,
+	.sset = sset_sig
+)
+RETURNS (
+	.q[]
+);

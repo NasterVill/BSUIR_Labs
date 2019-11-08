@@ -1,0 +1,11 @@
+(
+	q_sig[]
+) = lpm_ram_dq0	(
+	.address[] = address_sig[],
+	.clock = clock_sig,
+	.data[] = data_sig[],
+	.wren = wren_sig
+)
+RETURNS (
+	.q[]
+);

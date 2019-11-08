@@ -1,0 +1,86 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 0.503 ns
+From           : data[3]
+To             : lpm_dff0:inst3|lpm_ff:lpm_ff_component|dffs[3]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 16.340 ns
+From           : lpm_dff0:inst6|lpm_ff:lpm_ff_component|dffs[6]
+To             : demux_res[6]
+From Clock     : write
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 3.859 ns
+From           : data[2]
+To             : lpm_dff0:inst6|lpm_ff:lpm_ff_component|dffs[2]
+From Clock     : --
+To Clock       : write
+Failed Paths   : 0
+
+Type           : Clock Setup: 'read'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 500.00 MHz ( period = 2.000 ns )
+From           : lpm_counter0:inst50|lpm_counter:lpm_counter_component|cntr_uaj:auto_generated|safe_q[0]
+To             : lpm_counter0:inst50|lpm_counter:lpm_counter_component|cntr_uaj:auto_generated|safe_q[3]
+From Clock     : read
+To Clock       : read
+Failed Paths   : 0
+
+Type           : Clock Setup: 'write'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 500.00 MHz ( period = 2.000 ns )
+From           : lpm_counter0:inst50|lpm_counter:lpm_counter_component|cntr_uaj:auto_generated|safe_q[0]
+To             : lpm_counter0:inst50|lpm_counter:lpm_counter_component|cntr_uaj:auto_generated|safe_q[3]
+From Clock     : write
+To Clock       : write
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 500.00 MHz ( period = 2.000 ns )
+From           : lpm_counter0:inst50|lpm_counter:lpm_counter_component|cntr_uaj:auto_generated|safe_q[0]
+To             : inst26
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Hold: 'read'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : inst27
+To             : lpm_dff0:inst6|lpm_ff:lpm_ff_component|dffs[3]
+From Clock     : read
+To Clock       : read
+Failed Paths   : 64
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 64
+
+--------------------------------------------------------------------------------------
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Memory">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|lpm_compare0:inst42|lpm_compare:lpm_compare_component" CBX_FILE_NAME="cmpr_i8j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|lpm_constant0:inst41|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_qf6.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|lpm_counter0:inst50|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_uaj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|lpm_decode0:inst8|lpm_decode:lpm_decode_component" CBX_FILE_NAME="decode_e9f.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Memory|lpm_mux2:inst24|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_8oc.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

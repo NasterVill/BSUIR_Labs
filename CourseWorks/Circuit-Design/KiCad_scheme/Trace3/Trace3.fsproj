@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xsi:noNamespaceSchemaLocation="Project.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Version current="2" valid="1" read="1"/>
+  <Format>Project</Format>
+  <Header>
+    <Program name="TopoR" version="5.1"/>
+    <GUID>{D353CD84-6F4F-46AD-9116-E5483BDB5815}</GUID>
+    <Copyright></Copyright>
+    <Annotation>Project file</Annotation>
+    <ParentDocument/>
+    <ChangeLog/>
+  </Header>
+  <Document>
+    <LocalLibrary />
+    <Pcb>
+<File path=".\CourseWorkScheme.fsx" Folder="-1" isopened="0"/>
+<File path=".\CourseWorkScheme1111.fsx" Folder="-1" isopened="0"/>
+    </Pcb>
+    <ARouteSessions>
+<Session name="CourseWorkScheme" date="2018-12-10 00:16:39" path=".\autoroute_CourseWorkScheme_181210001639\">
+<File path=".\autoroute_CourseWorkScheme_181210001639\CourseWorkScheme_2984-0s.fsb" Folder="-1" isopened="0"/>
+</Session>
+<Session name="CourseWorkScheme" date="2018-12-10 00:23:23" path=".\autoroute_CourseWorkScheme_181210002323\">
+<File path=".\autoroute_CourseWorkScheme_181210002323\CourseWorkScheme_2955-0s.fsb" Folder="-1" isopened="0"/>
+</Session>
+<Session name="CourseWorkScheme1111" date="2018-12-10 00:36:59" path=".\autoroute_CourseWorkScheme1111_181210003659\">
+<File path=".\autoroute_CourseWorkScheme1111_181210003659\CourseWorkScheme1111_3465-1s.fsb" Folder="-1" isopened="0"/>
+</Session>
+<Session name="CourseWorkScheme1111" date="2018-12-10 00:43:00" path=".\autoroute_CourseWorkScheme1111_181210004300\">
+<File path=".\autoroute_CourseWorkScheme1111_181210004300\CourseWorkScheme1111_3345-2s.fsb" Folder="-1" isopened="0"/>
+</Session>
+    </ARouteSessions>
+  </Document>
+</Project>

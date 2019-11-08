@@ -1,0 +1,15 @@
+Analysis & Synthesis Status : Successful - Mon Nov 05 12:12:17 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : LightPU
+Top-level Entity Name : LightPU
+Family : Stratix II
+Logic utilization : N/A
+    Combinational ALUTs : 135
+    Dedicated logic registers : 115
+Total registers : 115
+Total pins : 107
+Total virtual pins : 0
+Total block memory bits : 4,096
+DSP block 9-bit elements : 0
+Total PLLs : 0
+Total DLLs : 0

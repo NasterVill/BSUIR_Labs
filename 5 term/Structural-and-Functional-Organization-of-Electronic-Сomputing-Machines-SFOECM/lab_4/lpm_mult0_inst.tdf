@@ -1,0 +1,8 @@
+(
+	result_sig[]
+) = lpm_mult0	(
+	.dataa[] = dataa_sig[]
+)
+RETURNS (
+	.result[]
+);

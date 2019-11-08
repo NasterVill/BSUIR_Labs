@@ -1,0 +1,12 @@
+(
+	cout_sig,
+	q_sig[]
+) = lpm_counter2	(
+	.aclr = aclr_sig,
+	.clk_en = clk_en_sig,
+	.clock = clock_sig
+)
+RETURNS (
+	.cout,
+	.q[]
+);

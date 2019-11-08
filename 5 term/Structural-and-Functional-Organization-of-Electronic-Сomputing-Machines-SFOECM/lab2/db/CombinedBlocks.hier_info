@@ -1,0 +1,153 @@
+|CombinedBlocks
+DCa[0] <= inst3[0].DB_MAX_OUTPUT_PORT_TYPE
+DCa[1] <= inst3[1].DB_MAX_OUTPUT_PORT_TYPE
+DCa[2] <= inst3[2].DB_MAX_OUTPUT_PORT_TYPE
+DCa[3] <= inst3[3].DB_MAX_OUTPUT_PORT_TYPE
+DCa[4] <= inst3[4].DB_MAX_OUTPUT_PORT_TYPE
+DCa[5] <= inst3[5].DB_MAX_OUTPUT_PORT_TYPE
+DCa[6] <= inst3[6].DB_MAX_OUTPUT_PORT_TYPE
+DCa[7] <= inst3[7].DB_MAX_OUTPUT_PORT_TYPE
+DCa[8] <= inst3[8].DB_MAX_OUTPUT_PORT_TYPE
+DCa[9] <= inst3[9].DB_MAX_OUTPUT_PORT_TYPE
+DCa[10] <= inst3[10].DB_MAX_OUTPUT_PORT_TYPE
+DCa[11] <= inst3[11].DB_MAX_OUTPUT_PORT_TYPE
+DCa[12] <= inst3[12].DB_MAX_OUTPUT_PORT_TYPE
+DCa[13] <= inst3[13].DB_MAX_OUTPUT_PORT_TYPE
+DCa[14] <= inst3[14].DB_MAX_OUTPUT_PORT_TYPE
+DCa[15] <= inst3[15].DB_MAX_OUTPUT_PORT_TYPE
+clk => lpm_counter3:inst.clock
+clk => inst15.IN1
+mod[0] => inst15.IN0
+mod[1] => inst3[15].IN1
+mod[1] => inst3[14].IN1
+mod[1] => inst3[13].IN1
+mod[1] => inst3[12].IN1
+mod[1] => inst3[11].IN1
+mod[1] => inst3[10].IN1
+mod[1] => inst3[9].IN1
+mod[1] => inst3[8].IN1
+mod[1] => inst3[7].IN1
+mod[1] => inst3[6].IN1
+mod[1] => inst3[5].IN1
+mod[1] => inst3[4].IN1
+mod[1] => inst3[3].IN1
+mod[1] => inst3[2].IN1
+mod[1] => inst3[1].IN1
+mod[1] => inst3[0].IN1
+
+
+|CombinedBlocks|16dmux:inst4
+Q8 <= 24.DB_MAX_OUTPUT_PORT_TYPE
+A => 5.IN0
+A => 22.IN0
+A => 14.IN0
+A => 12.IN0
+A => 10.IN0
+A => 26.IN0
+A => 28.IN0
+A => 30.IN0
+A => 32.IN0
+B => 6.IN0
+B => 20.IN1
+B => 14.IN2
+B => 11.IN1
+B => 10.IN1
+B => 26.IN1
+B => 27.IN1
+B => 30.IN1
+B => 31.IN1
+C => 7.IN0
+C => 13.IN2
+C => 12.IN2
+C => 11.IN2
+C => 10.IN2
+C => 26.IN2
+C => 27.IN2
+C => 28.IN2
+C => 29.IN2
+D => 24.IN3
+D => 22.IN3
+D => 20.IN3
+D => 14.IN3
+D => 13.IN3
+D => 12.IN3
+D => 11.IN3
+D => 10.IN3
+D => 8.IN0
+Q9 <= 22.DB_MAX_OUTPUT_PORT_TYPE
+Q10 <= 20.DB_MAX_OUTPUT_PORT_TYPE
+Q11 <= 14.DB_MAX_OUTPUT_PORT_TYPE
+Q12 <= 13.DB_MAX_OUTPUT_PORT_TYPE
+Q13 <= 12.DB_MAX_OUTPUT_PORT_TYPE
+Q14 <= 11.DB_MAX_OUTPUT_PORT_TYPE
+Q15 <= 10.DB_MAX_OUTPUT_PORT_TYPE
+Q7 <= 26.DB_MAX_OUTPUT_PORT_TYPE
+Q6 <= 27.DB_MAX_OUTPUT_PORT_TYPE
+Q5 <= 28.DB_MAX_OUTPUT_PORT_TYPE
+Q4 <= 29.DB_MAX_OUTPUT_PORT_TYPE
+Q3 <= 30.DB_MAX_OUTPUT_PORT_TYPE
+Q2 <= 31.DB_MAX_OUTPUT_PORT_TYPE
+Q1 <= 32.DB_MAX_OUTPUT_PORT_TYPE
+Q0 <= 33.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CombinedBlocks|lpm_counter3:inst
+clock => lpm_counter:lpm_counter_component.clock
+q[0] <= lpm_counter:lpm_counter_component.q[0]
+q[1] <= lpm_counter:lpm_counter_component.q[1]
+q[2] <= lpm_counter:lpm_counter_component.q[2]
+q[3] <= lpm_counter:lpm_counter_component.q[3]
+
+
+|CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component
+clock => cntr_qlh:auto_generated.clock
+clk_en => ~NO_FANOUT~
+cnt_en => ~NO_FANOUT~
+updown => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+aset => ~NO_FANOUT~
+aconst => ~NO_FANOUT~
+aload => ~NO_FANOUT~
+sclr => ~NO_FANOUT~
+sset => ~NO_FANOUT~
+sconst => ~NO_FANOUT~
+sload => ~NO_FANOUT~
+data[0] => ~NO_FANOUT~
+data[1] => ~NO_FANOUT~
+data[2] => ~NO_FANOUT~
+data[3] => ~NO_FANOUT~
+cin => ~NO_FANOUT~
+q[0] <= cntr_qlh:auto_generated.q[0]
+q[1] <= cntr_qlh:auto_generated.q[1]
+q[2] <= cntr_qlh:auto_generated.q[2]
+q[3] <= cntr_qlh:auto_generated.q[3]
+cout <= <GND>
+eq[0] <= <GND>
+eq[1] <= <GND>
+eq[2] <= <GND>
+eq[3] <= <GND>
+eq[4] <= <GND>
+eq[5] <= <GND>
+eq[6] <= <GND>
+eq[7] <= <GND>
+eq[8] <= <GND>
+eq[9] <= <GND>
+eq[10] <= <GND>
+eq[11] <= <GND>
+eq[12] <= <GND>
+eq[13] <= <GND>
+eq[14] <= <GND>
+eq[15] <= <GND>
+
+
+|CombinedBlocks|lpm_counter3:inst|lpm_counter:lpm_counter_component|cntr_qlh:auto_generated
+clock => counter_reg_bit1a[3].CLK
+clock => counter_reg_bit1a[2].CLK
+clock => counter_reg_bit1a[1].CLK
+clock => counter_reg_bit1a[0].CLK
+q[0] <= counter_reg_bit1a[0].REGOUT
+q[1] <= counter_reg_bit1a[1].REGOUT
+q[2] <= counter_reg_bit1a[2].REGOUT
+q[3] <= counter_reg_bit1a[3].REGOUT
+
+
