@@ -12,6 +12,7 @@ Here I've gathered most of the laboratory works from the CMSnN (Computing Machin
 ### 2 term
 
 * [Algorithms and Programming Foundations](https://github.com/NasterVill/BSUIR_Labs/tree/master/2%20term/Algorithms-and-Programming-Foundations)
+* [Arithmetic and Logic Basics of Computing Machines (Course Work)](https://github.com/NasterVill/BSUIR_Labs/tree/master/CourseWorks/Arithmetic-and-Logic-Basics-of-Computing-Machines)
 
 ### 3 term
 * [Programming Design and Programming Languages (C++)](https://github.com/NasterVill/BSUIR_Labs/tree/master/3%20term/Programming-Design-and-Programming-Languages-C%2B%2B)
@@ -30,6 +31,8 @@ An application for guitar tuning (written in Java) based of FFT algorithm
 
 * [Interfaces and Peripheral Devices](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Interfaces-and-Peripheral-Devices-IPD-)
 * [Theoretical Foundations of Computer Networks](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Theoretical-Foundations-of-Computer-Networks-TFoCN)
+* [Structural and Functional Organization of Electronic Computing Machines](https://github.com/NasterVill/BSUIR_Labs/tree/master/5%20term/Structural-and-Functional-Organization-of-Electronic-%D0%A1omputing-Machines-SFOECM)
+* [Circuit Design (Course Work)](https://github.com/NasterVill/BSUIR_Labs/tree/master/CourseWorks/Circuit-Design)
 
 ### 6 term
 
@@ -43,4 +46,5 @@ An application for guitar tuning (written in Java) based of FFT algorithm
 * [Digital Signal and Image Processing](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/DSIP-Digital-Signal-and-Image-Processing)
 * [Computer Aided Design of Computers and Systems](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/Computer-Aided-Design-of-Computers-and-Systems)
 * [Local Computer Networks System Software](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/Local-Computer-Networks-System-Software)
+* [Microprocessor Systems and Tools](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/Microprocessor-Systems-and-Tools)
 * [Modeling](https://github.com/NasterVill/BSUIR_Labs/tree/master/7%20term/Modeling)
