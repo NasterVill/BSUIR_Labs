@@ -1,4 +1,4 @@
-#include <msp430.h>
+﻿#include <msp430.h>
 #include <math.h>
 
 #define COLUMN_ADR_MSB              0x10  //Set SRAM col. addr. before write, last 4 bits = ca4-ca7
@@ -12,14 +12,14 @@
 #define ALL_PIXEL_ON                0xA4  //Disable all pixel on (last bit 1 to turn on all pixels - does not affect memory)
 #define LCD_INVERSE                 0xA6  //Inverse display off (last bit 1 to invert display - does not affect memory)
 #define LCD_EN                      0xAF  //Enable display (exit sleep mode & restore power)
-#define SET_MIRROR_SEG 				0xA0  //Mirror SEG (column) mapping (set bit0 to mirror display)
-#define SET_MIRROR_COM 				0xC0  //Mirror COM (row) mapping (set bit3 to mirror display)
+#define SET_MIRROR_SEG 				      0xA0  //Mirror SEG (column) mapping (set bit0 to mirror display)
+#define SET_MIRROR_COM 				      0xC0  //Mirror COM (row) mapping (set bit3 to mirror display)
 #define BIAS_RATIO_VCC              0xA2  //Set voltage bias ratio (BR = bit0)
 #define ADV_CTL_MSB                 0xFA  //Set temp. compensation curve to -0.11%/C
 #define ADV_CTL_LSB                 0x90
 #define ROWS 9
 #define COLUMNS 6
-#define PAGES ROWS / 2
+#define PAGES 2
 #define DELAY 500
 #define COLUMN_OFFSET_BIG 31
 #define COLUMN_OFFSET_NONE 0
@@ -40,7 +40,6 @@ void Dogs102x6_writeCommand(uchar *sCmd, uchar i);
 
 void Clear(void);
 void ShowNumber(void);
-int SendSymbol(uchar** symbol, int amount_of_pages, int amount_of_columns, int page, int column);
 
 uchar mirror_modes[2][1] = {{0xA0}, {0xA1}};
 
@@ -260,26 +259,9 @@ void Dogs102x6_writeData(uchar *sData, uchar i)
   // Restore original GIE state
 }
 
-int SendSymbol(uchar** symbol, int amount_of_pages, int amount_of_columns, int page, int column)
-{
-  if (page >= 8 || column >= 132)
-  {
-    return -1;
-  }
-
-  volatile int i = 0; 
-  for (; i < amount_of_pages; i++)
-  {
-    __SPI_SetAddress(i + page,  column);
-    Dogs102x6_writeData(minus[i], amount_of_columns);
-  }
-
-  return 0;
-}
-
 void ShowNumber(void)
 {
-  volatile int lenght = 1;
+  volatile int length = 1;
   volatile int digit = 0;
   volatile int j = 0;
   volatile int i = 10;
@@ -289,7 +271,7 @@ void ShowNumber(void)
     if(number / i != 0)
     {
       i *= 10;
-      lenght++;
+      length++;
     }
     else
     {
@@ -298,26 +280,37 @@ void ShowNumber(void)
   }
 
   int temp = number;
-  for(j = 0; j < lenght + 1; j++)
+  for(j = 0; j < length; j++)
   {
-    digit = (uchar)(temp % 10);
+    digit = (int)(temp % 10);
 
-    if (digit < 10)
-    {
-      SendSymbol(digits[j], PAGES, COLUMNS, 0, column_offset + j * COLUMNS)
-    }
+    digit = digit < 0 ? (-1) * digit : digit;
 
-    temp /= 10;
-  }
+	if (digit < 10)
+	{
+		__SPI_SetAddress(0, column_offset + j * COLUMNS);
+		Dogs102x6_writeData(digits[digit][0], COLUMNS);
+		__SPI_SetAddress(1, column_offset + j * COLUMNS);
+		Dogs102x6_writeData(digits[digit][1], COLUMNS);
+	}
 
-  if(number >= 0)
-  {
-    SendSymbol(plus, PAGES, COLUMNS, 0, column_offset + lenght * COLUMNS)
-  }
-  else
-  {
-    SendSymbol(minus, PAGES, COLUMNS, 0, column_offset + lenght * COLUMNS)
-  }
+		temp /= 10;
+	}
+
+	if (number >= 0)
+	{
+		__SPI_SetAddress(0, column_offset + length * COLUMNS);
+		Dogs102x6_writeData(plus[0], COLUMNS);
+		__SPI_SetAddress(1, column_offset + length * COLUMNS);
+		Dogs102x6_writeData(plus[1], COLUMNS);
+	}
+	else
+	{
+		__SPI_SetAddress(0, column_offset + length * COLUMNS);
+		Dogs102x6_writeData(minus[0], COLUMNS);
+		__SPI_SetAddress(1, column_offset + length * COLUMNS);
+		Dogs102x6_writeData(minus[1], COLUMNS);
+	}
 }
 
 void Clear(void)
@@ -354,7 +347,7 @@ __interrupt void __S1_ButtonHandler(void)
 #pragma vector = PORT2_VECTOR
 __interrupt void __S2_ButtonHandler(void)
 {
-  delay(DELAY);
+  Delay(DELAY);
 
   if(GetS2State())
   {
