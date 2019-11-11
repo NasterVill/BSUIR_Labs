@@ -1,7 +1,5 @@
-﻿#include <msp430.h>
+#include <msp430.h>
 #include <math.h>
-
-typedef unsigned char uchar;
 
 #define COLUMN_ADR_MSB              0x10  //Set SRAM col. addr. before write, last 4 bits = ca4-ca7
 #define COLUMN_ADR_LSB              0x00  //Set SRAM col. addr. before write, last 4 bits = ca0-ca3
@@ -20,39 +18,53 @@ typedef unsigned char uchar;
 #define ADV_CTL_MSB                 0xFA  //Set temp. compensation curve to -0.11%/C
 #define ADV_CTL_LSB                 0x90
 #define ROWS 9
-#define COLUMNS 5
+#define COLUMNS 6
 #define PAGES ROWS / 2
 #define DELAY 500
 #define COLUMN_OFFSET_BIG 31
 #define COLUMN_OFFSET_NONE 0
 
+typedef unsigned char uchar;
+
 void Delay(int value);
 int GetS1State();
 int GetS2State();
 
-// 4 columns (+1 offset) and 9 rows. Each byte => 8 rows == 1 page
-uchar plus[PAGES][COLUMNS]  = {{0x18, 0x7E, 0x7E, 0x18, 0x00}, {0x00, 0x00, 0x00, 0x00, 0x00}};
-uchar minus[PAGES][COLUMNS] = {{0x18, 0x18, 0x18, 0x18, 0x00}, {0x00, 0x00, 0x00, 0x00, 0x00}};
+void SetupSPI();
+void SetupLCD();
+void SetupButtons();
+
+void __SPI_SetAddress(uchar page, uchar column);
+void Dogs102x6_writeData(uchar *sData, uchar i);
+void Dogs102x6_writeCommand(uchar *sCmd, uchar i);
+
+void Clear(void);
+void ShowNumber(void);
+int SendSymbol(uchar** symbol, int amount_of_pages, int amount_of_columns, int page, int column);
+
 uchar mirror_modes[2][1] = {{0xA0}, {0xA1}};
 
+// 4 columns (+2 offset) and 9 rows. Each byte => 8 rows == 1 page
+uchar plus[PAGES][COLUMNS]  = {{0x18, 0x7E, 0x7E, 0x18, 0x00}, {0x00, 0x00, 0x00, 0x00, 0x00}};
+uchar minus[PAGES][COLUMNS] = {{0x18, 0x18, 0x18, 0x18, 0x00}, {0x00, 0x00, 0x00, 0x00, 0x00}};
 uchar digits[10][PAGES][COLUMNS] = {
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 0
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 1
-  {{0xCF, 0xDD, 0xF9, 0xF3, 0x00}, {0x00, 0x80, 0x80, 0x00, 0x00}}, // digit 2
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 3
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 4
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 5
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 6
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 7
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 8
-  {{0xFF, 0xFF, 0x06, 0x04, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00}}  // digit 9
+  {{0x7F, 0xC1, 0xC1, 0x7F, 0x00, 0x00}, {0x00, 0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 0
+  {{0xFF, 0xFF, 0x06, 0x04, 0x00, 0x00}, {0x80, 0x80, 0x00, 0x00, 0x00, 0x00}}, // digit 1
+  {{0xCF, 0xDD, 0xF9, 0xF3, 0x00, 0x00}, {0x00, 0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 2
+  {{0x77, 0xDD, 0xC9, 0x63, 0x00, 0x00}, {0x00, 0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 3
+  {{0xFF, 0xFF, 0x06, 0x04, 0x00, 0x00}, {0x80, 0x00, 0x00, 0x80, 0x00, 0x00}}, // digit 4
+  {{0xF9, 0xC9, 0xC9, 0xCF, 0x00, 0x00}, {0x80, 0x80, 0x80, 0x80, 0x00, 0x00}}, // digit 5
+  {{0x73, 0xC9, 0xC9, 0x7F, 0x00, 0x00}, {0x00, 0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 6
+  {{0x03, 0x0C, 0x30, 0xC0, 0x00, 0x00}, {0x80, 0x80, 0x80, 0x80, 0x00, 0x00}}, // digit 7
+  {{0x77, 0xC9, 0xC9, 0x77, 0x00, 0x00}, {0x00, 0x80, 0x80, 0x00, 0x00, 0x00}}, // digit 8
+  {{0x7F, 0xC9, 0xC9, 0x67, 0x00, 0x00}, {0x00, 0x80, 0x80, 0x00, 0x00, 0x00}}  // digit 9
 };
 
 // int number = 1542;
 int number = 1542;
 int subtrahend = 101;
 int mirror_mode = 0; // 0 - default, 1 - mirror horizontal
-int column_offset = 31; // 0 - default(31), 1 - mirror horizontal(0)
+int column_offset = COLUMN_OFFSET_BIG; // 0 - default is COLUMN_OFFSET_BIG, 1 - mirror horizonta is COLUMN_OFFSET_NONE
 
 uchar current_page = 0, current_column = 0;
 
@@ -74,6 +86,109 @@ uchar Dogs102x6_initMacro[] = {
   COLUMN_ADR_MSB,
   COLUMN_ADR_LSB
 };
+
+int main(void)
+{
+  WDTCTL = WDTPW | WDTHOLD;
+
+  SetupLCD();
+  SetupSPI();
+  SetupButtons();
+
+  Clear();
+  ShowNumber();
+
+  __bis_SR_register(GIE);
+  __no_operation();
+
+  return 0;
+}
+
+void SetupSPI()
+{
+  UCB1CTL1 |= UCSWRST;
+  UCB1CTL0 = (UCCKPH | UCMSB | UCMST | UCSYNC | UCMODE_0);
+  UCB1CTL1 = UCSSEL_2 | UCSWRST;
+  UCB1BR0 = 0x02;
+  UCB1BR1 = 0;
+
+  UCB1CTL1 &= ~UCSWRST;
+  UCB1IFG &= ~UCRXIFG;
+  Dogs102x6_writeCommand(Dogs102x6_initMacro, 13);
+  P7OUT |= BIT4;
+}
+
+void SetupLCD()
+{
+  P5DIR |= BIT7;
+  P5OUT &= BIT7;
+  P5OUT |= BIT7;
+  P7DIR |= BIT4;
+  P7OUT &= ~BIT4;
+  P5DIR |= BIT6;
+  P5OUT &= ~BIT6;
+
+  P4SEL |= BIT1 | BIT3;
+  P4DIR |= BIT1 | BIT3;
+
+  P7DIR |= BIT6;
+  P7OUT |= BIT6;
+  P7SEL &= ~BIT6;
+}
+
+void SetupButtons()
+{
+  P1DIR &= ~BIT7;
+  P2DIR &= ~BIT2;
+
+  P1REN |= BIT7;
+  P2REN |= BIT2;
+
+  P1OUT |= BIT7;
+  P2OUT |= BIT2;
+
+  P1IE |= BIT7;
+  P1IES |= BIT7;
+  P1IFG = 0;
+
+  P2IE |= BIT2;
+  P2IES |= BIT2;
+  P2IFG = 0;
+}
+
+void __SPI_SetAddress(uchar page, uchar column)
+{
+  uchar cmd[1];
+
+  if (page > 7)
+  {
+    page = 7;
+  }
+
+  if (column > 101)
+  {
+    column = 101;
+  }
+
+  cmd[0] = PAGE_ADR + (7 - page);
+  uchar H = 0x00;
+  uchar L = 0x00;
+  uchar column_address[] = { COLUMN_ADR_MSB, COLUMN_ADR_LSB };
+
+  current_page = page;
+  current_column = column;
+
+  L = (column & 0x0F);
+  H = (column & 0xF0);
+  H = (H >> 4);
+
+  column_address[0] = COLUMN_ADR_LSB + L;
+  column_address[1] = COLUMN_ADR_MSB + H;
+
+
+  Dogs102x6_writeCommand(cmd, 1);
+  Dogs102x6_writeCommand(column_address, 2);
+}
 
 void Dogs102x6_writeCommand(uchar *sCmd, uchar i)
 {
@@ -105,40 +220,6 @@ void Dogs102x6_writeCommand(uchar *sCmd, uchar i)
 
   // CS High
   P7OUT |= BIT4;
-}
-
-void __SPI_SetAddress(uchar page, uchar column)
-{
-  uchar cmd[1];
-
-  if (page > 7)
-  {
-    page = 7;
-  }
-
-  if (column > 101)
-  {
-    column = 101;
-  }
-
-  cmd[0] = PAGE_ADR + (7 - page);
-  uchar H = 0x00;
-  uchar L = 0x00;
-  uchar ColumnAddress[] = { COLUMN_ADR_MSB, COLUMN_ADR_LSB };
-
-  current_page = page;
-  current_column = column;
-
-  L = (column & 0x0F);
-  H = (column & 0xF0);
-  H = (H >> 4);
-
-  ColumnAddress[0] = COLUMN_ADR_LSB + L;
-  ColumnAddress[1] = COLUMN_ADR_MSB + H;
-
-
-  Dogs102x6_writeCommand(cmd, 1);
-  Dogs102x6_writeCommand(ColumnAddress, 2);
 }
 
 void Dogs102x6_writeData(uchar *sData, uchar i)
@@ -179,6 +260,23 @@ void Dogs102x6_writeData(uchar *sData, uchar i)
   // Restore original GIE state
 }
 
+int SendSymbol(uchar** symbol, int amount_of_pages, int amount_of_columns, int page, int column)
+{
+  if (page >= 8 || column >= 132)
+  {
+    return -1;
+  }
+
+  volatile int i = 0; 
+  for (; i < amount_of_pages; i++)
+  {
+    __SPI_SetAddress(i + page,  column);
+    Dogs102x6_writeData(minus[i], amount_of_columns);
+  }
+
+  return 0;
+}
+
 void ShowNumber(void)
 {
   volatile int lenght = 1;
@@ -206,29 +304,19 @@ void ShowNumber(void)
 
     if (digit < 10)
     {
-      __SPI_SetAddress(0, column_offset + j * COLUMNS);
-      Dogs102x6_writeData(digits[digit][0], COLUMNS);
-      __SPI_SetAddress(1, column_offset + j * COLUMNS);
-      Dogs102x6_writeData(digits[digit][1], COLUMNS);
+      SendSymbol(digits[j], PAGES, COLUMNS, 0, column_offset + j * COLUMNS)
     }
 
     temp /= 10;
-
   }
 
   if(number >= 0)
   {
-    __SPI_SetAddress(0, column_offset + lenght * COLUMNS);
-    Dogs102x6_writeData(plus[0], COLUMNS);
-    __SPI_SetAddress(1, column_offset + lenght * COLUMNS);
-    Dogs102x6_writeData(plus[1], COLUMNS);
+    SendSymbol(plus, PAGES, COLUMNS, 0, column_offset + lenght * COLUMNS)
   }
   else
   {
-    __SPI_SetAddress(0, column_offset + lenght * COLUMNS);
-    Dogs102x6_writeData(minus[0], COLUMNS);
-    __SPI_SetAddress(1, column_offset + lenght * COLUMNS);
-    Dogs102x6_writeData(minus[1], COLUMNS);
+    SendSymbol(minus, PAGES, COLUMNS, 0, column_offset + lenght * COLUMNS)
   }
 }
 
@@ -245,75 +333,6 @@ void Clear(void)
       Dogs102x6_writeData(lcd_data, 1);
     }
   }
-}
-
-void SetupButtons()
-{
-  P1DIR &= ~BIT7;
-  P2DIR &= ~BIT2;
-
-  P1REN |= BIT7;
-  P2REN |= BIT2;
-
-  P1OUT |= BIT7;
-  P2OUT |= BIT2;
-
-  P1IE |= BIT7;
-  P1IES |= BIT7;
-  P1IFG = 0;
-
-  P2IE |= BIT2;
-  P2IES |= BIT2;
-  P2IFG = 0;
-}
-
-void SetupLCD()
-{
-  P5DIR |= BIT7;
-  P5OUT &= BIT7;
-  P5OUT |= BIT7;
-  P7DIR |= BIT4;
-  P7OUT &= ~BIT4;
-  P5DIR |= BIT6;
-  P5OUT &= ~BIT6;
-
-  P4SEL |= BIT1 | BIT3;
-  P4DIR |= BIT1 | BIT3;
-
-  P7DIR |= BIT6;
-  P7OUT |= BIT6;
-  P7SEL &= ~BIT6;
-}
-
-void SetupSPI()
-{
-  UCB1CTL1 |= UCSWRST;
-  UCB1CTL0 = (UCCKPH | UCMSB | UCMST | UCSYNC | UCMODE_0);
-  UCB1CTL1 = UCSSEL_2 | UCSWRST;
-  UCB1BR0 = 0x02;
-  UCB1BR1 = 0;
-
-  UCB1CTL1 &= ~UCSWRST;
-  UCB1IFG &= ~UCRXIFG;
-  Dogs102x6_writeCommand(Dogs102x6_initMacro, 13);
-  P7OUT |= BIT4;
-}
-
-int main(void)
-{
-  WDTCTL = WDTPW | WDTHOLD;
-
-  SetupButtons();
-  SetupLCD();
-  SetupSPI();
-
-  Clear();
-  ShowNumber();
-
-  __bis_SR_register(GIE);
-  __no_operation();
-
-  return 0;
 }
 
 #pragma vector = PORT1_VECTOR
