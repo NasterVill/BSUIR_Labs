@@ -7,9 +7,9 @@ typedef unsigned char uchar;
 
 #define SCROL_CTL                   0x40  //Scroll image up by SL rows (SL = last 5 bits), range:0-63
 
-#define SET_MIRROR_SEG 				0xA0  //Normal mirror SEG (column) mapping (set bit0 to mirror display)
+#define SET_MIRROR_COL 				0xA0  //Normal mirror SEG (column) mapping (set bit0 to mirror columns)
 
-#define SET_MIRROR_COM 				0xC0  //Normal mirror COM (row) mapping (set bit3 to mirror display)
+#define SET_MIRROR_ROW 				0xC0  //Normal mirror COM (row) mapping (set bit3 to mirror rows)
 
 #define ALL_PIXEL_ON                0xA4  //Disable all pixel on (last bit 1 to turn on all pixels - does not affect memory)
 
@@ -20,8 +20,8 @@ typedef unsigned char uchar;
 #define POW_CTL                     0x2F  //Set Power control - booster, regulator, and follower on
 
 #define SET_CONTRAST_RESISTOR       0x27  //Set internal resistor ratio Rb/Ra to adjust contrast
-#define MSB_ELECT_VOLUME            0x81  //Set Electronic Volume "PM" to adjust contrast
-#define LSB_ELECT_VOLUME            0x10  //Set Electronic Volume "PM" to adjust contrast (PM = last 5 bits)
+#define MSB_SELECT_VOLUME            0x81  //Set Electronic Volume "PM" to adjust contrast
+#define LSB_SELECT_VOLUME            0x10  //Set Electronic Volume "PM" to adjust contrast (PM = last 5 bits)
 
 #define ADV_CTL_MSB                 0xFA  //Set temp. compensation curve to -0.11%/C
 #define ADV_CTL_LSB                 0x90
@@ -36,7 +36,7 @@ typedef unsigned char uchar;
 #define COLUMNS 6
 #define PAGES 2
 #define DELAY 500
-#define COLUMN_OFFSET_BIG 31
+#define COLUMN_OFFSET_BIG 30
 #define COLUMN_OFFSET_NONE 0
 
 
@@ -80,12 +80,10 @@ int subtrahend = 101;
 int mirror_mode = 0; // 0 - default, 1 - mirror horizontal
 int column_offset = COLUMN_OFFSET_BIG; // 0 - default is COLUMN_OFFSET_BIG, 1 - mirror horizonta is COLUMN_OFFSET_NONE
 
-uchar current_page = 0, current_column = 0;
-
 uchar LCD_INIT_COMMANDS_PART_1[7] = {
 	SCROL_CTL,
-	SET_MIRROR_SEG,
-	SET_MIRROR_COM,
+	SET_MIRROR_COL,
+	SET_MIRROR_ROW,
 	ALL_PIXEL_ON,
 	LCD_INVERSE,
 	BIAS_RATIO_VCC,
@@ -93,8 +91,8 @@ uchar LCD_INIT_COMMANDS_PART_1[7] = {
 };
 uchar LCD_INIT_COMMANDS_PART_2[6] = {
 	SET_CONTRAST_RESISTOR,
-	MSB_ELECT_VOLUME,
-	LSB_ELECT_VOLUME,
+	MSB_SELECT_VOLUME,
+	LSB_SELECT_VOLUME,
 	ADV_CTL_MSB,
 	ADV_CTL_LSB,
 	LCD_EN,
@@ -207,7 +205,7 @@ void __LCD_SetAddress(uchar page, uchar column)
 
 	if (page > 7)
 	{
-	page = 7;
+		page = 7;
 	}
 
 	if (column > 101)
@@ -219,9 +217,6 @@ void __LCD_SetAddress(uchar page, uchar column)
 	uchar command_high = 0x00;
 	uchar command_low = 0x00;
 	uchar column_address[] = { COLUMN_ADR_MSB, COLUMN_ADR_LSB };
-
-	current_page = page;
-	current_column = column;
 
 	command_low = (column & 0x0F);
 	command_high = (column & 0xF0);
@@ -275,13 +270,6 @@ void Dogs102x6_writeData(uchar *sData, uchar i)
 
 	while (i)
 	{
-		current_column++;
-
-		if (current_column > 101)
-		{
-			current_column = 101;
-		}
-
 		// USCI_B1 TX buffer ready?
 		while (!(UCB1IFG & UCTXIFG));
 
