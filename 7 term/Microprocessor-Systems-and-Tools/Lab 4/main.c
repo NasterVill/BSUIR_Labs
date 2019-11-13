@@ -40,7 +40,7 @@ typedef unsigned char uchar;
 #define COLUMN_OFFSET_NONE 0
 
 
-void Delay(int value);
+void Delay(long int value);
 int GetS1State();
 int GetS2State();
 
@@ -48,7 +48,7 @@ void SetupSPI();
 void SetupLCD();
 void SetupButtons();
 
-void __SPI_SetAddress(uchar page, uchar column);
+void __LCD_SetAddress(uchar page, uchar column);
 void Dogs102x6_writeData(uchar *sData, uchar i);
 void Dogs102x6_writeCommand(uchar *sCmd, uchar i);
 
@@ -107,7 +107,6 @@ int main(void)
   WDTCTL = WDTPW | WDTHOLD;
 
   SetupLCD();
-  SetupSPI();
   SetupButtons();
 
   Clear();
@@ -119,8 +118,36 @@ int main(void)
   return 0;
 }
 
-void SetupSPI()
+void SetupLCD()
 {
+	// Reset LCD
+	P5DIR |= BIT7;	// port init for LCD operations
+	P5OUT &= ~BIT7;	// set RST (active low)
+	P5OUT |= BIT7;	// reset RST (inactive is high)
+
+	// Delay for at least 5ms
+	Delay(550);
+
+	// Choosing slave
+	P7DIR |= BIT4;	// select LCD for chip
+	P7OUT &= ~BIT4;	// CS is active low
+
+	// Setting up LCD_D/C
+	P5DIR |= BIT6;	// Command/Data for LCD
+	P5OUT &= ~BIT6;	// CD low for command
+
+	// Set up P4.1 -- SIMO, P4.3 -- SCLK (select PM_UCB1CLK)
+	P4SEL |= BIT1 | BIT3;
+	P4DIR |= BIT1 | BIT3;
+
+	// Set up backlit
+	P7DIR |= BIT6;	// init
+	P7OUT |= BIT6;	// backlit
+	P7SEL &= ~BIT6; // USE PWM to controll brightness
+
+	// Deselect slave
+	P7OUT |= BIT4;	// CS = 1 (Deselect LCD) (stop setting it up)
+
 	UCB1CTL1 |= UCSWRST;	// set UCSWRST bit to disabel USCI and change its control registeres
 
 	UCB1CTL0 = (
@@ -143,55 +170,38 @@ void SetupSPI()
 	UCB1IFG &= ~UCRXIFG;	// reset int flag (which is set after input shift register gets data)
 	Dogs102x6_writeCommand(LCD_INIT_COMMANDS_PART_1, AMOUNT_OF_COMMANDS_1);
 
-	// about 120 ms with MCLK set to 1MHz
-	Delay(125000);
+	// delay to wait at least 120 ms
+	Delay(12500);
 
 	Dogs102x6_writeCommand(LCD_INIT_COMMANDS_PART_2, AMOUNT_OF_COMMANDS_2);
 }
 
-void SetupLCD()
-{
-	P5DIR |= BIT7;	// port init for LCD operations
-	P5OUT &= BIT7;	// set RST (active low)
-	P5OUT |= BIT7;	// reset RST (inactive is high)
-	P7DIR |= BIT4;	// select LCD for chip
-	P7OUT &= ~BIT4;	// CS is active low
-	P5DIR |= BIT6;	// Command/Data for LCD
-	P5OUT &= ~BIT6;	// CD low for command
-
-	// P4.1 -- SIMO, P4.3 -- select PM_UCB1CLK
-	P4SEL |= BIT1 | BIT3;
-	P4DIR |= BIT1 | BIT3;
-
-	P7DIR |= BIT6;	// init
-	P7OUT |= BIT6;	// backlit
-	P7SEL &= ~BIT6; // USE PWM to controll brightness
-
-
-	P7OUT |= BIT4;	// CS = 1 (Deselect LCD) (stop setting it up)
-}
-
 void SetupButtons()
 {
+	// set buttons for reading
 	P1DIR &= ~BIT7;
 	P2DIR &= ~BIT2;
 
+	// Set up pull up resistors
 	P1REN |= BIT7;
 	P2REN |= BIT2;
 
+	// initialize buttons with inactive level
 	P1OUT |= BIT7;
 	P2OUT |= BIT2;
 
+	// set up interrupts for S1
 	P1IE |= BIT7;
 	P1IES |= BIT7;
 	P1IFG = 0;
 
+	// set up interrupts for S2
 	P2IE |= BIT2;
 	P2IES |= BIT2;
 	P2IFG = 0;
 }
 
-void __SPI_SetAddress(uchar page, uchar column)
+void __LCD_SetAddress(uchar page, uchar column)
 {
 	uchar cmd[1];
 
@@ -202,23 +212,23 @@ void __SPI_SetAddress(uchar page, uchar column)
 
 	if (column > 101)
 	{
-	column = 101;
+		column = 101;
 	}
 
 	cmd[0] = PAGE_ADR + (7 - page);
-	uchar H = 0x00;
-	uchar L = 0x00;
+	uchar command_high = 0x00;
+	uchar command_low = 0x00;
 	uchar column_address[] = { COLUMN_ADR_MSB, COLUMN_ADR_LSB };
 
 	current_page = page;
 	current_column = column;
 
-	L = (column & 0x0F);
-	H = (column & 0xF0);
-	H = (H >> 4);
+	command_low = (column & 0x0F);
+	command_high = (column & 0xF0);
+	command_high = (command_high >> 4);
 
-	column_address[0] = COLUMN_ADR_LSB + L;
-	column_address[1] = COLUMN_ADR_MSB + H;
+	column_address[0] = COLUMN_ADR_LSB + command_low;
+	column_address[1] = COLUMN_ADR_MSB + command_high;
 
 	Dogs102x6_writeCommand(cmd, 1);
 	Dogs102x6_writeCommand(column_address, 2);
@@ -321,9 +331,9 @@ void ShowNumber(void)
 
 		if (digit < 10)
 			{
-			__SPI_SetAddress(0, column_offset + j * COLUMNS);
+			__LCD_SetAddress(0, column_offset + j * COLUMNS);
 			Dogs102x6_writeData(digits[digit][0], COLUMNS);
-			__SPI_SetAddress(1, column_offset + j * COLUMNS);
+			__LCD_SetAddress(1, column_offset + j * COLUMNS);
 			Dogs102x6_writeData(digits[digit][1], COLUMNS);
 		}
 
@@ -332,16 +342,16 @@ void ShowNumber(void)
 
 	if (number >= 0)
 	{
-		__SPI_SetAddress(0, column_offset + length * COLUMNS);
+		__LCD_SetAddress(0, column_offset + length * COLUMNS);
 		Dogs102x6_writeData(plus[0], COLUMNS);
-		__SPI_SetAddress(1, column_offset + length * COLUMNS);
+		__LCD_SetAddress(1, column_offset + length * COLUMNS);
 		Dogs102x6_writeData(plus[1], COLUMNS);
 	}
 	else
 	{
-		__SPI_SetAddress(0, column_offset + length * COLUMNS);
+		__LCD_SetAddress(0, column_offset + length * COLUMNS);
 		Dogs102x6_writeData(minus[0], COLUMNS);
-		__SPI_SetAddress(1, column_offset + length * COLUMNS);
+		__LCD_SetAddress(1, column_offset + length * COLUMNS);
 		Dogs102x6_writeData(minus[1], COLUMNS);
 	}
 }
@@ -353,7 +363,7 @@ void Clear(void)
 
 	for (page = 0; page < 8; page++)
 	{
-		__SPI_SetAddress(page, 0);
+		__LCD_SetAddress(page, 0);
 		for (column = 0; column < 132; column++)
 		{
 			Dogs102x6_writeData(lcd_data, 1);
@@ -404,7 +414,7 @@ __interrupt void __S2_ButtonHandler(void)
 	P2IFG &= ~BIT2;
 }
 
-void Delay(int value)
+void Delay(long int value)
 {
 	volatile long int i = 0;
 	volatile long int temp = 0;
