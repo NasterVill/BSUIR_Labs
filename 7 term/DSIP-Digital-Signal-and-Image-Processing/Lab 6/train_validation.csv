@@ -1,0 +1,417 @@
+image_name,labels
+im0001,7
+augmented_im0001,7
+im0002,13 9
+augmented_im0002,13 9
+im0004,3
+augmented_im0004,3
+im0005,3 5
+im0007,13 9 10
+im0008,13 9
+im0009,7
+im0011,13
+augmented_im0011,13
+im0013,7
+im0016,7
+augmented_im0016,7
+im0017,13
+augmented_im0017,13
+im0018,5
+augmented_im0018,5
+im0019,5
+im0020,3 5
+im0021,8
+im0022,9
+augmented_im0022,9
+im0025,5 9
+augmented_im0025,5 9
+im0026,5
+augmented_im0026,5
+im0027,5
+im0028,6 9
+augmented_im0028,6 9
+im0030,0
+im0031,7
+im0032,0
+im0036,13
+augmented_im0036,13
+im0037,13 10
+im0038,7 10
+augmented_im0038,7 10
+im0040,7
+augmented_im0040,7
+im0045,13 9
+augmented_im0045,13 9
+im0048,10
+augmented_im0048,10
+im0049,11
+augmented_im0049,11
+im0050,7
+augmented_im0050,7
+im0051,7
+augmented_im0051,7
+im0052,11
+augmented_im0052,11
+im0053,13
+augmented_im0053,13
+im0054,13
+im0057,10
+augmented_im0057,10
+im0058,7
+im0059,7
+im0060,7
+augmented_im0060,7
+im0061,13 10
+augmented_im0061,13 10
+im0062,13 9
+im0064,12 10 9
+im0065,10 7
+augmented_im0065,10 7
+im0069,7
+augmented_im0069,7
+im0070,7
+im0073,10 9
+augmented_im0073,10 9
+im0074,5
+augmented_im0074,5
+im0075,10
+im0076,0
+im0077,0 10
+augmented_im0077,0 10
+im0080,0
+augmented_im0080,0
+im0081,0
+im0082,0
+augmented_im0082,0
+im0083,13
+augmented_im0083,13
+im0084,13
+augmented_im0084,13
+im0085,8
+augmented_im0085,8
+im0087,8
+augmented_im0087,8
+im0089,7 10
+im0090,10
+augmented_im0090,10
+im0091,13 14
+augmented_im0091,13 14
+im0092,13
+im0093,11
+augmented_im0093,11
+im0094,7 10
+im0095,4
+im0096,7
+im0098,10
+im0100,13
+im0101,13
+augmented_im0101,13
+im0103,13
+im0104,13
+augmented_im0104,13
+im0105,13
+im0106,13
+augmented_im0106,13
+im0110,13
+augmented_im0110,13
+im0111,7
+im0113,7
+augmented_im0113,7
+im0114,7
+im0115,7
+im0116,7
+augmented_im0116,7
+im0117,7 9
+augmented_im0117,7 9
+im0118,7 9
+augmented_im0118,7 9
+im0119,0
+im0120,0
+im0121,7
+im0122,7
+im0123,7
+augmented_im0123,7
+im0124,7
+augmented_im0124,7
+im0125,7
+im0126,7
+augmented_im0126,7
+im0127,7
+augmented_im0127,7
+im0133,7
+im0134,7
+augmented_im0134,7
+im0135,7
+im0136,7
+im0137,7
+augmented_im0137,7
+im0138,7
+augmented_im0138,7
+im0139,7
+augmented_im0139,7
+im0140,7
+im0141,7
+augmented_im0141,7
+im0142,13
+augmented_im0142,13
+im0143,13
+augmented_im0143,13
+im0145,13
+augmented_im0145,13
+im0147,13
+im0148,13
+im0149,13
+augmented_im0149,13
+im0150,13
+im0151,13
+augmented_im0151,13
+im0154,13
+augmented_im0154,13
+im0155,7 9
+im0156,7 9
+augmented_im0156,7 9
+im0157,7
+augmented_im0157,7
+im0158,13 7
+im0160,5 9
+augmented_im0160,5 9
+im0161,5
+im0162,0
+augmented_im0162,0
+im0163,0
+augmented_im0163,0
+im0164,0
+augmented_im0164,0
+im0165,5
+im0169,5 3
+im0170,0
+augmented_im0170,0
+im0171,13
+im0172,13
+augmented_im0172,13
+im0177,11
+im0178,11
+augmented_im0178,11
+im0179,8
+augmented_im0179,8
+im0184,0
+augmented_im0184,0
+im0186,7
+im0187,7
+im0188,7
+im0189,7
+im0190,0
+im0191,7
+augmented_im0191,7
+im0192,8
+augmented_im0192,8
+im0193,7
+im0194,7
+augmented_im0194,7
+im0195,7
+im0196,7 9
+im0197,7
+augmented_im0197,7
+im0198,0
+augmented_im0198,0
+im0199,0
+augmented_im0199,0
+im0200,4
+augmented_im0200,4
+im0201,4
+im0202,4
+augmented_im0202,4
+im0203,8
+augmented_im0203,8
+im0204,8
+augmented_im0204,8
+im0205,7
+augmented_im0205,7
+im0206,5
+augmented_im0206,5
+im0207,5
+im0208,9
+augmented_im0208,9
+im0209,4 9
+im0210,5
+im0211,5
+im0212,10
+im0213,0
+augmented_im0213,0
+im0214,6
+im0215,6
+augmented_im0215,6
+im0216,0
+im0217,5
+augmented_im0217,5
+im0218,5
+im0219,0
+im0220,10
+im0222,7
+im0223,7
+im0224,7
+im0225,7
+augmented_im0225,7
+im0226,6
+im0227,7
+augmented_im0227,7
+im0228,7
+im0229,7
+im0230,7 9
+augmented_im0230,7 9
+im0231,0
+im0232,8
+augmented_im0232,8
+im0233,7
+augmented_im0233,7
+im0234,0
+im0235,0
+im0236,0
+augmented_im0236,0
+im0242,0
+augmented_im0242,0
+im0243,0
+augmented_im0243,0
+im0244,0
+im0245,0
+im0246,13
+im0247,7
+augmented_im0247,7
+im0248,13
+im0249,0
+augmented_im0249,0
+im0251,7
+augmented_im0251,7
+im0252,0
+im0253,0
+im0254,0
+augmented_im0254,0
+im0255,0
+augmented_im0255,0
+im0256,7
+augmented_im0256,7
+im0257,5
+im0258,5
+im0259,13
+im0260,13
+im0261,13
+im0262,9
+im0263,9
+augmented_im0263,9
+im0264,10
+im0265,10
+im0266,10
+im0267,13 10
+augmented_im0267,13 10
+im0268,13
+im0269,13
+augmented_im0269,13
+im0270,13
+im0271,10
+im0272,10
+augmented_im0272,10
+im0274,10
+augmented_im0274,10
+im0279,12
+augmented_im0279,12
+im0280,9
+im0281,10
+im0284,9
+augmented_im0284,9
+im0310,13
+augmented_im0310,13
+im0311,11
+im0312,11
+im0313,11
+augmented_im0313,11
+im0314,11
+im0315,11
+im0316,11
+augmented_im0316,11
+im0317,1
+im0322,3 1
+augmented_im0322,3 1
+im0323,1
+im0324,1
+augmented_im0324,1
+im0325,1
+im0326,2 1
+im0327,2 1
+im0328,2 1
+augmented_im0328,2 1
+im0329,6
+im0330,4
+augmented_im0330,4
+im0331,5
+im0332,6 10
+augmented_im0332,6 10
+im0333,6
+im0334,6 9
+im0335,6
+augmented_im0335,6
+im0336,6
+augmented_im0336,6
+im0337,5
+im0338,4
+im0339,10
+augmented_im0339,10
+im0340,8
+augmented_im0340,8
+im0341,8
+im0347,8
+augmented_im0347,8
+im0348,8
+augmented_im0348,8
+im0349,8
+im0350,8
+im0351,8
+augmented_im0351,8
+im0352,8
+augmented_im0352,8
+im0353,8
+augmented_im0353,8
+im0354,8
+im0355,10 9
+im0356,8
+im0357,12
+im0358,12
+augmented_im0358,12
+im0359,12
+augmented_im0359,12
+im0361,12 10
+augmented_im0361,12 10
+im0362,12
+augmented_im0362,12
+im0363,12
+im0364,4 9
+augmented_im0364,4 9
+im0365,4
+im0366,4 9
+augmented_im0366,4 9
+im0367,4
+im0368,6
+augmented_im0368,6
+im0370,13
+augmented_im0370,13
+im0371,13
+im0372,13
+im0373,13
+augmented_im0373,13
+im0375,13
+im0376,13
+augmented_im0376,13
+im0377,13
+im0378,13 10
+im0379,13
+im0380,13
+augmented_im0380,13
+im0381,13 9
+im0396,10 9
+augmented_im0396,10 9
+im0397,10
+augmented_im0397,10
+im0398,10 9
+augmented_im0398,10 9
+im0399,2 1 9
+augmented_im0399,2 1 9
+im0400,2 1 9
