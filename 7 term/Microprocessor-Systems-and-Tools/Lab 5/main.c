@@ -116,7 +116,7 @@ int main(void)
   SetupLCD();
   SetupAccelerometer();
 
-  __bis_SR_register(GIE);
+  __bis_SR_register(GIE + LPM0_bits);
   __no_operation();
 
   return 0;
@@ -130,7 +130,7 @@ void SetupLCD()
 	P5OUT |= BIT7;	// reset RST (inactive is high)
 
 	// Delay for at least 5ms
-	Delay(550);
+	__delay_cycles(550);
 
 	// Choosing slave
 	P7DIR |= BIT4;	// select LCD for chip
@@ -175,7 +175,7 @@ void SetupLCD()
 	Dogs102x6_writeCommand(LCD_INIT_COMMANDS_PART_1, AMOUNT_OF_COMMANDS_1);
 
 	// delay to wait at least 120 ms
-	Delay(12500);
+	__delay_cycles(12500);
 
 	Dogs102x6_writeCommand(LCD_INIT_COMMANDS_PART_2, AMOUNT_OF_COMMANDS_2);
 
@@ -227,7 +227,7 @@ void SetupAccelerometer()
 
 	// dummy read from REVID
 	cma3000_SPI(0x04, NONE);
-	__delay_cycles(1250);
+	__delay_cycles(550);
 
 	// write to CTRL register
 	cma3000_SPI(
@@ -236,7 +236,7 @@ void SetupAccelerometer()
 		BIT2 |	// detect motion
 		BIT1	// frequency of 40Hz
 	);
-	__delay_cycles(25000);
+	__delay_cycles(10500);
 }
 
 // byte_one - frame part 1 (8-2: address, 1: R/W, 0: always 0)
@@ -489,10 +489,12 @@ __interrupt void __Accelerometer_ISR(void)
 	Clear();
 
 	volatile uchar x_projection_byte = cma3000_SPI(READ_X_AXIS_DATA, NONE);
+  __delay_cycles(550);
 
 	volatile long int x_projection = get_mili_g_from_byte(x_projection_byte);
 
 	volatile uchar z_projection_byte = cma3000_SPI(READ_Z_AXIS_DATA, NONE);
+    __delay_cycles(550);
 
 	volatile long int z_projection = get_mili_g_from_byte(z_projection_byte);
 
