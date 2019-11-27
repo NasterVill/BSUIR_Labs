@@ -9,8 +9,7 @@ from shared.utils.message import get_message
 
 
 def listen(current_client: ClientDescriptor, dispose_of_connection: callable, mutex: threading.Lock):
-    executor = Executor()
-    executor.set_current_client(current_client)
+    executor = Executor(current_client, mutex)
 
     while True:
         try:

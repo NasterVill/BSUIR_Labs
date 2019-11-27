@@ -1,3 +1,4 @@
+import threading
 from server_package.client_descriptor import ClientDescriptor
 from server_package.commands.command import Command
 from server_package.commands.echo_command import EchoCommand
@@ -11,9 +12,11 @@ from shared.commands import Commands
 class Executor:
     _current_command: Command = Command()
     _current_client: ClientDescriptor
+    _mutex: threading.Lock
 
-    def set_current_client(self, current_client: ClientDescriptor):
+    def __init__(self, current_client: ClientDescriptor, mutex: threading.Lock):
         self._current_client = current_client
+        self._mutex = mutex
 
     def execute(self):
         try:
@@ -26,13 +29,13 @@ class Executor:
             command_type = message['type'].upper()
 
             if command_type == Commands.ECHO.value:
-                self._current_command = EchoCommand(message, self._current_client)
+                self._current_command = EchoCommand(message, self._current_client, self._mutex)
             elif command_type == Commands.TIME.value:
-                self._current_command = TimeCommand(self._current_client)
+                self._current_command = TimeCommand(self._current_client, self._mutex)
             elif command_type == Commands.UPLOAD.value:
-                self._current_command = UploadCommand(message, self._current_client)
+                self._current_command = UploadCommand(message, self._current_client, self._mutex)
             elif command_type == Commands.DOWNLOAD.value:
-                self._current_command = DownloadCommand(message, self._current_client)
+                self._current_command = DownloadCommand(message, self._current_client, self._mutex)
 
         else:
             raise InvalidMessageError
