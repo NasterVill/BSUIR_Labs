@@ -47,29 +47,25 @@ class UploadCommand(Command):
                     continue
 
     def execute(self):
-        try:
-            start_time = perf_counter()
+        start_time = perf_counter()
 
-            if os.path.exists(self._file_name):
-                os.remove(self._file_name)
+        if os.path.exists(self._file_name):
+            os.remove(self._file_name)
 
-            message = compose_message({'start': True})
+        message = compose_message({'start': True})
 
-            self._client.connection.send(message)
+        self._client.connection.send(message)
 
-            self._get_file()
+        self._get_file()
 
-            end_time = perf_counter()
+        end_time = perf_counter()
 
-            if (end_time - start_time) > 0:
-                bit_rate = self._file_size / float((end_time - start_time))
-            else:
-                bit_rate = -1
+        if (end_time - start_time) > 0:
+            bit_rate = self._file_size / float((end_time - start_time))
+        else:
+            bit_rate = -1
 
-            print(
-                f'\nFile {self._file_name} has been successfully uploaded by client,'
-                f' Bit rate: {bit_rate * BIT_RATE_KBPS} kBps'
-            )
-
-        except FileNotFoundError:
-            print('Such file doesn\'t exist. Try another one')
+        print(
+            f'\nFile {self._file_name} has been successfully uploaded by client,'
+            f' Bit rate: {bit_rate * BIT_RATE_KBPS} kBps'
+        )

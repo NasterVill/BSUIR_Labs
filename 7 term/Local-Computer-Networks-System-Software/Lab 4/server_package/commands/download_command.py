@@ -19,32 +19,28 @@ class DownloadCommand(Command):
         self._file_name = config_dict['file_name']
 
     def execute(self):
-        try:
-            start_time = perf_counter()
+        start_time = perf_counter()
 
-            file = open(self._file_name, 'rb')
-            file_size = os.path.getsize(self._file_name)
+        file = open(self._file_name, 'rb')
+        file_size = os.path.getsize(self._file_name)
 
-            self._send_request_message(self._file_name, file_size)
+        self._send_request_message(self._file_name, file_size)
 
-            self._send_file(file, file_size)
+        self._send_file(file, file_size)
 
-            file.close()
+        file.close()
 
-            end_time = perf_counter()
+        end_time = perf_counter()
 
-            if (end_time - start_time) > 0:
-                bit_rate = file_size / float((end_time - start_time))
-            else:
-                bit_rate = -1
+        if (end_time - start_time) > 0:
+            bit_rate = file_size / float((end_time - start_time))
+        else:
+            bit_rate = -1
 
-            print(
-                f'\nFile {self._file_name} has been successfully uploaded by client,'
-                f' Bit rate: {bit_rate * BIT_RATE_KBPS} kBps'
-            )
-
-        except FileNotFoundError:
-            print('Such file doesn\'t exist. Please try another one')
+        print(
+            f'\nFile {self._file_name} has been successfully uploaded by client,'
+            f' Bit rate: {bit_rate * BIT_RATE_KBPS} kBps'
+        )
 
     def _send_request_message(self, file_name: str, file_size: int):
         data = {'type': Commands.DOWNLOAD.value, 'file_name': file_name, 'file_size': file_size}
@@ -56,8 +52,6 @@ class DownloadCommand(Command):
         response = get_message(self._client.connection)
 
         if not response['start']:
-            print('Client denied download!')
-
             raise FileExchangeDenial
 
     def _send_file(self, file_handle, file_size):

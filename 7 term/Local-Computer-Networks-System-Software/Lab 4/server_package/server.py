@@ -1,11 +1,10 @@
 import socket
-from server_package.executor import Executor
+import threading
+from typing import List
 from server_package.client_descriptor import ClientDescriptor
-from shared.errors.invalid_message_error import InvalidMessageError
-from shared.errors.disconnected_exception import DisconnectedException
-from shared.consts import PACKET_SIZE, TIMEOUT
-from shared.utils.message import get_message
+from shared.consts import TIMEOUT
 from shared.utils import ip, socket as Socket
+from server_package.connection_handler import listen
 
 
 class Server:
@@ -15,63 +14,22 @@ class Server:
     # general socket used to listen for clients
     _main_sock: socket.socket
 
-    _executor: Executor
-    # socket for specific connection
-    _current_client: ClientDescriptor
+    _connections: List[socket.socket] = []
+
+    _mutex: threading.Lock
 
     def __init__(self):
-        self._executor = Executor()
-
+        self._mutex = threading.Lock()
         self._init_socket()
 
     def work(self):
         while True:
-            self._initialize_client()
+            client = self._initialize_client()
+            new_thread = threading.Thread(target=listen, args=(client, self._dispose_of_connection, self._mutex))
+            new_thread.start()
 
-            while True:
-                try:
-                    message = self._get_message()
-
-                    self._executor.build_command(message)
-
-                    self._executor.execute()
-
-                except InvalidMessageError:
-                    print('Invalid message received! Waiting for a new one')
-
-                    continue
-
-                # handle case with tcp keepalive timeout and
-                # if client_package has disconnected softly during command execution
-                except socket.timeout:
-                    self._current_client.connection.close()
-
-                    print(f'Connection has timed out! Client {self._current_client.ip_address} was disconnected')
-
-                    break
-
-                except DisconnectedException:
-                    self._current_client.connection.close()
-
-                    print(
-                        'Connection closed by client_package. ' +
-                        f'{self._current_client.ip_address} has disconnected from the server'
-                    )
-
-                    break
-
-                except ConnectionResetError as error:
-                    print(f'Unexpected connection reset error! {error}')
-
-                    break
-
-    def _get_message(self):
-        message = get_message(self._current_client.connection, PACKET_SIZE)
-
-        if not message:
-            raise DisconnectedException
-        else:
-            return message
+    def _dispose_of_connection(self, connection: socket.socket):
+        self._connections.remove(connection)
 
     def _init_socket(self):
         # creating socket that accepts IPv4 address and works with TCP protocol
@@ -80,24 +38,37 @@ class Server:
         self._main_sock.settimeout(1000)
         self._main_sock.bind((ip.get_local_ip_address(is_local_host=False), self.PORT))
 
+        self._mutex.acquire()
         print(f'Server created on address: {ip.get_local_ip_address(is_local_host=False)}:{self.PORT}')
+        self._mutex.release()
 
     def _listen_for_new_client(self):
-        print('Listening for clients')
         self._main_sock.listen(self.MAX_ACTIVE_CLIENTS)
         connection, address = self._main_sock.accept()
 
+        self._mutex.acquire()
         print(f'Client connected. Address {address}')
+        self._mutex.release()
 
         return connection, address
 
     def _initialize_client(self):
         connection, address = self._listen_for_new_client()
 
+        if len(self._connections) == self.MAX_ACTIVE_CLIENTS:
+            self._mutex.acquire()
+            print(f'Too many clients! Already hit {self.MAX_ACTIVE_CLIENTS} out of {self.MAX_ACTIVE_CLIENTS}')
+            self._mutex.release()
+            connection.close()
+
+            return
+
         connection.settimeout(TIMEOUT)
 
         Socket.set_socket_keep_alive(connection, keep_alive_time=5, keep_alive_interval=10, max_probes=10)
 
-        self._current_client = ClientDescriptor(connection, address)
+        self._mutex.acquire()
+        self._connections.append(connection)
+        self._mutex.release()
 
-        self._executor.set_current_client(self._current_client)
+        return ClientDescriptor(connection, address)
