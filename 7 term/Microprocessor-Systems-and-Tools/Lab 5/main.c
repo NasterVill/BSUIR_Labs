@@ -220,7 +220,7 @@ void SetupAccelerometer()
 	UCA0CTL1 = UCSSEL_2 | UCSWRST;
 
 	// set frequency divider
-	UCA0BR0 = 0x01;	// LSB to 1
+	UCA0BR0 = 0x30;	// LSB to 48
 	UCA0BR1 = 0x0;	// MSB to 0
 
 	UCA0CTL1 &= ~UCSWRST;	// enable USCI
@@ -463,7 +463,6 @@ long int get_mili_g_from_byte(uchar projection_byte)
 	return projection;
 }
 
-// TODO: DOESN'T WORK YET
 long int get_angle(long int projection)
 {
 	double precised_projection = projection;

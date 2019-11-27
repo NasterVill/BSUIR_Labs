@@ -1,0 +1,2 @@
+class FileExchangeDenial(Exception):
+    pass
