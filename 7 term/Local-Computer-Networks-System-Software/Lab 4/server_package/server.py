@@ -8,7 +8,7 @@ from server_package.connection_handler import listen
 
 
 class Server:
-    MAX_ACTIVE_CLIENTS = 1
+    MAX_ACTIVE_CLIENTS = 10
     PORT: int = 9090
 
     # general socket used to listen for clients
@@ -25,6 +25,8 @@ class Server:
     def work(self):
         while True:
             client = self._initialize_client()
+            if not client:
+                continue
             new_thread = threading.Thread(target=listen, args=(client, self._dispose_of_connection, self._mutex))
             new_thread.start()
 

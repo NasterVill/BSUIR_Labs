@@ -35,8 +35,6 @@ class UploadCommand(Command):
 
                     read_bytes += len(data)
 
-                    progress(read_bytes, self._file_size)
-
                     if not data:
                         raise DisconnectedException
 

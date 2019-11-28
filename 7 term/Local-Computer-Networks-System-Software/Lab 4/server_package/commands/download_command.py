@@ -77,7 +77,6 @@ class DownloadCommand(Command):
 
                 file_portion = file_handle.read(PACKET_SIZE)
 
-                progress(sent_bytes, file_size)
             except socket.timeout:
                 probes += 1
 
